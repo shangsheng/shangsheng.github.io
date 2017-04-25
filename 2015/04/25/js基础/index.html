@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/04/25/js基础/index.html">
 <meta property="og:site_name" content="web前端博客">
 <meta property="og:description" content="###数组   1.数组的作用，用于保存多个数据   2.数组中的数组我们成为数组的元素   3.数组中可以同时保存多个类型的元素，但是不推荐 ###数组的声明方式    1.方法一       var arr=new Array(1,2,3,4,5) 直接添加元素        var arr=new Array(6) 创建一个具有默认长度的数组，几乎没有用    2.方法二:常用">
-<meta property="og:updated_time" content="2017-04-25T12:00:45.539Z">
+<meta property="og:updated_time" content="2017-04-25T12:06:00.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js基础">
 <meta name="twitter:description" content="###数组   1.数组的作用，用于保存多个数据   2.数组中的数组我们成为数组的元素   3.数组中可以同时保存多个类型的元素，但是不推荐 ###数组的声明方式    1.方法一       var arr=new Array(1,2,3,4,5) 直接添加元素        var arr=new Array(6) 创建一个具有默认长度的数组，几乎没有用    2.方法二:常用">
@@ -96,9 +96,17 @@
 <p>###数组的长度<br>    数组的length属性表示数组中元素的个数</p>
 <p>###数组的索引<br>    数组中的元素是按照索引排列，索引从0开始<br>    我们可以根据索引获取和修改数组中的某个元素</p>
 <p>###数组的长度和索引的关系<br>    数组中最后一项的索引为arr.length-1<br>    数组中新项的索引，为arr.length</p>
-<p>###数组的基本操作方式<br>    1.正向遍历<br>、、、、JavaScript<br>var arr=[1,2,3,4,5];<br>for(var i=0;i&lt;arr.length;i++){<br>    console.log(arr[i]);<br>}<br>、、、</p>
-<pre><code>2.反向遍历
-</code></pre><p>、、、JavaScript<br>var arr=[1,2,3,4,5];<br>for(var i=arr.length-1;i&gt;0;i–){<br>    console.log(arr[i]);<br>}<br>、、、、、<br>    3.将0-99的所有数放到数组中<br>、、、JavaScript<br>var arr=[];<br>for(var i=0;i<100;i++){ 3="=0){" arr[i]="i;" }="" 、、、="" 4.将1-100中所有奇数放到数组中="" 、、、javascript="" var="" arr="[];" for(var="" i="1;i<=100;i++){" if(i%2!="0){" arr[arr.length]="i;" 5.将1-100之间能被3整除的数字，存到数组中="" if(i="" 6.求一组数中的所有的数的和="" 和平均值="" sum="0,v;" sum+="arr[i];" v="sum/arr.length;" 7.求一组数中的最大值="" max="0;" if(arr[i]="">max){<br>        max=arr[i];<br>  }<br>}<br>、、、<br>    8.求一组数中的最小值及其索引值<br>、、、JavaScript<br>var arr=[12,34,56,67,78,90];<br>var min=0,v;<br>for(var i=0;i<arr.length;i++){ if(arr[i]<min){="" min="arr[i];" v="i;" }="" 、、、="" 9.将字符串数组用|或其他符号分割="" 、、、javascript="" var="" arr="["a","b","c"];" str="arr[0];" fengefu="-" ;="" for(var="" i="1;i<arr.length;i++){" str+="fenGefu+arr[i];" 10.翻转数组="" resultarr="[];">0;i–){<br>    resultArr[resultArr.length]=arr[i];<br>}<br>、、、<br>    11.要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组<br>、、、JavaScript<br>var arrNew=[];<br>var arr=[1,0,3,4,50,5,0,9,0,0];<br>for(var i in arr){<br>    if(arr[i]!==0){<br>      arrNew.push(arr[i]);<br>  }<br>}<br>、、、<br>    12.冒泡排序，从小到大<br>、、、JavaScript<br>var count=0;//设置一个变量去记录当前比较过得轮数<br>//1.外层循环控制比较的轮数<br>for(var i=0;i<arr.length-1;i++){ count++;="" 在每一轮开始的时候，假设当前这一轮已经比较完毕了="" var="" flag="true;" 2.内层循环="" 控制每一轮比较的次数="" for(var="" j="0;j<arr.length-1-i;j++){" 3.如果当前项大于了后一个项="" if(arr[j]="">arr[j+1]){<br>        //4.交换两个位置的值<br>        var temp=arr[j];<br>        arr[j]=arr[j+1];<br>        arr[j+1]=temp;<br>        //如果发生了任意一次交换。说明比较没有完毕，我们阻止跳出<br>        flag=false；<br>       }<br>    }<br>    //验证假设条件是否成立<br>    if(flag){<br>       break;<br>     }</arr.length-1;i++){></arr.length;i++){></100;i++){></p>
+<p>###数组的基本操作方式<br>    1.正向遍历<br>、、、、JavaScript<br>var arr=[1,2,3,4,5];<br>for(var i=0;i<arr.length;i++){ console.log(arr[i]);="" }="" 、、、="" 2.反向遍历="" 、、、javascript="" var="" arr="[1,2,3,4,5];" for(var="" i="arr.length-1;i">0;i–){<br>    console.log(arr[i]);<br>}<br>、、、、、<br>    3.将0-99的所有数放到数组中<br>、、、JavaScript<br>var arr=[];<br>for(var i=0;i&lt;100;i++){<br>    arr[i]=i;<br>}<br>、、、</arr.length;i++){></p>
+<pre><code>4.将1-100中所有奇数放到数组中
+</code></pre><p>、、、JavaScript<br>var arr=[];<br>for(var i=1;i&lt;=100;i++){<br>    if(i%2!=0){<br>    arr[arr.length]=i;<br>  }<br>}<br>、、、</p>
+<pre><code>5.将1-100之间能被3整除的数字，存到数组中
+</code></pre><p>、、、JavaScript<br>var arr=[];<br>for(var i=1;i&lt;=100;i++){<br>    if(i/3==0){<br>    arr[arr.length]=i;<br> }<br>}<br>、、、</p>
+<pre><code>6.求一组数中的所有的数的和 和平均值
+</code></pre><p>、、、JavaScript<br>var arr=[12,34,56,67,78,90];<br>var sum=0,v;<br>for(var i=0;i&lt;arr.length;i++){<br>    sum+=arr[i];<br>}<br>v=sum/arr.length;<br>、、、</p>
+<pre><code>7.求一组数中的最大值
+</code></pre><p>、、、JavaScript<br>var arr=[12,34,56,67,78,90];<br>var max=0;<br>for(var i=0;i<arr.length;i++){ if(arr[i]="">max){<br>        max=arr[i];<br>  }<br>}<br>、、、</arr.length;i++){></p>
+<pre><code>8.求一组数中的最小值及其索引值
+</code></pre><p>、、、JavaScript<br>var arr=[12,34,56,67,78,90];<br>var min=0,v;<br>for(var i=0;i<arr.length;i++){ if(arr[i]<min){="" min="arr[i];" v="i;" }="" 、、、="" 9.将字符串数组用|或其他符号分割="" 、、、javascript="" var="" arr="["a","b","c"];" str="arr[0];" fengefu="-" ;="" for(var="" i="1;i<arr.length;i++){" str+="fenGefu+arr[i];" 10.翻转数组="" resultarr="[];">0;i–){<br>    resultArr[resultArr.length]=arr[i];<br>}<br>、、、<br>    11.要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组<br>、、、JavaScript<br>var arrNew=[];<br>var arr=[1,0,3,4,50,5,0,9,0,0];<br>for(var i in arr){<br>    if(arr[i]!==0){<br>      arrNew.push(arr[i]);<br>  }<br>}<br>、、、<br>    12.冒泡排序，从小到大<br>、、、JavaScript<br>var count=0;//设置一个变量去记录当前比较过得轮数<br>//1.外层循环控制比较的轮数<br>for(var i=0;i<arr.length-1;i++){ count++;="" 在每一轮开始的时候，假设当前这一轮已经比较完毕了="" var="" flag="true;" 2.内层循环="" 控制每一轮比较的次数="" for(var="" j="0;j<arr.length-1-i;j++){" 3.如果当前项大于了后一个项="" if(arr[j]="">arr[j+1]){<br>        //4.交换两个位置的值<br>        var temp=arr[j];<br>        arr[j]=arr[j+1];<br>        arr[j+1]=temp;<br>        //如果发生了任意一次交换。说明比较没有完毕，我们阻止跳出<br>        flag=false；<br>       }<br>    }<br>    //验证假设条件是否成立<br>    if(flag){<br>       break;<br>     }</arr.length-1;i++){></arr.length;i++){></p>
 <p>}<br>、、、</p>
 
       
