@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ajax | web前端博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.如何把数据传到服务器* 前端：         构建表单         在form标签中声明处理用户数据的程序（action属性）提交用户数据的方式（method get post）         在输入框中一定要声明name属性 * 后端：         前端用get方式提交 后台用$_get数组接收         前端用post方式提交 后台用$_post数组接收 2.get方式和">
+<meta name="keywords" content="get和post">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax">
+<meta property="og:url" content="http://yoursite.com/2015/04/26/ajax/index.html">
+<meta property="og:site_name" content="web前端博客">
+<meta property="og:description" content="1.如何把数据传到服务器* 前端：         构建表单         在form标签中声明处理用户数据的程序（action属性）提交用户数据的方式（method get post）         在输入框中一定要声明name属性 * 后端：         前端用get方式提交 后台用$_get数组接收         前端用post方式提交 后台用$_post数组接收 2.get方式和">
+<meta property="og:updated_time" content="2017-04-26T13:39:42.840Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ajax">
+<meta name="twitter:description" content="1.如何把数据传到服务器* 前端：         构建表单         在form标签中声明处理用户数据的程序（action属性）提交用户数据的方式（method get post）         在输入框中一定要声明name属性 * 后端：         前端用get方式提交 后台用$_get数组接收         前端用post方式提交 后台用$_post数组接收 2.get方式和">
+  
+    <link rel="alternate" href="/atom.xml" title="web前端博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">web前端博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">没有激流就称不上勇进，没有山峰则谈不上攀登</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/26/ajax/" class="article-date">
+  <time datetime="2015-04-26T01:10:11.000Z" itemprop="datePublished">2015-04-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ajax
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-如何把数据传到服务器"><a href="#1-如何把数据传到服务器" class="headerlink" title="1.如何把数据传到服务器"></a>1.如何把数据传到服务器</h4><pre><code>* 前端：
+        构建表单
+        在form标签中声明处理用户数据的程序（action属性）提交用户数据的方式（method get post）
+        在输入框中一定要声明name属性
+* 后端：
+        前端用get方式提交 后台用$_get数组接收
+        前端用post方式提交 后台用$_post数组接收
+</code></pre><h4 id="2-get方式和post方式的区别"><a href="#2-get方式和post方式的区别" class="headerlink" title="2.get方式和post方式的区别"></a>2.get方式和post方式的区别</h4><pre><code>1.get方式提交的会把表单信息显示到地址栏没有请求正文post方式有请求正文
+2.get方式相对于post方式来说不太安全  post方式相对来说比较安全
+3.get方式传输的信息量比较小 post方式 信息传输量是无限大
+4.get方式Ajax提交必须把请求正文写在url后面 格式 key=value&amp;key=vale  post方式需要写在xhr.send()方法里
+5.get方式可以不写请求头xhr.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;);而post必须写
+</code></pre><h4 id="3-如何上传文件到服务器"><a href="#3-如何上传文件到服务器" class="headerlink" title="3.如何上传文件到服务器"></a>3.如何上传文件到服务器</h4><pre><code>* 前端 
+        构建表单
+        在from标签中声明处理用户数据的程序（action属性）必须使用post方式提交 enctype=&quot;multioart/form-data&quot;
+        用input：file来上传
+* 后端
+        用$_FILES来接受文件
+        用move_uploaded_file(临时文件的路径，目标文件的路径)
+</code></pre><h3 id="get与post的区别"><a href="#get与post的区别" class="headerlink" title="get与post的区别"></a>get与post的区别</h3><pre><code>__Get和Post都是向服务器发送的一种请求，只是发送机制不同。__
+1.get请求会将参数跟在URL后进行传递，而post请求则是作为http消息的实体内容发送给web服务器。当然在Ajax请求中，这种区别对用户是不可见的。
+2.首先是“Get方式提交的数据最多只能是1024字节”，因为Get是通过URL提交数据，那么get可提交的数据就跟URL的长度有直接关系了。而实际上，URL不存在参数上限的问题。
+http协议规范没有对URL长度进行限制。这个限制是特定的浏览器以及服务器对他的限制。
+IE对URL长度的限制是2083字节。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。注意这是限制是整个URL长度，而不仅仅是你的参数值数据长度。
+3.GET方式请求的数据会被浏览器缓存起来，因此其他人就可以从浏览器的历史记录中读取到这些数据，例如账号和密码等。在某种情况下，get方式会带来严重的问题。而post方式相对来说就可以避免这些问题。
+</code></pre><h4 id="get请求和post请求在服务器的区别："><a href="#get请求和post请求在服务器的区别：" class="headerlink" title="get请求和post请求在服务器的区别："></a>get请求和post请求在服务器的区别：</h4><pre><code>1.在客户端使用get请求时，服务器端使用Request.QueryString来获取参数，而客户端使用post请求时，服务器使用Request.Form来获取参数。
+2.http标准包含这两种方法是为了达到不同的目的。postPOST用于创建资源，
+资源的内容会被编入HTTP请示的内容中。例如，处理订货表单、在数据库中加入新数据行等。
+当请求无副作用时（如进行搜索），便可使用GET方法；当请求有副作用时（如添加数据行），
+则用POST方法。一个比较实际的问题是：GET方法可能会产生很长的URL，或许会超过某些浏览器与服务器对URL长度的限制。
+</code></pre><h4 id="若符合下列任一情况，则用POST方法："><a href="#若符合下列任一情况，则用POST方法：" class="headerlink" title="若符合下列任一情况，则用POST方法："></a>若符合下列任一情况，则用POST方法：</h4><pre><code>* 请求的结果有持续性的副作用，例如，数据库内添加新的数据行。
+* 若使用GET方法，则表单上收集的数据可能让URL过长。
+* 要传送的数据不是采用7位的ASCII编码。
+
+若符合下列任一情况，则用GET方法：
+
+* 请求是为了查找资源，HTML表单数据仅用来帮助搜索。
+* 请求结果无持续性的副作用。
+* 收集的数据及HTML表单内的输入字段名称的总长不超过1024个字符。
+</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><pre><code>1.请求方式不同
+2.在请求正文上 
+     post请求 输入的信息在请求信息的请求正文中
+     get请求   请求正文在请求地址后面 url？+key=value&amp;key1=value1
+3.在请求头中
+    post需要写Content-Type:application/x-www-form-urlencoded
+4.在请求内容的长度上
+    get请求的内容的长度是有限的 
+    post请求的的内容的长度是无限的
+5.在安全问题上
+    get请求相对来说不安全
+    post请求是相对安全的
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/04/26/ajax/" data-id="cj1yf8q9e0000n4quyhhuaet3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/get和post/">get和post</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/04/25/js基础/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js基础
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/get和post/">get和post</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/get和post/" style="font-size: 10px;">get和post</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/26/ajax/">ajax</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/25/js基础/">js基础</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 yuweiya<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
