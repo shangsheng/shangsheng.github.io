@@ -142,6 +142,279 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-模仿cNode社区的小程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/模仿cNode社区的小程序/">模仿CNode社区的小程序步骤</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/模仿cNode社区的小程序/" class="archive-article-date">
+  	<time datetime="2018-07-10T02:09:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一步-搭建项目"><a href="#第一步-搭建项目" class="headerlink" title="第一步:搭建项目"></a>第一步:搭建项目</h2><h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><pre><code>&lt;pre&gt;
+    │  .gitattributes
+    │  .gitignore
+    │  app.js                # 小程序逻辑
+    │  app.json              # 小程序公共设置（页面路径、窗口表现、设置网络超时时间、设置多tab）
+    │  app.wxss              # 小程序公共样式表
+    │  README.md             # 小程序项目说明
+    │  
+    ├─image                  # 小程序图片资源
+    |
+    ├─pages                  # 小程序文件
+    │  ├─common     
+    │  ├─detail
+    │  ├─index        
+    │  │    index.js      # 页面逻辑
+    │  │    index.wxml    # 页面渲染层
+    │  │    index.wxss    # 页面样式
+    │  ├─login
+    |  ├─logs
+    │  └─topics
+    │          
+    └─utils                  # 小程序公用方法模块
+        api.js       
+    util.js    
+&lt;/pre&gt;
+</code></pre><h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><pre><code>下载地址：[开发环境](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+</code></pre><h3 id="开发过程"><a href="#开发过程" class="headerlink" title="开发过程"></a>开发过程</h3><h5 id="1-配置默认启动页面"><a href="#1-配置默认启动页面" class="headerlink" title="1.配置默认启动页面"></a>1.配置默认启动页面</h5><pre><code>在app.json文件修改注册页面的顺序，把&quot;pages/topics/topics&quot;放在第一位，就会自动把topics.wxml显示默认启动页面
+&lt;pre&gt;
+    {
+        &quot;pages&quot;:[
+            &quot;pages/topics/topics&quot;,
+            &quot;pages/detail/detail&quot;,
+            &quot;pages/login/login&quot;,
+            &quot;pages/index/index&quot;,
+            &quot;pages/logs/logs&quot;
+        ]
+    }
+&lt;/pre&gt;
+</code></pre><h5 id="2-配置tabBar"><a href="#2-配置tabBar" class="headerlink" title="2.配置tabBar"></a>2.配置tabBar</h5><pre><code>tabBar 是一个数组，只能配置最少2个、最多5个 tab,tab按数组的顺序排序。
+&lt;pre&gt;
+    &quot;tabBar&quot;:{
+        &quot;color&quot;:&quot;#444&quot;,
+        &quot;selectedColor&quot;:&quot;#80bd01&quot;,
+        &quot;backgroundColor&quot;:&quot;#fff&quot;,
+        &quot;borderStyle&quot;:&quot;white&quot;,
+        &quot;list&quot;:[{
+            &quot;pagePath&quot;:&quot;pages/topics/topics&quot;,
+            &quot;text&quot;:&quot;首页&quot;,
+            &quot;iconPath&quot;:&quot;images/bar/CNode.png&quot;,
+            &quot;selectedIconPath&quot;:&quot;images/bar/CNodeHL.png&quot;
+        },{
+            &quot;pagePath&quot;:    &quot;pages/index/index&quot;,
+            &quot;text&quot;:&quot;我的&quot;,
+            &quot;iconPath&quot;:&quot;images/bar/ME.png&quot;,
+            &quot;selectedIconPath&quot;:&quot;images/barMEHL.png&quot;
+        }]
+    }
+&lt;/pre&gt;
+</code></pre><h5 id="3-window-设置"><a href="#3-window-设置" class="headerlink" title="3.window 设置"></a>3.window 设置</h5><pre><code>具体看文档: [windwo设置](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html?t=1475052056717)
+</code></pre><h5 id="4-简单封装wx-request-OBJECT"><a href="#4-简单封装wx-request-OBJECT" class="headerlink" title="4.简单封装wx.request(OBJECT)"></a>4.简单封装wx.request(OBJECT)</h5><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;pre&gt;</div><div class="line">	//get请求方法</div><div class="line">	<span class="keyword">function</span> fetchGet(url,callback)&#123;</div><div class="line">		wx.request(&#123;</div><div class="line">			url:url,</div><div class="line">			header:&#123;<span class="string">'Content-Type'</span>:<span class="string">'application/json'</span>&#125;,</div><div class="line">			success(res)&#123;</div><div class="line">				callback(null,res.data)</div><div class="line">			&#125;,</div><div class="line">			fail(e)&#123;</div><div class="line">				console.error(e);</div><div class="line">				callback(e)</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">	//post请求方式</div><div class="line">	<span class="keyword">function</span> fetchPost(url,data,callback)&#123;</div><div class="line">		wx.request(&#123;</div><div class="line">			method:<span class="string">'POST'</span>,</div><div class="line">			url:url,</div><div class="line">			data:data,</div><div class="line">			success(res)&#123;</div><div class="line">				callback(null,res.data)</div><div class="line">			&#125;,</div><div class="line">			fail(e)&#123;</div><div class="line">				console.error(e)</div><div class="line">				callback(e)</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">&lt;/pre&gt;</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">	//method</div><div class="line">	fetchGet:fetchGet,</div><div class="line">	fetchPost:fetchPost</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h5 id="5-滚动底部加载下一页"><a href="#5-滚动底部加载下一页" class="headerlink" title="5.滚动底部加载下一页"></a>5.滚动底部加载下一页</h5><pre><code>使用了小程序自带的scroll-view组件
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 列表list组件 --&gt;</div><div class="line"> &lt;template name=<span class="string">"list"</span>&gt;</div><div class="line">     &lt;scroll-view class=<span class="string">"scroll-posts-list"</span> style=<span class="string">"height:100%"</span> scroll-y=<span class="string">"true"</span> bindscrolltolower=<span class="string">"lower"</span>&gt;</div><div class="line">       &lt;view class=<span class="string">"postslist"</span>&gt;</div><div class="line">         &lt;block wx:<span class="keyword">for</span>=<span class="string">"&#123;&#123;postsList&#125;&#125;"</span>&gt;</div><div class="line">           &lt;view class=<span class="string">"posts-list"</span>&gt;</div><div class="line">             &lt;navigator url=<span class="string">"/pages/detail/detail?id=&#123;&#123;item.id&#125;&#125;"</span>&gt;</div><div class="line">               &lt;view class=<span class="string">"posts-list-info"</span> index=<span class="string">"&#123;&#123;index&#125;&#125;"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"userimg"</span> src=<span class="string">"&#123;&#123;item.author.avatar_url&#125;&#125;"</span> /&gt;</div><div class="line">                   &lt;view class=<span class="string">"item-box"</span>&gt;</div><div class="line">                     &lt;view class=<span class="string">"userinfo"</span>&gt;</div><div class="line">                       &lt;text class=<span class="string">"username"</span>&gt;&#123;&#123;item.author.loginname&#125;&#125;&lt;/text&gt;</div><div class="line">                       &lt;text class=<span class="string">"time"</span>&gt;&#123;&#123;item.last_reply_at&#125;&#125;&lt;/text&gt;</div><div class="line">                     &lt;/view&gt;</div><div class="line">                     &lt;view class=<span class="string">"posts-title"</span>&gt;</div><div class="line">                       &lt;view class=<span class="string">"posts-tag hot"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.top === true&#125;&#125;"</span>&gt;置顶&lt;/view&gt;</div><div class="line">                       &lt;view class=<span class="string">"posts-tag"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.good === true&#125;&#125;"</span>&gt;精华&lt;/view&gt;</div><div class="line">                       &lt;text&gt;&#123;&#123;item.title&#125;&#125;&lt;/text&gt;</div><div class="line">                     &lt;/view&gt;</div><div class="line">                   &lt;/view&gt;</div><div class="line">               &lt;/view&gt;</div><div class="line">               &lt;view class=<span class="string">"bar-info"</span>&gt;</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/reply.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;&#123;&#123;item.reply_count&#125;&#125;&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/visit.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;&#123;&#123;item.visit_count&#125;&#125;&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">	</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item2"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.tab === 'good'&#125;&#125;"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/type.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;精华&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item2"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.tab === 'share'&#125;&#125;"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/type.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;分享&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item2"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.tab === 'ask'&#125;&#125;"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/type.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;问答&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item2"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.tab === 'job'&#125;&#125;"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/type.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;招聘&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">               &lt;/view&gt;</div><div class="line">           &lt;/navigator&gt;</div><div class="line">           &lt;/view&gt;</div><div class="line">         &lt;/block&gt;</div><div class="line">       &lt;/view&gt;</div><div class="line">     &lt;/scroll-view&gt;</div><div class="line">    &lt;loading class=<span class="string">"loading"</span> hidden=<span class="string">"&#123;&#123;hidden&#125;&#125;"</span>&gt;</div><div class="line">      &lt;text class=<span class="string">"loading-font"</span>&gt;加载中...&lt;/text&gt;</div><div class="line">    &lt;/loading&gt;</div><div class="line">  &lt;/template&gt;</div></pre></td></tr></table></figure>
+</code></pre><p> 公共部分头部和底部<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> 	&lt;!-- topics.wxml --&gt;</div><div class="line"> 	&lt;import src=<span class="string">"../common/header.wxml"</span>/&gt;</div><div class="line">&lt;import src=<span class="string">"../common/list.wxml"</span>/&gt;</div><div class="line">&lt;view class=<span class="string">"page topics"</span>&gt;</div><div class="line">  &lt;template is=<span class="string">"header"</span> data=<span class="string">"&#123;&#123; navList, activeIndex &#125;&#125;"</span>/&gt;</div><div class="line">  &lt;template is=<span class="string">"list"</span> data=<span class="string">"&#123;&#123; postsList, hidden &#125;&#125;"</span>/&gt;</div><div class="line">&lt;/view&gt;</div></pre></td></tr></table></figure></p>
+<p>  滚动区的最大的父级层要设置height: 100%; 不然无法检测滚动事件<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//滑动底部加载</div><div class="line">lower:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	var that = this;</div><div class="line">	that.setData(&#123;</div><div class="line">		page:that.data.page+1</div><div class="line">	&#125;);</div><div class="line">	<span class="keyword">if</span>(that.data.tab !==<span class="string">'all'</span>)&#123;</div><div class="line">		this.getData(&#123;tab:that.data.tab,page:that.data.page&#125;);</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		this.getData(&#123;page:that.data.page&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>  用法<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;scroll-view class=<span class="string">"scroll-posts-list"</span> style=<span class="string">"height:100%"</span> scroll-y=<span class="string">"true"</span> bindscrolltolower=<span class="string">"lower"</span>&gt;&lt;/scroll-view&gt;</div></pre></td></tr></table></figure></p>
+<h5 id="文本解析模板"><a href="#文本解析模板" class="headerlink" title="文本解析模板"></a>文本解析模板</h5><pre><code>在detail.wxml中返回的是htmln内容，所以需要使用文本解析模板
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div></pre></td><td class="code"><pre><div class="line"> 	&lt;!--pages/detail/detail.wxml--&gt;</div><div class="line">&lt;!-- 富文本解析模板 --&gt;</div><div class="line">&lt;import src=<span class="string">"../../wxParse/wxParse.wxml"</span>/&gt;</div><div class="line">&lt;!-- 评论模板 --&gt;</div><div class="line">&lt;import src=<span class="string">"../../wxParseCriticism/wxParse.wxml"</span>/&gt;</div><div class="line"> &lt;view class=<span class="string">'detail1'</span>&gt;</div><div class="line">  &lt;view class=<span class="string">'detail-content'</span>&gt;</div><div class="line">    &lt;view class=<span class="string">'content-top clearfix'</span>&gt;</div><div class="line">      &lt;view class=<span class="string">'pull-left'</span>&gt;</div><div class="line">        &lt;view class=<span class="string">'detailImg'</span>&gt;</div><div class="line">          &lt;image mode=<span class="string">"scaleToFill"</span> src=<span class="string">'&#123;&#123;detail.author.avatar_url&#125;&#125;'</span>&gt;&lt;/image&gt;</div><div class="line">        &lt;/view&gt;</div><div class="line">      &lt;/view&gt;</div><div class="line">      &lt;view class=<span class="string">'pull-left'</span>&gt;</div><div class="line">        &lt;view class=<span class="string">'detailMilden'</span>&gt;</div><div class="line">          &lt;view class=<span class="string">'detail-name'</span>&gt;</div><div class="line">            &lt;text&gt;&#123;&#123;detail.author.loginname&#125;&#125;&lt;/text&gt;</div><div class="line">            &lt;view class=<span class="string">"detail-type-item"</span>&gt;</div><div class="line">              &lt;view class=<span class="string">"detail-type-item-font"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.tab === 'good'&#125;&#125;"</span>&gt;<span class="comment">#精华#&lt;/view&gt;</span></div><div class="line">            &lt;/view&gt;</div><div class="line">             &lt;view class=<span class="string">"detail-type-item"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.tab === 'share'&#125;&#125;"</span>&gt;</div><div class="line">              &lt;view class=<span class="string">"detail-type-item-font"</span>&gt;<span class="comment">#分享#&lt;/view&gt;</span></div><div class="line">            &lt;/view&gt;</div><div class="line">            &lt;view class=<span class="string">"detail-type-item"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.tab === 'ask'&#125;&#125;"</span>&gt;</div><div class="line">              &lt;view class=<span class="string">"detail-type-item-font"</span>&gt;<span class="comment">#问答#&lt;/view&gt;</span></div><div class="line">            &lt;/view&gt;</div><div class="line">            &lt;view class=<span class="string">"detail-type-item"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.tab === 'job'&#125;&#125;"</span>&gt;</div><div class="line">              &lt;view class=<span class="string">"detail-type-item-font"</span>&gt;<span class="comment">#招聘#&lt;/view&gt;</span></div><div class="line">            &lt;/view&gt; </div><div class="line">          &lt;/view&gt;</div><div class="line">          &lt;view class=<span class="string">'detail-post-time'</span>&gt;楼主发表于&#123;&#123; detail.create_at &#125;&#125;&lt;/view&gt;</div><div class="line">        &lt;/view&gt;</div><div class="line">      &lt;/view&gt;</div><div class="line">      &lt;view class=<span class="string">'pull-right'</span>&gt;</div><div class="line">        &lt;view class=<span class="string">'detail-collect-item'</span> id=<span class="string">'detail.id'</span> catchtap=<span class="string">"collect"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.is_collect == false&#125;&#125;"</span>&gt;收藏&lt;/view&gt;</div><div class="line">        &lt;view class=<span class="string">'detail-collect-item'</span> id=<span class="string">'detail.id'</span> catchtap=<span class="string">"collect"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.is_collect == true&#125;&#125;"</span>&gt;取消收藏&lt;/view&gt; </div><div class="line">      &lt;/view&gt;</div><div class="line">    &lt;/view&gt;</div><div class="line">    &lt;view class=<span class="string">'detail-Bottom'</span>&gt;</div><div class="line">      &lt;view class=<span class="string">"detail-post-title"</span>&gt;</div><div class="line">        &lt;view class=<span class="string">"detail-posts-tag hot"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.top === true&#125;&#125;"</span>&gt;置顶&lt;/view&gt;</div><div class="line">         &lt;view class=<span class="string">"detail-posts-tag"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.good === true&#125;&#125;"</span>&gt;精华&lt;/view&gt; </div><div class="line">        &#123;&#123;detail.title&#125;&#125;</div><div class="line">      &lt;/view&gt;</div><div class="line">      &lt;view class=<span class="string">'detail-post-content'</span>&gt;</div><div class="line">      &lt;!-- &#123;&#123;detail.content&#125;&#125; --&gt;</div><div class="line">      &lt;template is=<span class="string">"wxParse"</span> data=<span class="string">"&#123;&#123;wxParseData:article.nodes&#125;&#125;"</span>/&gt;</div><div class="line">      &lt;/view&gt;</div><div class="line">      &lt;!-- 评论 --&gt;</div><div class="line">      &lt;view class=<span class="string">'detail-post-criticism'</span>&gt;</div><div class="line">        &lt;view class=<span class="string">'detail-post-criticism-top'</span>&gt;评论&lt;/view&gt;</div><div class="line">        &lt;block wx:<span class="keyword">for</span>=<span class="string">"&#123;&#123; detail.replies &#125;&#125;"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.replies.length &gt; 0&#125;&#125;"</span> wx:key=<span class="string">""</span>&gt;</div><div class="line">        &lt;view class=<span class="string">'content-top clearfix'</span> index=<span class="string">"&#123;&#123;index&#125;&#125;"</span> id=<span class="string">"&#123;&#123;item.id&#125;&#125;"</span>&gt;</div><div class="line">          &lt;view class=<span class="string">'pull-left'</span>&gt;</div><div class="line">            &lt;view class=<span class="string">'detailImg'</span>&gt;</div><div class="line">              &lt;image mode=<span class="string">"scaleToFill"</span> src=<span class="string">"&#123;&#123; item.author.avatar_url &#125;&#125;"</span>&gt;&lt;/image&gt;</div><div class="line">            &lt;/view&gt;</div><div class="line">          &lt;/view&gt;</div><div class="line">          &lt;view class=<span class="string">'pull-left'</span> style=<span class="string">'width:70%'</span>&gt;</div><div class="line">            &lt;view class=<span class="string">'detailMilden'</span>&gt;</div><div class="line">              &lt;view class=<span class="string">'detail-name'</span>&gt;</div><div class="line">                &lt;text&gt;&#123;&#123; item.author.loginname &#125;&#125;&lt;/text&gt;</div><div class="line">              &lt;/view&gt;</div><div class="line">              &lt;view class=<span class="string">'detail-post-time'</span>&gt;&#123;&#123;index + 2&#125;&#125;楼 发表于&#123;&#123; item.create_at &#125;&#125;&lt;/view&gt;</div><div class="line">              &lt;view class=<span class="string">'detail-criticism-content'</span>&gt;</div><div class="line">              &lt;!-- &#123;&#123; item.content &#125;&#125; --&gt;</div><div class="line">                &lt;template is=<span class="string">"wxParseCriticism"</span> data=<span class="string">"&#123;&#123;wxParseData:item.transData.criticism.nodes&#125;&#125;"</span>/&gt;  </div><div class="line">              &lt;/view&gt;</div><div class="line">            &lt;/view&gt;</div><div class="line">          &lt;/view&gt;</div><div class="line">          &lt;view class=<span class="string">'pull-right'</span>&gt;</div><div class="line">            &lt;view class=<span class="string">'detail-criticism-item'</span> id=<span class="string">"&#123;&#123;item.id&#125;&#125;"</span> data-index=<span class="string">"&#123;&#123;index&#125;&#125;"</span> catchtap=<span class="string">"reply"</span>&gt;</div><div class="line">              &lt;image src=<span class="string">'../../images/icon/zan.png'</span>&gt;&lt;/image&gt;</div><div class="line">              &lt;text class=<span class="string">"detail-post-zan-num"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.zanNum &gt; 0&#125;&#125;"</span>&gt;&#123;&#123;item.zanNum&#125;&#125;&lt;/text&gt;</div><div class="line">            &lt;/view&gt;</div><div class="line">            &lt;!-- &lt;view class=<span class="string">'detail-criticism-item'</span> id=<span class="string">"&#123;&#123;item.id&#125;&#125;"</span> data-index=<span class="string">"&#123;&#123;index&#125;&#125;"</span> catchtap=<span class="string">"reply"</span>&gt;</div><div class="line">              &lt;image src=<span class="string">'../../images/icon/zanhl.png'</span>&gt;&lt;/image&gt;</div><div class="line">            &lt;/view&gt;   --&gt;</div><div class="line">          &lt;/view&gt;</div><div class="line">        &lt;/view&gt;</div><div class="line">        &lt;/block&gt;</div><div class="line">        &lt;block wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.replies.length &lt;= 0&#125;&#125;"</span>&gt;</div><div class="line">          &lt;view class=<span class="string">"detail-post-comment-null"</span>&gt;</div><div class="line">            &lt;image class=<span class="string">"imgnull"</span> mode=<span class="string">"scaleToFill"</span> src=<span class="string">"/images/icon/null.png"</span>&gt;&lt;/image&gt;</div><div class="line">            &lt;text class=<span class="string">"textnull"</span>&gt;暂无收录评论 &lt;/text&gt;</div><div class="line">          &lt;/view&gt;</div><div class="line">        &lt;/block&gt;</div><div class="line">      &lt;/view&gt;</div><div class="line">    &lt;/view&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/view&gt;</div><div class="line">  &lt;modal title=<span class="string">"消息"</span> confirm-text=<span class="string">"确认"</span> cancel-text=<span class="string">"关闭"</span> hidden=<span class="string">"&#123;&#123;modalHidden&#125;&#125;"</span> bindconfirm=<span class="string">"confirmChange"</span> bindcancel=<span class="string">"cancelChange"</span>&gt;</div><div class="line">    您还没未登录conde，是否前往认证登录？</div><div class="line">  &lt;/modal&gt;</div><div class="line">&lt;loading class=<span class="string">"loading"</span> hidden=<span class="string">"&#123;&#123;hidden&#125;&#125;"</span>&gt;</div><div class="line">  &lt;text class=<span class="string">"loading-font"</span>&gt;加载中...&lt;/text&gt;</div><div class="line">&lt;/loading&gt;</div></pre></td></tr></table></figure>
+
+文件夹wxParse是文本解析模板
+</code></pre><h5 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h5><pre><code>1. 将仓库克隆到本地：
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://git@github.com:shangsheng/smallRoutine.git</div></pre></td></tr></table></figure>
+<pre><code>2. 打开`微信Web开放者工具`（注意：必须是`0.9.092300`版本）
+3. 选择`添加项目`，填写或选择相应信息
+      - AppID：点击右下角`无AppID`
+      - 项目名称：随便填写，因为不涉及到部署，所以无所谓
+     - 项目目录：选择刚刚克隆的文件夹
+      - 点击`添加项目`
+4.项目路径 github: https://github.com/shangsheng/smallRoutine/tree/master
+</code></pre><h3 id="特别感谢"><a href="#特别感谢" class="headerlink" title="特别感谢"></a>特别感谢</h3><pre><code>感谢 coolfish 的项目案例
+
+coolfish的github: https://github.com/coolfishstudio
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小程序步骤</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/模仿cNode社区的小程序/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-css的兼容问题与解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/15/css的兼容问题与解决方法/">css的兼容问题与解决方法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/15/css的兼容问题与解决方法/" class="archive-article-date">
+  	<time datetime="2018-05-15T01:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="兼容性处理要点"><a href="#兼容性处理要点" class="headerlink" title="兼容性处理要点"></a>兼容性处理要点</h2><pre><code>1.DOCTYPE影响css的处理；
+2.FF：设置padding，div会增加高度和宽度，IE不会，故需要!important多设置一个hight和width；
+3.div的剧中问题：vertical-middle;将行距增加到与div一样的高度，字体就会垂直剧中，缺点是字体需要在同一行上。
+4.IE浏览器不识别 !important;
+5.在mozilla firefox浏览器和ie浏览器box中的解析不一致导致2px;
+    解决方法：div{margin:30px !important;margin:28px}
+    注意这两个margin的顺序一定不能写反，!important这个属性IE不能识别，但别的浏览器可以识别。所以在IE下其实解释成这样： 
+    div{maring:30px;margin:28px} 
+    重复定义的话按照最后一个来执行，所以不可以只写margin:XXpx!important; 
+</code></pre><h2 id="浏览器的差异"><a href="#浏览器的差异" class="headerlink" title="浏览器的差异"></a>浏览器的差异</h2><h3 id="1-ul和ol列表缩进问题"><a href="#1-ul和ol列表缩进问题" class="headerlink" title="1.ul和ol列表缩进问题"></a>1.ul和ol列表缩进问题</h3><pre><code>消除ul、ol等列表的缩进时，样式应写成：list-style:none;margin:0px;padding:0px; 
+其中margin属性对IE有效，padding属性对FireFox有效。 
+
+[注]经验证，在IE中，设置margin:0px可以去除列表的上下左右缩进、空白以及列表编号或圆点，设置padding对样式没有影响；在 Firefox 中，设置margin:0px仅仅可以去除上下的空白，设置padding:0px后仅仅可以去掉左右缩进，还必须设置list- style:none才 能去除列表编号或圆点。也就是说，在IE中仅仅设置margin:0px即可达到最终效果，而在Firefox中必须同时设置margin:0px、 padding:0px以及list-style:none三项才能达到最终效果。
+</code></pre><h3 id="2、CSS透明问题"><a href="#2、CSS透明问题" class="headerlink" title="2、CSS透明问题"></a>2、CSS透明问题</h3><pre><code>IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)。 
+FF：opacity:0.6。 
+[注] 最好两个都写，并将opacity属性放在下面。 
+</code></pre><h3 id="3、CSS圆角问题"><a href="#3、CSS圆角问题" class="headerlink" title="3、CSS圆角问题"></a>3、CSS圆角问题</h3><pre><code>IE：ie7以下版本不支持圆角。 
+FF： -moz-border-radius:4px，或者-moz-border-radius-topleft:4px;-moz- border- radius-topright:4px;-moz-border-radius-bottomleft:4px;-moz- border- radius- bottomright:4px;。 
+[注] 圆角问题是CSS中的经典问题，建议使用JQuery框架集来设置圆角，让这些复杂的问题留给别人去想吧。不过jQuery的圆角只看到支持整个区域的圆角，没有支持边框的圆角，不过这个边框的圆角可以通过一些简单的手段来实现，下次有机会介绍下。 
+</code></pre><h3 id="4、cursor-hand-VS-cursor-pointer"><a href="#4、cursor-hand-VS-cursor-pointer" class="headerlink" title="4、cursor:hand VS cursor:pointer"></a>4、cursor:hand VS cursor:pointer</h3><pre><code>问题说明：firefox不支持hand，但ie支持pointer ，两者都是手形指示。 
+解决方法：统一使用pointer。 
+</code></pre><h3 id="5、字体大小定义不同"><a href="#5、字体大小定义不同" class="headerlink" title="5、字体大小定义不同"></a>5、字体大小定义不同</h3><pre><code>对字体大小small的定义不同，Firefox中为13px，而IE中为16px，差别挺大。 
+
+解决方法：使用指定的字体大小如14px。 
+
+并列排列的多个元素（图片或者链接）的div和div之间，代码中的空格和回车在firefox中都会被忽略，而IE中却默认显示为空格（约3px）。 
+</code></pre><h3 id="6、CSS双线凹凸边框"><a href="#6、CSS双线凹凸边框" class="headerlink" title="6、CSS双线凹凸边框"></a>6、CSS双线凹凸边框</h3><pre><code>IE：border:2px outset;。 
+FF： -moz-border-top-colors: #d4d0c8 white;-moz-border-left-colors: #d4d0c8 white;-moz-border-right-colors:#404040 #808080;-moz-border-bottom-colors:#404040 #808080; 
+</code></pre><h2 id="浏览器bug"><a href="#浏览器bug" class="headerlink" title="浏览器bug"></a>浏览器bug</h2><h3 id="1、IE的双边距bug"><a href="#1、IE的双边距bug" class="headerlink" title="1、IE的双边距bug"></a>1、IE的双边距bug</h3><pre><code>设置为float的div在ie下设置的margin会加倍。这是一个ie6都存在的bug。 
+解决方案：在这个div里面加上display:inline; 
+例如： 
+    <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">”imfloat”</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</code></pre><h5 id="相应的css为"><a href="#相应的css为" class="headerlink" title="相应的css为"></a>相应的css为</h5><h5 id="以下为引用的内容："><a href="#以下为引用的内容：" class="headerlink" title="以下为引用的内容："></a>以下为引用的内容：</h5><pre><code>#IamFloat{ 
+float:left; 
+margin:5px;/*IE下理解为10px*/ 
+display:inline;/*IE下再理解为5px*/ 
+} 
+#IamFloat{ 
+float:left; 
+margin:5px;/*IE下理解为10px*/ 
+display:inline;/*IE下再理解为5px*/ 
+}
+关于CSS中的问题实在太多了，甚至同样的CSS定义在不同的页面标准中的显示效果都是不一样的。一个合乎发展的建议是，页面采用标准XHTML标准编写，较少使用table，CSS定义尽量依照标准DOM，同时兼顾IE、Firefox、Opera等主流浏览器。很多情况下，FF和 Opera的CSS解释标准更贴近CSS标准，也更具有规范性。 
+</code></pre><h3 id="2、IE选择符空格BUG"><a href="#2、IE选择符空格BUG" class="headerlink" title="2、IE选择符空格BUG"></a>2、IE选择符空格BUG</h3><h5 id="今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。"><a href="#今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。" class="headerlink" title="今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。"></a>今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。</h5><h5 id="请看以下代码："><a href="#请看以下代码：" class="headerlink" title="请看以下代码："></a>请看以下代码：</h5><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"//www.w3.org/1999/xhtml"</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="xml"> </span></div><div class="line"><span class="comment">&lt;!-- </span></div><div class="line">p&#123;font-size:12px;&#125; </div><div class="line">p:first-letter&#123;font-size:300%&#125; </div><div class="line">--&gt; </div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>对于世界而言，你是一个人；但是对于某个人，你是他的整个世界。纵然伤心，也不要愁眉不展，因为你不知是谁会爱上你的笑容。<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+这段代码对&lt;p&gt;的首字符样式定义在IE6上看是没有效果的（IE7没测试），而在p:first-letter和{font-size:300%}加上空格，也就是p:first-letter {font-size:300%}后，显示就正常了。但是同样的代码，在FireFox下看是正常的。按道理说，p:first-letter{font-size:300%}的写法是没错的。那么问题出在哪里呢？答案是伪类中的连字符”-”。IE有个BUG，在处理伪类时，如果伪类的名称中带有连字符”-”，伪类名称后面就得跟一个空格，不然样式的定义就无效。而在FF中，加不加空格都可以正常处理。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">css的兼容</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/15/css的兼容问题与解决方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -611,6 +884,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">h5和c3属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
               </li>
             
             <div class="clearfix"></div>
