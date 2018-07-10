@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>ajax | web前端博客</title>
+  <title>Tag: html5属性 | web前端博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.如何把数据传到服务器* 前端：         构建表单         在form标签中声明处理用户数据的程序（action属性）提交用户数据的方式（method get post）         在输入框中一定要声明name属性 * 后端：         前端用get方式提交 后台用$_get数组接收         前端用post方式提交 后台用$_post数组接收 2.get方式和">
-<meta name="keywords" content="get和post">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ajax">
-<meta property="og:url" content="http://yoursite.com/2015/04/26/ajax/index.html">
+  <meta name="description" content="前端所用笔记">
+<meta property="og:type" content="website">
+<meta property="og:title" content="web前端博客">
+<meta property="og:url" content="http://yoursite.com/tags/html5属性/index.html">
 <meta property="og:site_name" content="web前端博客">
-<meta property="og:description" content="1.如何把数据传到服务器* 前端：         构建表单         在form标签中声明处理用户数据的程序（action属性）提交用户数据的方式（method get post）         在输入框中一定要声明name属性 * 后端：         前端用get方式提交 后台用$_get数组接收         前端用post方式提交 后台用$_post数组接收 2.get方式和">
-<meta property="og:updated_time" content="2017-04-26T13:39:42.840Z">
+<meta property="og:description" content="前端所用笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ajax">
-<meta name="twitter:description" content="1.如何把数据传到服务器* 前端：         构建表单         在form标签中声明处理用户数据的程序（action属性）提交用户数据的方式（method get post）         在输入框中一定要声明name属性 * 后端：         前端用get方式提交 后台用$_get数组接收         前端用post方式提交 后台用$_post数组接收 2.get方式和">
+<meta name="twitter:title" content="web前端博客">
+<meta name="twitter:description" content="前端所用笔记">
   
     <link rel="alternative" href="/atom.xml" title="web前端博客" type="application/atom+xml">
   
@@ -142,205 +140,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ajax" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      ajax
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/05/04/HTML5和css3/" class="archive-article-date">
+  	<time datetime="2017-05-04T10:52:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/05/04/HTML5和css3/">HTML5和css3</a>
     </h1>
   
 
-        
-        <a href="/2015/04/26/ajax/" class="archive-article-date">
-  	<time datetime="2015-04-26T01:10:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-如何把数据传到服务器"><a href="#1-如何把数据传到服务器" class="headerlink" title="1.如何把数据传到服务器"></a>1.如何把数据传到服务器</h4><pre><code>* 前端：
-        构建表单
-        在form标签中声明处理用户数据的程序（action属性）提交用户数据的方式（method get post）
-        在输入框中一定要声明name属性
-* 后端：
-        前端用get方式提交 后台用$_get数组接收
-        前端用post方式提交 后台用$_post数组接收
-</code></pre><h4 id="2-get方式和post方式的区别"><a href="#2-get方式和post方式的区别" class="headerlink" title="2.get方式和post方式的区别"></a>2.get方式和post方式的区别</h4><pre><code>1.get方式提交的会把表单信息显示到地址栏没有请求正文post方式有请求正文
-2.get方式相对于post方式来说不太安全  post方式相对来说比较安全
-3.get方式传输的信息量比较小 post方式 信息传输量是无限大
-4.get方式Ajax提交必须把请求正文写在url后面 格式 key=value&amp;key=vale  post方式需要写在xhr.send()方法里
-5.get方式可以不写请求头xhr.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;);而post必须写
-</code></pre><h4 id="3-如何上传文件到服务器"><a href="#3-如何上传文件到服务器" class="headerlink" title="3.如何上传文件到服务器"></a>3.如何上传文件到服务器</h4><pre><code>* 前端 
-        构建表单
-        在from标签中声明处理用户数据的程序（action属性）必须使用post方式提交 enctype=&quot;multioart/form-data&quot;
-        用input：file来上传
-* 后端
-        用$_FILES来接受文件
-        用move_uploaded_file(临时文件的路径，目标文件的路径)
-</code></pre><h3 id="get与post的区别"><a href="#get与post的区别" class="headerlink" title="get与post的区别"></a>get与post的区别</h3><pre><code>__Get和Post都是向服务器发送的一种请求，只是发送机制不同。__
-1.get请求会将参数跟在URL后进行传递，而post请求则是作为http消息的实体内容发送给web服务器。当然在Ajax请求中，这种区别对用户是不可见的。
-2.首先是“Get方式提交的数据最多只能是1024字节”，因为Get是通过URL提交数据，那么get可提交的数据就跟URL的长度有直接关系了。而实际上，URL不存在参数上限的问题。
-http协议规范没有对URL长度进行限制。这个限制是特定的浏览器以及服务器对他的限制。
-IE对URL长度的限制是2083字节。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。注意这是限制是整个URL长度，而不仅仅是你的参数值数据长度。
-3.GET方式请求的数据会被浏览器缓存起来，因此其他人就可以从浏览器的历史记录中读取到这些数据，例如账号和密码等。在某种情况下，get方式会带来严重的问题。而post方式相对来说就可以避免这些问题。
-</code></pre><h4 id="get请求和post请求在服务器的区别："><a href="#get请求和post请求在服务器的区别：" class="headerlink" title="get请求和post请求在服务器的区别："></a>get请求和post请求在服务器的区别：</h4><pre><code>1.在客户端使用get请求时，服务器端使用Request.QueryString来获取参数，而客户端使用post请求时，服务器使用Request.Form来获取参数。
-2.http标准包含这两种方法是为了达到不同的目的。postPOST用于创建资源，
-资源的内容会被编入HTTP请示的内容中。例如，处理订货表单、在数据库中加入新数据行等。
-当请求无副作用时（如进行搜索），便可使用GET方法；当请求有副作用时（如添加数据行），
-则用POST方法。一个比较实际的问题是：GET方法可能会产生很长的URL，或许会超过某些浏览器与服务器对URL长度的限制。
-</code></pre><h4 id="若符合下列任一情况，则用POST方法："><a href="#若符合下列任一情况，则用POST方法：" class="headerlink" title="若符合下列任一情况，则用POST方法："></a>若符合下列任一情况，则用POST方法：</h4><pre><code>* 请求的结果有持续性的副作用，例如，数据库内添加新的数据行。
-* 若使用GET方法，则表单上收集的数据可能让URL过长。
-* 要传送的数据不是采用7位的ASCII编码。
-
-若符合下列任一情况，则用GET方法：
-
-* 请求是为了查找资源，HTML表单数据仅用来帮助搜索。
-* 请求结果无持续性的副作用。
-* 收集的数据及HTML表单内的输入字段名称的总长不超过1024个字符。
-</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><pre><code>1.请求方式不同
-2.在请求正文上 
-     post请求 输入的信息在请求信息的请求正文中
-     get请求   请求正文在请求地址后面 url？+key=value&amp;key1=value1
-3.在请求头中
-    post需要写Content-Type:application/x-www-form-urlencoded
-4.在请求内容的长度上
-    get请求的内容的长度是有限的 
-    post请求的的内容的长度是无限的
-5.在安全问题上
-    get请求相对来说不安全
-    post请求是相对安全的
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">get和post</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">html5属性</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">css3属性</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2015/04/26/ajax/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2015/04/25/js基础/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js基础
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/05/04/HTML5和css3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5和css3</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -363,9 +220,9 @@ IE对URL长度的限制是2083字节。对于其他浏览器，如Netscape、Fir
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
