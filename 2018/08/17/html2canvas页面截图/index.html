@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | web前端博客</title>
+  <title>小程序开发遇到的问题 | web前端博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端所用笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="web前端博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="截取图片12345678910&amp;lt;img src=&quot;img/1.jpg&quot;/&amp;gt;      &amp;lt;input class=&quot;example1&quot; type=&quot;button&quot; value=&quot;button&quot;&amp;gt;      生成界面如下：      &amp;lt;img src=&quot;&quot; id=&quot;predict_img&quot; class=&quot;hide&quot;/&amp;gt;  &amp;lt;/body&amp;gt;  &amp;lt;sty">
+<meta name="keywords" content="html2canvas,跨域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序开发遇到的问题">
+<meta property="og:url" content="http://yoursite.com/2018/08/17/html2canvas页面截图/index.html">
 <meta property="og:site_name" content="web前端博客">
-<meta property="og:description" content="前端所用笔记">
+<meta property="og:description" content="截取图片12345678910&amp;lt;img src=&quot;img/1.jpg&quot;/&amp;gt;      &amp;lt;input class=&quot;example1&quot; type=&quot;button&quot; value=&quot;button&quot;&amp;gt;      生成界面如下：      &amp;lt;img src=&quot;&quot; id=&quot;predict_img&quot; class=&quot;hide&quot;/&amp;gt;  &amp;lt;/body&amp;gt;  &amp;lt;sty">
+<meta property="og:updated_time" content="2018-08-18T00:52:26.708Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="web前端博客">
-<meta name="twitter:description" content="前端所用笔记">
+<meta name="twitter:title" content="小程序开发遇到的问题">
+<meta name="twitter:description" content="截取图片12345678910&amp;lt;img src=&quot;img/1.jpg&quot;/&amp;gt;      &amp;lt;input class=&quot;example1&quot; type=&quot;button&quot; value=&quot;button&quot;&amp;gt;      生成界面如下：      &amp;lt;img src=&quot;&quot; id=&quot;predict_img&quot; class=&quot;hide&quot;/&amp;gt;  &amp;lt;/body&amp;gt;  &amp;lt;sty">
   
     <link rel="alternative" href="/atom.xml" title="web前端博客" type="application/atom+xml">
   
@@ -140,36 +142,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-html2canvas页面截图" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/17/html2canvas页面截图/" class="archive-article-date">
-  	<time datetime="2018-08-17T00:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/17/html2canvas页面截图/">小程序开发遇到的问题</a>
+    <h1 class="article-title" itemprop="name">
+      小程序开发遇到的问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/17/html2canvas页面截图/" class="archive-article-date">
+  	<time datetime="2018-08-17T00:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="截取图片"><a href="#截取图片" class="headerlink" title="截取图片"></a>截取图片</h3><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"img/1.jpg"</span>/&gt;</div><div class="line">      &lt;input class=<span class="string">"example1"</span> <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"button"</span>&gt;</div><div class="line">      生成界面如下：</div><div class="line">      &lt;img src=<span class="string">""</span> id=<span class="string">"predict_img"</span> class=<span class="string">"hide"</span>/&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">  &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">  	.hide&#123;</div><div class="line">  		display: none;</div><div class="line">  	&#125;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
+</code></pre><h5 id="最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）："><a href="#最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）：" class="headerlink" title="最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）："></a>最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）：</h5><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(document).ready( <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">             $(<span class="string">".example1"</span>).on(<span class="string">"click"</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">             </div><div class="line">                 html2canvas(document.body, &#123;scale:2,logging:<span class="literal">false</span>,useCORS:<span class="literal">true</span>&#125;).then(<span class="keyword">function</span>(canvas) &#123;</div><div class="line">            var dataUrl = canvas.toDataURL();</div><div class="line">            $(<span class="string">"#predict_img"</span>).attr(<span class="string">"src"</span>,dataUrl).removeClass(<span class="string">"hide"</span>);</div><div class="line">        &#125;);</div><div class="line">             &#125;); </div><div class="line">     &#125;);</div></pre></td></tr></table></figure>
+</code></pre><h5 id="scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2"><a href="#scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2" class="headerlink" title="scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2;"></a>scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2;</h5><h5 id="useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；"><a href="#useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；" class="headerlink" title="useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；"></a>useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；</h5><h5 id="logging：这个是日志打印的，实际上线当然不需要了，所以就false；"><a href="#logging：这个是日志打印的，实际上线当然不需要了，所以就false；" class="headerlink" title="logging：这个是日志打印的，实际上线当然不需要了，所以就false；"></a>logging：这个是日志打印的，实际上线当然不需要了，所以就false；</h5><h5 id="在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域"><a href="#在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域" class="headerlink" title="在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域"></a>在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域</h5><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"http://cms-bucket.nosdn.127.net/2018/08/15/a250fd001743481e860944c03910ec7b.jpeg"</span> id=<span class="string">"img"</span>/&gt;</div><div class="line">      &lt;input class=<span class="string">"example1"</span> <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"button"</span>&gt;</div><div class="line">      生成界面如下：</div><div class="line">      &lt;img src=<span class="string">""</span> id=<span class="string">"predict_img"</span> class=<span class="string">"hide"</span>/&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">  &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">  	.hide&#123;</div><div class="line">  		display: none;</div><div class="line">  	&#125;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
+
+js
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">    $(document).ready( <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">              $(<span class="string">".example1"</span>).on(<span class="string">"click"</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">              </div><div class="line">                  html2canvas(document.body, &#123;scale:2,logging:<span class="literal">false</span>,useCORS:<span class="literal">true</span>&#125;).then(<span class="keyword">function</span>(canvas) &#123;</div><div class="line">	            var dataUrl = canvas.toDataURL();</div><div class="line">	            $(<span class="string">"#predict_img"</span>).attr(<span class="string">"src"</span>,dataUrl).removeClass(<span class="string">"hide"</span>);</div><div class="line">	        &#125;);</div><div class="line">              &#125;); </div><div class="line">      &#125;);</div><div class="line">       var img = <span class="string">"https://img.alicdn.com/bao/uploaded/TB1qimQIpXXXXXbXFXXSutbFXXX.jpg"</span>;</div><div class="line"><span class="keyword">function</span> getBase64Image(img) &#123;</div><div class="line">  var canvas = document.createElement(<span class="string">"canvas"</span>);</div><div class="line">  canvas.width = img.width;</div><div class="line">  canvas.height = img.height;</div><div class="line"> </div><div class="line">  var ctx = canvas.getContext(<span class="string">"2d"</span>);</div><div class="line">  ctx.drawImage(img, 0, 0, img.width, img.height);</div><div class="line">  var ext = img.src.substring(img.src.lastIndexOf(<span class="string">"."</span>)+1).toLowerCase();</div><div class="line">  var dataURL = canvas.toDataURL(<span class="string">"image/"</span>+ext);</div><div class="line">  <span class="built_in">return</span> dataURL;</div><div class="line">&#125;</div><div class="line">var image = new Image();</div><div class="line">image.crossOrigin = <span class="string">''</span>;</div><div class="line">image.src = img;</div><div class="line">image.onload = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">  var base64 = getBase64Image(image);</div><div class="line">  console.log(base64);</div><div class="line">  $(<span class="string">"#img"</span>).attr(<span class="string">"src"</span>,base64);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h3 id="下载html2canvas"><a href="#下载html2canvas" class="headerlink" title="下载html2canvas"></a>下载html2canvas</h3><p>感谢niklasvh提供 <a href="https://github.com/niklasvh/html2canvas" title="[niklasvh]" target="_blank" rel="external">html2canvas</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -185,206 +192,110 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/17/html2canvas页面截图/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/01/小程序开发遇到的问题/" class="archive-article-date">
-  	<time datetime="2018-08-01T09:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/08/01/小程序开发遇到的问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          小程序开发遇到的问题
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/01/小程序开发遇到的问题/">小程序开发遇到的问题</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模拟网易云音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/11/git命令/" class="archive-article-date">
-  	<time datetime="2018-07-11T09:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/11/git命令/">git和hexo命令</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">git命令</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hexo个人博客命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/模仿cNode社区的小程序/" class="archive-article-date">
-  	<time datetime="2018-07-10T02:09:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/模仿cNode社区的小程序/">模仿CNode社区的小程序步骤</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小程序步骤</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/15/css的兼容问题与解决方法/" class="archive-article-date">
-  	<time datetime="2018-05-15T01:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/15/css的兼容问题与解决方法/">css的兼容问题与解决方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">css的兼容</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/hello-world/" class="archive-article-date">
-  	<time datetime="2018-05-14T01:35:50.614Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -407,8 +318,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

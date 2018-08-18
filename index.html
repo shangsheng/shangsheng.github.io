@@ -142,6 +142,168 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-html2canvas页面截图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/17/html2canvas页面截图/">小程序开发遇到的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/17/html2canvas页面截图/" class="archive-article-date">
+  	<time datetime="2018-08-17T00:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="截取图片"><a href="#截取图片" class="headerlink" title="截取图片"></a>截取图片</h3><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"img/1.jpg"</span>/&gt;</div><div class="line">      &lt;input class=<span class="string">"example1"</span> <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"button"</span>&gt;</div><div class="line">      生成界面如下：</div><div class="line">      &lt;img src=<span class="string">""</span> id=<span class="string">"predict_img"</span> class=<span class="string">"hide"</span>/&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">  &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">  	.hide&#123;</div><div class="line">  		display: none;</div><div class="line">  	&#125;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
+</code></pre><h5 id="最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）："><a href="#最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）：" class="headerlink" title="最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）："></a>最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）：</h5><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(document).ready( <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">             $(<span class="string">".example1"</span>).on(<span class="string">"click"</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">             </div><div class="line">                 html2canvas(document.body, &#123;scale:2,logging:<span class="literal">false</span>,useCORS:<span class="literal">true</span>&#125;).then(<span class="keyword">function</span>(canvas) &#123;</div><div class="line">            var dataUrl = canvas.toDataURL();</div><div class="line">            $(<span class="string">"#predict_img"</span>).attr(<span class="string">"src"</span>,dataUrl).removeClass(<span class="string">"hide"</span>);</div><div class="line">        &#125;);</div><div class="line">             &#125;); </div><div class="line">     &#125;);</div></pre></td></tr></table></figure>
+</code></pre><h5 id="scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2"><a href="#scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2" class="headerlink" title="scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2;"></a>scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2;</h5><h5 id="useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；"><a href="#useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；" class="headerlink" title="useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；"></a>useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；</h5><h5 id="logging：这个是日志打印的，实际上线当然不需要了，所以就false；"><a href="#logging：这个是日志打印的，实际上线当然不需要了，所以就false；" class="headerlink" title="logging：这个是日志打印的，实际上线当然不需要了，所以就false；"></a>logging：这个是日志打印的，实际上线当然不需要了，所以就false；</h5><h5 id="在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域"><a href="#在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域" class="headerlink" title="在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域"></a>在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域</h5><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"http://cms-bucket.nosdn.127.net/2018/08/15/a250fd001743481e860944c03910ec7b.jpeg"</span> id=<span class="string">"img"</span>/&gt;</div><div class="line">      &lt;input class=<span class="string">"example1"</span> <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"button"</span>&gt;</div><div class="line">      生成界面如下：</div><div class="line">      &lt;img src=<span class="string">""</span> id=<span class="string">"predict_img"</span> class=<span class="string">"hide"</span>/&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">  &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">  	.hide&#123;</div><div class="line">  		display: none;</div><div class="line">  	&#125;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
+
+js
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">    $(document).ready( <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">              $(<span class="string">".example1"</span>).on(<span class="string">"click"</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">              </div><div class="line">                  html2canvas(document.body, &#123;scale:2,logging:<span class="literal">false</span>,useCORS:<span class="literal">true</span>&#125;).then(<span class="keyword">function</span>(canvas) &#123;</div><div class="line">	            var dataUrl = canvas.toDataURL();</div><div class="line">	            $(<span class="string">"#predict_img"</span>).attr(<span class="string">"src"</span>,dataUrl).removeClass(<span class="string">"hide"</span>);</div><div class="line">	        &#125;);</div><div class="line">              &#125;); </div><div class="line">      &#125;);</div><div class="line">       var img = <span class="string">"https://img.alicdn.com/bao/uploaded/TB1qimQIpXXXXXbXFXXSutbFXXX.jpg"</span>;</div><div class="line"><span class="keyword">function</span> getBase64Image(img) &#123;</div><div class="line">  var canvas = document.createElement(<span class="string">"canvas"</span>);</div><div class="line">  canvas.width = img.width;</div><div class="line">  canvas.height = img.height;</div><div class="line"> </div><div class="line">  var ctx = canvas.getContext(<span class="string">"2d"</span>);</div><div class="line">  ctx.drawImage(img, 0, 0, img.width, img.height);</div><div class="line">  var ext = img.src.substring(img.src.lastIndexOf(<span class="string">"."</span>)+1).toLowerCase();</div><div class="line">  var dataURL = canvas.toDataURL(<span class="string">"image/"</span>+ext);</div><div class="line">  <span class="built_in">return</span> dataURL;</div><div class="line">&#125;</div><div class="line">var image = new Image();</div><div class="line">image.crossOrigin = <span class="string">''</span>;</div><div class="line">image.src = img;</div><div class="line">image.onload = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">  var base64 = getBase64Image(image);</div><div class="line">  console.log(base64);</div><div class="line">  $(<span class="string">"#img"</span>).attr(<span class="string">"src"</span>,base64);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h3 id="下载html2canvas"><a href="#下载html2canvas" class="headerlink" title="下载html2canvas"></a>下载html2canvas</h3><p>感谢niklasvh提供 <a href="https://github.com/niklasvh/html2canvas" title="[niklasvh]" target="_blank" rel="external">html2canvas</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">html2canvas</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">跨域</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/17/html2canvas页面截图/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-小程序开发遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/小程序开发遇到的问题/">小程序开发遇到的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/01/小程序开发遇到的问题/" class="archive-article-date">
+  	<time datetime="2018-08-01T09:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="我第一次开发小程序，刚开始我是按网页开发是写的，先写页面布局，之后写的首页的js操作和数据请求，之后在写过程中出现了好多的重复又不完全一致的代码"><a href="#我第一次开发小程序，刚开始我是按网页开发是写的，先写页面布局，之后写的首页的js操作和数据请求，之后在写过程中出现了好多的重复又不完全一致的代码" class="headerlink" title="我第一次开发小程序，刚开始我是按网页开发是写的，先写页面布局，之后写的首页的js操作和数据请求，之后在写过程中出现了好多的重复又不完全一致的代码"></a>我第一次开发小程序，刚开始我是按网页开发是写的，先写页面布局，之后写的首页的js操作和数据请求，之后在写过程中出现了好多的重复又不完全一致的代码</h5><p>是因为我没有封装组件造成的。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模拟网易云音乐</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/01/小程序开发遇到的问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -958,34 +1120,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">h5和c3属性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">-html5属性 -css3属性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
               </li>
              
@@ -999,6 +1133,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
               </li>
             
             <div class="clearfix"></div>
