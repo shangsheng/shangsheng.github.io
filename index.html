@@ -142,6 +142,311 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试中的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/03/面试中的问题/">面试题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/03/面试中的问题/" class="archive-article-date">
+  	<time datetime="2018-12-03T02:09:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="移动端前端开发与PC端比有哪些不同？"><a href="#移动端前端开发与PC端比有哪些不同？" class="headerlink" title="移动端前端开发与PC端比有哪些不同？"></a>移动端前端开发与PC端比有哪些不同？</h2><pre><code>第一： PC考虑的是浏览器的兼容性，而移动端开发考虑的更多的是手机兼容性，因为目前不管是android手机还是ios手机，一般浏览器使用的都是webkit内核，所以说做移动端开发，更多考虑的应该是手机分辨率的适配，和不同操作系统的略微差异化。
+
+第二： 在部分事件的处理上，移动端多出来的事件是触屏事件，而缺少的是hover事件。 另外包括移动端弹出的手机键盘的处理，这样的问题在PC端都是遇不到的。 
+
+第三： 在布局上，移动端开发一般是要做到布局自适应的，我使用的一直是rem布局，感觉很好。
+
+第四： 在动画处理上，PC端由于要考虑IE的兼容性，所以通常使用JS做动画的通用性会更好一些，但是CSS3做了很大的牺牲， 而在手机端，如果要做一些动画、特效等，第一选择肯定是CSS3， 既简单、效率又高。
+
+第五：  微信的一些接口组好能去实现一遍，熟悉一下肯定是有好处的，比如通过微信分享文章，title、description、icon等图标的配置，这些还是要会的。
+
+第六： 百度地图的一些API接口，也得去实现一下，这些对于移动端来说，LBS是一个非常重要的特性，所以地图这块肯定是要了解的，在加上百度地图这块已经是一个比较成熟的平台了，所以学起来也比较容易。
+
+第七： CSS3的动画一定要比较熟练，这在移动端用的还是比较多的。 
+
+第八： 一般pc端用jquery，移动端用zepto，因为移动端的流量还是比较重要的， 所以引入的资源或者插件，能小则小，一个30k的资源和一个80k的资源，在移动端的差别还是挺大的。而未压缩的jquery是262kb， 压缩的jquey是83kb，可见两者的差别之大。
+
+第九：最好能掌握一套完整的前端开发架构，比如模块化、打包、压缩、缓存、有条件的还可以做一下自动化测试等等，比较好用的有fis，另外，想要快速提升自己的前端开发技术，钻研前端架构这块是一个非常好的方向。
+
+第十： 性能优化，包括首屏的打开速度、用户响应延迟、渲染性能、动画帧率等在手机上都需要特别注意。
+
+ 第十一： 比如在手机上的300ms的延迟，这在PC端是没有的，如果我们希望做成webapp，那么自然就不需要这300ms的延迟，所以可以使用hammer-time.js来移除这300ms的延迟。
+</code></pre><h3 id="前端两种主流跨域方案：JSONP-与-CORS。请问使用两种方案在-a-com-向-b-com-发起跨域请求时，b-com-的服务端能否解析到跨域请求携带的-cookie。"><a href="#前端两种主流跨域方案：JSONP-与-CORS。请问使用两种方案在-a-com-向-b-com-发起跨域请求时，b-com-的服务端能否解析到跨域请求携带的-cookie。" class="headerlink" title="前端两种主流跨域方案：JSONP 与 CORS。请问使用两种方案在 a.com 向 b.com 发起跨域请求时，b.com 的服务端能否解析到跨域请求携带的 cookie。"></a>前端两种主流跨域方案：JSONP 与 CORS。请问使用两种方案在 a.com 向 b.com 发起跨域请求时，b.com 的服务端能否解析到跨域请求携带的 cookie。</h3><pre><code>jsonp能稳定解析到；CORS需要进行withcredentials参数配置后可以解析到，否则不能。
+</code></pre><h3 id="检查两节点，实际上，是否是相同节点："><a href="#检查两节点，实际上，是否是相同节点：" class="headerlink" title="检查两节点，实际上，是否是相同节点："></a>检查两节点，实际上，是否是相同节点：</h3><pre><code>sSameNode() 方法检查两节点是否是相同的节点。
+
+isSameNode() 方法返回 true，如果两节点是相同的节点，否则返回 false。
+
+提示：请使用 isEqualNode() 方法来检查两节点是否相等，但不必是相同节点。
+</code></pre><h3 id="冒泡排序-n-比较元素的个数"><a href="#冒泡排序-n-比较元素的个数" class="headerlink" title="冒泡排序 (n:比较元素的个数)"></a>冒泡排序 (n:比较元素的个数)</h3><pre><code>比较次数的最小值：n-1;
+移动次数的最小值：0；
+比较次数的最大值：n(n-1)/2;
+移动次数的最大值：3n(n-1)/2;
+</code></pre><h3 id="HTTP请求中浏览器缓存机制会用到的协议头？"><a href="#HTTP请求中浏览器缓存机制会用到的协议头？" class="headerlink" title="HTTP请求中浏览器缓存机制会用到的协议头？"></a>HTTP请求中浏览器缓存机制会用到的协议头？</h3><pre><code>Etag
+Cache-control
+Last-Modified
+</code></pre><h3 id="HTML的-Doctype-作用-严格模式与混杂模式如何区分？它们有何意义"><a href="#HTML的-Doctype-作用-严格模式与混杂模式如何区分？它们有何意义" class="headerlink" title="HTML的 Doctype 作用 ?  严格模式与混杂模式如何区分？它们有何意义 ?"></a>HTML的 Doctype 作用 ?  严格模式与混杂模式如何区分？它们有何意义 ?</h3><pre><code>1.&lt;!DOCTYPE&gt; 声明位于文档中的最前面，处于 &lt;html&gt; 标签之前。告知浏览器的解析器，用什么文档类型 规范来解析这个文档。
+2.严格模式的排版和 JS 运作模式是 以该浏览器支持的最高标准运行。在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。
+3.DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。
+</code></pre><h3 id="异步编程的方法"><a href="#异步编程的方法" class="headerlink" title="异步编程的方法"></a>异步编程的方法</h3><pre><code>回调函数，这是异步编程最基本的方法。
+事件监听，另一种思路是采用事件驱动模式。任务的执行不取决于代码的顺序，而取决于某个事件是否发生。
+发布/订阅，上一节的&quot;事件&quot;，完全可以理解成&quot;信号&quot;。
+Promises对象，Promises 对象是CommonJS 工作组提出的一种规范，目的是为异步编程提供统一接口。
+</code></pre><h3 id="输入同样的网站pc端和移动端的显示的页面效果不同因为什么？"><a href="#输入同样的网站pc端和移动端的显示的页面效果不同因为什么？" class="headerlink" title="输入同样的网站pc端和移动端的显示的页面效果不同因为什么？"></a>输入同样的网站pc端和移动端的显示的页面效果不同因为什么？</h3><pre><code>手机的网速问题、屏幕大小、内存、CPU等。通过不同设备的特征，实现不同的网页展现或输出效果。根据useragent、屏幕大小信息、IP、网速、css media Query等原理，实现前端或后端的特征识别和行为改变。
+</code></pre><h3 id="游戏开发的基本性能问题和解决方法"><a href="#游戏开发的基本性能问题和解决方法" class="headerlink" title="游戏开发的基本性能问题和解决方法"></a>游戏开发的基本性能问题和解决方法</h3><pre><code>1.背景的卷曲效果优化。背景不能是无限长的图片拼接，必须有回收移出的场景的方法。
+2.将复杂运算从主UI线程中解耦。比如场景中小鸟的运动轨迹、碰撞算法等、需要空闲时间片运算，不能和UI动画同时进行。
+3.将比较大的运算解成不同的时间片，防止阻塞主UI线程。最好使用webworker.
+4.注意内存泄漏和回收。使用对象池管理内存，提高内存检测和垃圾回收。
+5.进行预处理。将-些常用的过程预处理，
+6.控制好频率。将1秒分解成多个时间片，在固定间隔时间片进行UI动画，其他时间片在后台运算。
+7.通过GPU加速和css transition 将小鸟飞行动画和背景动画分离。
+</code></pre><h3 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h3><pre><code>$ git add   把文件添加到仓库
+$ git reset  把当前版本回退到上一个版本
+$ git fetch &lt;远程主机名&gt;  将某个远程主机的更新，全部取回本地
+$ git rebase  用于把一个分支的修改合并到当前分支
+$ git merge 用于合并指定分支到当前分支
+</code></pre><h3 id="HTML5规范"><a href="#HTML5规范" class="headerlink" title="HTML5规范"></a>HTML5规范</h3><pre><code>新特性应该基于 HTML、CSS、DOM 以及 JavaScript。
+减少对外部插件的需求（比如 Flash）
+更优秀的错误处理
+更多取代脚本的标记
+HTML5 应该独立于设备
+开发进程应对公众透明
+</code></pre><h3 id="HTML5规范提出的新特性"><a href="#HTML5规范提出的新特性" class="headerlink" title="HTML5规范提出的新特性?"></a>HTML5规范提出的新特性?</h3><pre><code>用于绘画的 canvas 元素
+用于媒介回放的 video 和 audio 元素
+对本地离线存储的更好的支持
+新的特殊内容元素，比如 article、footer、header、nav、section
+新的表单控件，比如 calendar、date、time、email、url、search
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/03/面试中的问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-腾讯视频QLV格式转换成mp4格式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/08/腾讯视频QLV格式转换成mp4格式/">腾讯视频QLV格式转换成MP4格式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/08/腾讯视频QLV格式转换成mp4格式/" class="archive-article-date">
+  	<time datetime="2018-10-08T03:11:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="腾讯视频QLV格式转换成MP4格式"><a href="#腾讯视频QLV格式转换成MP4格式" class="headerlink" title="腾讯视频QLV格式转换成MP4格式"></a>腾讯视频QLV格式转换成MP4格式</h3><h5 id="在做一个项目是需要视频，但是视频资料还没有出来，于是我找了一个视频，从腾讯上下载的，下载下来之后是qlv格式的，h5的viode标签不能使用，于是我在度娘上搜了一下都需要下载软件才能转换，找了几本书边学习边测试用电脑cmd，转换了视频"><a href="#在做一个项目是需要视频，但是视频资料还没有出来，于是我找了一个视频，从腾讯上下载的，下载下来之后是qlv格式的，h5的viode标签不能使用，于是我在度娘上搜了一下都需要下载软件才能转换，找了几本书边学习边测试用电脑cmd，转换了视频" class="headerlink" title="在做一个项目是需要视频，但是视频资料还没有出来，于是我找了一个视频，从腾讯上下载的，下载下来之后是qlv格式的，h5的viode标签不能使用，于是我在度娘上搜了一下都需要下载软件才能转换，找了几本书边学习边测试用电脑cmd，转换了视频"></a>在做一个项目是需要视频，但是视频资料还没有出来，于是我找了一个视频，从腾讯上下载的，下载下来之后是qlv格式的，h5的viode标签不能使用，于是我在度娘上搜了一下都需要下载软件才能转换，找了几本书边学习边测试用电脑cmd，转换了视频</h5><h5 id="1-打开腾讯视频播放你想转换的视频，使其缓存完毕。"><a href="#1-打开腾讯视频播放你想转换的视频，使其缓存完毕。" class="headerlink" title="1.打开腾讯视频播放你想转换的视频，使其缓存完毕。"></a>1.打开腾讯视频播放你想转换的视频，使其缓存完毕。</h5><p><img src="../images/2018008112621.png" alt="h5特性"></p>
+<h5 id="2-点击右上角的菜单选项，选择设置。"><a href="#2-点击右上角的菜单选项，选择设置。" class="headerlink" title="2.点击右上角的菜单选项，选择设置。"></a>2.点击右上角的菜单选项，选择设置。</h5><p><img src="../images/2018008112843.png" alt="h5特性"></p>
+<h5 id="3-选择下载设置，复制缓存视频的地址在文件资源管理器中粘贴地址打开。"><a href="#3-选择下载设置，复制缓存视频的地址在文件资源管理器中粘贴地址打开。" class="headerlink" title="3.选择下载设置，复制缓存视频的地址在文件资源管理器中粘贴地址打开。"></a>3.选择下载设置，复制缓存视频的地址在文件资源管理器中粘贴地址打开。</h5><p><img src="../images/2018008113055.png" alt="h5特性"></p>
+<h5 id="4-打开vodcache文件夹，按照播放时间确定哪个文件夹是你需要的视频。"><a href="#4-打开vodcache文件夹，按照播放时间确定哪个文件夹是你需要的视频。" class="headerlink" title="4.打开vodcache文件夹，按照播放时间确定哪个文件夹是你需要的视频。"></a>4.打开vodcache文件夹，按照播放时间确定哪个文件夹是你需要的视频。</h5><p><img src="../images/2018008113259.png" alt="h5特性"><br><img src="../images/2018008113414.png" alt="h5特性"></p>
+<h5 id="5-把里面所有的TDL格式的文件复制到你所需要的地方。我的现在是E盘"><a href="#5-把里面所有的TDL格式的文件复制到你所需要的地方。我的现在是E盘" class="headerlink" title="5.把里面所有的TDL格式的文件复制到你所需要的地方。我的现在是E盘"></a>5.把里面所有的TDL格式的文件复制到你所需要的地方。我的现在是E盘</h5><p><img src="../images/2018008113752.png" alt="h5特性"></p>
+<h5 id="6-用win-R打开运行，并输入cmd，确定。"><a href="#6-用win-R打开运行，并输入cmd，确定。" class="headerlink" title="6.用win+R打开运行，并输入cmd，确定。"></a>6.用win+R打开运行，并输入cmd，确定。</h5><p><img src="../images/2018008114317.png" alt="h5特性"></p>
+<h5 id="7-输入d-再按回车，再输入copy-b-tdl-这儿输入你想要的名称-mp4，为了简便，你也可以输入copy-b-tdl-1-mp4-这样会生成名称为1的mp4文件，再重命名即可（代码复制粘贴到cmd-exe即可，若手动输入，不要丢掉1之前的空格）"><a href="#7-输入d-再按回车，再输入copy-b-tdl-这儿输入你想要的名称-mp4，为了简便，你也可以输入copy-b-tdl-1-mp4-这样会生成名称为1的mp4文件，再重命名即可（代码复制粘贴到cmd-exe即可，若手动输入，不要丢掉1之前的空格）" class="headerlink" title="7.输入d: 再按回车，再输入copy/b .tdl 这儿输入你想要的名称.mp4，为了简便，你也可以输入copy/b .tdl 1.mp4 ,这样会生成名称为1的mp4文件，再重命名即可（代码复制粘贴到cmd.exe即可，若手动输入，不要丢掉1之前的空格）"></a>7.输入d: 再按回车，再输入copy/b <em>.tdl 这儿输入你想要的名称.mp4，为了简便，你也可以输入copy/b </em>.tdl 1.mp4 ,这样会生成名称为1的mp4文件，再重命名即可（代码复制粘贴到cmd.exe即可，若手动输入，不要丢掉1之前的空格）</h5><p><img src="../images/2018008114533.png" alt="h5特性"></p>
+<h5 id="去D盘查看我们生成的mp4"><a href="#去D盘查看我们生成的mp4" class="headerlink" title="去D盘查看我们生成的mp4"></a>去D盘查看我们生成的mp4</h5><p><img src="../images/2018008114657.png" alt="h5特性"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">腾讯视频</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">QLV格式</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mp4格式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/08/腾讯视频QLV格式转换成mp4格式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-前端用到的框架总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/05/前端用到的框架总结/">前端用到的框架总结</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/05/前端用到的框架总结/" class="archive-article-date">
+  	<time datetime="2018-09-04T23:03:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="进入jQuery插件库，里面有很多框架和特效"><a href="#进入jQuery插件库，里面有很多框架和特效" class="headerlink" title="进入jQuery插件库，里面有很多框架和特效"></a>进入jQuery插件库，里面有很多框架和特效</h4><p>感谢jquery插件库:<a href="http://www.jq22.com/jquery/jquery.html" title="[jQuery插件库]" target="_blank" rel="external">jQuery插件库</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/05/前端用到的框架总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-html2canvas页面截图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -247,7 +552,7 @@ js
     <div class="article-entry" itemprop="articleBody">
       
         <h5 id="我第一次开发小程序，刚开始我是按网页开发是写的，先写页面布局，之后写的首页的js操作和数据请求，之后在写过程中出现了好多的重复又不完全一致的代码"><a href="#我第一次开发小程序，刚开始我是按网页开发是写的，先写页面布局，之后写的首页的js操作和数据请求，之后在写过程中出现了好多的重复又不完全一致的代码" class="headerlink" title="我第一次开发小程序，刚开始我是按网页开发是写的，先写页面布局，之后写的首页的js操作和数据请求，之后在写过程中出现了好多的重复又不完全一致的代码"></a>我第一次开发小程序，刚开始我是按网页开发是写的，先写页面布局，之后写的首页的js操作和数据请求，之后在写过程中出现了好多的重复又不完全一致的代码</h5><p>是因为我没有封装组件造成的。</p>
-
+<h5 id="1-爬虫问题"><a href="#1-爬虫问题" class="headerlink" title="1.爬虫问题"></a>1.爬虫问题</h5>
       
 
       
@@ -813,228 +1118,10 @@ display:inline;/*IE下再理解为5px*/
 
 
   
-    <article id="post-ajax" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/26/ajax/">ajax</a>
-    </h1>
-  
-
-        
-        <a href="/2015/04/26/ajax/" class="archive-article-date">
-  	<time datetime="2015-04-26T01:10:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-如何把数据传到服务器"><a href="#1-如何把数据传到服务器" class="headerlink" title="1.如何把数据传到服务器"></a>1.如何把数据传到服务器</h4><pre><code>* 前端：
-        构建表单
-        在form标签中声明处理用户数据的程序（action属性）提交用户数据的方式（method get post）
-        在输入框中一定要声明name属性
-* 后端：
-        前端用get方式提交 后台用$_get数组接收
-        前端用post方式提交 后台用$_post数组接收
-</code></pre><h4 id="2-get方式和post方式的区别"><a href="#2-get方式和post方式的区别" class="headerlink" title="2.get方式和post方式的区别"></a>2.get方式和post方式的区别</h4><pre><code>1.get方式提交的会把表单信息显示到地址栏没有请求正文post方式有请求正文
-2.get方式相对于post方式来说不太安全  post方式相对来说比较安全
-3.get方式传输的信息量比较小 post方式 信息传输量是无限大
-4.get方式Ajax提交必须把请求正文写在url后面 格式 key=value&amp;key=vale  post方式需要写在xhr.send()方法里
-5.get方式可以不写请求头xhr.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;);而post必须写
-</code></pre><h4 id="3-如何上传文件到服务器"><a href="#3-如何上传文件到服务器" class="headerlink" title="3.如何上传文件到服务器"></a>3.如何上传文件到服务器</h4><pre><code>* 前端 
-        构建表单
-        在from标签中声明处理用户数据的程序（action属性）必须使用post方式提交 enctype=&quot;multioart/form-data&quot;
-        用input：file来上传
-* 后端
-        用$_FILES来接受文件
-        用move_uploaded_file(临时文件的路径，目标文件的路径)
-</code></pre><h3 id="get与post的区别"><a href="#get与post的区别" class="headerlink" title="get与post的区别"></a>get与post的区别</h3><pre><code>__Get和Post都是向服务器发送的一种请求，只是发送机制不同。__
-1.get请求会将参数跟在URL后进行传递，而post请求则是作为http消息的实体内容发送给web服务器。当然在Ajax请求中，这种区别对用户是不可见的。
-2.首先是“Get方式提交的数据最多只能是1024字节”，因为Get是通过URL提交数据，那么get可提交的数据就跟URL的长度有直接关系了。而实际上，URL不存在参数上限的问题。
-http协议规范没有对URL长度进行限制。这个限制是特定的浏览器以及服务器对他的限制。
-IE对URL长度的限制是2083字节。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。注意这是限制是整个URL长度，而不仅仅是你的参数值数据长度。
-3.GET方式请求的数据会被浏览器缓存起来，因此其他人就可以从浏览器的历史记录中读取到这些数据，例如账号和密码等。在某种情况下，get方式会带来严重的问题。而post方式相对来说就可以避免这些问题。
-</code></pre><h4 id="get请求和post请求在服务器的区别："><a href="#get请求和post请求在服务器的区别：" class="headerlink" title="get请求和post请求在服务器的区别："></a>get请求和post请求在服务器的区别：</h4><pre><code>1.在客户端使用get请求时，服务器端使用Request.QueryString来获取参数，而客户端使用post请求时，服务器使用Request.Form来获取参数。
-2.http标准包含这两种方法是为了达到不同的目的。postPOST用于创建资源，
-资源的内容会被编入HTTP请示的内容中。例如，处理订货表单、在数据库中加入新数据行等。
-当请求无副作用时（如进行搜索），便可使用GET方法；当请求有副作用时（如添加数据行），
-则用POST方法。一个比较实际的问题是：GET方法可能会产生很长的URL，或许会超过某些浏览器与服务器对URL长度的限制。
-</code></pre><h4 id="若符合下列任一情况，则用POST方法："><a href="#若符合下列任一情况，则用POST方法：" class="headerlink" title="若符合下列任一情况，则用POST方法："></a>若符合下列任一情况，则用POST方法：</h4><pre><code>* 请求的结果有持续性的副作用，例如，数据库内添加新的数据行。
-* 若使用GET方法，则表单上收集的数据可能让URL过长。
-* 要传送的数据不是采用7位的ASCII编码。
-
-若符合下列任一情况，则用GET方法：
-
-* 请求是为了查找资源，HTML表单数据仅用来帮助搜索。
-* 请求结果无持续性的副作用。
-* 收集的数据及HTML表单内的输入字段名称的总长不超过1024个字符。
-</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><pre><code>1.请求方式不同
-2.在请求正文上 
-     post请求 输入的信息在请求信息的请求正文中
-     get请求   请求正文在请求地址后面 url？+key=value&amp;key1=value1
-3.在请求头中
-    post需要写Content-Type:application/x-www-form-urlencoded
-4.在请求内容的长度上
-    get请求的内容的长度是有限的 
-    post请求的的内容的长度是无限的
-5.在安全问题上
-    get请求相对来说不安全
-    post请求是相对安全的
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">get和post</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/04/26/ajax/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/25/js基础/">js基础</a>
-    </h1>
-  
-
-        
-        <a href="/2015/04/25/js基础/" class="archive-article-date">
-  	<time datetime="2015-04-25T09:23:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-04-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><pre><code>1.数组的作用，用于保存多个数据
-2.数组中的数组我们成为数组的元素
-3.数组中可以同时保存多个类型的元素，但是不推荐
-</code></pre><h4 id="数组的声明方式"><a href="#数组的声明方式" class="headerlink" title="数组的声明方式"></a>数组的声明方式</h4><pre><code> 1.方法一
-*var arr=new Array(1,2,3,4,5) 直接添加元素
-*var arr=new Array(6) 创建一个具有默认长度的数组，几乎没有用
- 2.方法二:常用
- *数组字面量形式：var arr=[1,2,3,4];
-</code></pre><h4 id="数组的长度"><a href="#数组的长度" class="headerlink" title="数组的长度"></a>数组的长度</h4><pre><code>数组的length属性表示数组中元素的个数
-</code></pre><h4 id="数组的索引"><a href="#数组的索引" class="headerlink" title="数组的索引"></a>数组的索引</h4><pre><code>数组中的元素是按照索引排列，索引从0开始
-我们可以根据索引获取和修改数组中的某个元素
-</code></pre><h4 id="数组的长度和索引的关系"><a href="#数组的长度和索引的关系" class="headerlink" title="数组的长度和索引的关系"></a>数组的长度和索引的关系</h4><pre><code>数组中最后一项的索引为arr.length-1
-数组中新项的索引，为arr.length
-</code></pre><h4 id="数组的基本操作方式"><a href="#数组的基本操作方式" class="headerlink" title="数组的基本操作方式"></a>数组的基本操作方式</h4><h4 id="1-正向遍历"><a href="#1-正向遍历" class="headerlink" title="1.正向遍历"></a>1.正向遍历</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">	<span class="built_in">console</span>.log(arr[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="2-反向遍历"><a href="#2-反向遍历" class="headerlink" title="2.反向遍历"></a>2.反向遍历</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=arr.length<span class="number">-1</span>;i&gt;<span class="number">0</span>;i--)&#123;</div><div class="line">	<span class="built_in">console</span>.log(arr[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="3-将0-99的所有数放到数组中"><a href="#3-将0-99的所有数放到数组中" class="headerlink" title="3.将0-99的所有数放到数组中"></a>3.将0-99的所有数放到数组中</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;</div><div class="line">arr[i]=i;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="4-将1-100中所有奇数放到数组中"><a href="#4-将1-100中所有奇数放到数组中" class="headerlink" title="4.将1-100中所有奇数放到数组中"></a>4.将1-100中所有奇数放到数组中</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">var</span> arr=[];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</div><div class="line"><span class="keyword">if</span>(i%<span class="number">2</span>!=<span class="number">0</span>)&#123;</div><div class="line">arr[arr.length]=i;</div><div class="line">	 &#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="5-将1-100之间能被3整除的数字，存到数组中"><a href="#5-将1-100之间能被3整除的数字，存到数组中" class="headerlink" title="5.将1-100之间能被3整除的数字，存到数组中"></a>5.将1-100之间能被3整除的数字，存到数组中</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</div><div class="line"><span class="keyword">if</span>(i/<span class="number">3</span>==<span class="number">0</span>)&#123;</div><div class="line">arr[arr.length]=i;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="6-求一组数中的所有的数的和-和平均值"><a href="#6-求一组数中的所有的数的和-和平均值" class="headerlink" title="6.求一组数中的所有的数的和 和平均值"></a>6.求一组数中的所有的数的和 和平均值</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">var</span> arr=[<span class="number">12</span>,<span class="number">34</span>,<span class="number">56</span>,<span class="number">67</span>,<span class="number">78</span>,<span class="number">90</span>];</div><div class="line"><span class="keyword">var</span> sum=<span class="number">0</span>,v;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">sum+=arr[i];</div><div class="line">&#125;</div><div class="line">v=sum/arr.length;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="7-求一组数中的最大值"><a href="#7-求一组数中的最大值" class="headerlink" title="7.求一组数中的最大值"></a>7.求一组数中的最大值</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">12</span>,<span class="number">34</span>,<span class="number">56</span>,<span class="number">67</span>,<span class="number">78</span>,<span class="number">90</span>];</div><div class="line"><span class="keyword">var</span> max=<span class="number">0</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">	<span class="keyword">if</span>(arr[i]&gt;max)&#123;</div><div class="line">		max=arr[i];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="8-求一组数中的最小值及其索引值"><a href="#8-求一组数中的最小值及其索引值" class="headerlink" title="8.求一组数中的最小值及其索引值"></a>8.求一组数中的最小值及其索引值</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">12</span>,<span class="number">34</span>,<span class="number">56</span>,<span class="number">67</span>,<span class="number">78</span>,<span class="number">90</span>];</div><div class="line"><span class="keyword">var</span> min=<span class="number">0</span>,v;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">	<span class="keyword">if</span>(arr[i]&lt;min)&#123;</div><div class="line">		min=arr[i];</div><div class="line">		v=i;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="9-将字符串数组用-或其他符号分割"><a href="#9-将字符串数组用-或其他符号分割" class="headerlink" title="9.将字符串数组用|或其他符号分割"></a>9.将字符串数组用|或其他符号分割</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr =[<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>];</div><div class="line"><span class="keyword">var</span> str=arr[<span class="number">0</span>];</div><div class="line"><span class="keyword">var</span> fenGeFu=<span class="string">'-'</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</div><div class="line">	str+=fenGefu+arr[i];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="10-翻转数组"><a href="#10-翻转数组" class="headerlink" title="10.翻转数组"></a>10.翻转数组</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">var</span> resultArr=[];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=arr.length<span class="number">-1</span>;i&gt;<span class="number">0</span>;i--)&#123;</div><div class="line">	resultArr[resultArr.length]=arr[i];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="11-要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组"><a href="#11-要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组" class="headerlink" title="11.要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组"></a>11.要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arrNew=[];</div><div class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">50</span>,<span class="number">5</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">0</span>,<span class="number">0</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> arr)&#123;</div><div class="line">	<span class="keyword">if</span>(arr[i]!==<span class="number">0</span>)&#123;</div><div class="line">	  arrNew.push(arr[i]);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h4 id="12-冒泡排序，从小到大"><a href="#12-冒泡排序，从小到大" class="headerlink" title="12.冒泡排序，从小到大"></a>12.冒泡排序，从小到大</h4><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> count=<span class="number">0</span>;<span class="comment">//设置一个变量去记录当前比较过得轮数</span></div><div class="line"><span class="comment">//1.外层循环控制比较的轮数</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length<span class="number">-1</span>;i++)&#123;</div><div class="line">	count++;</div><div class="line">	<span class="comment">//在每一轮开始的时候，假设当前这一轮已经比较完毕了</span></div><div class="line">	<span class="keyword">var</span> flag=<span class="literal">true</span>;</div><div class="line">	<span class="comment">//2.内层循环 控制每一轮比较的次数</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;arr.length<span class="number">-1</span>-i;j++)&#123;</div><div class="line">	<span class="comment">//3.如果当前项大于了后一个项</span></div><div class="line">	<span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</div><div class="line">		<span class="comment">//4.交换两个位置的值</span></div><div class="line">		<span class="keyword">var</span> temp=arr[j];</div><div class="line">		arr[j]=arr[j+<span class="number">1</span>];</div><div class="line">		arr[j+<span class="number">1</span>]=temp;</div><div class="line">		<span class="comment">//如果发生了任意一次交换。说明比较没有完毕，我们阻止跳出</span></div><div class="line">		flag=<span class="literal">false</span>；</div><div class="line">       &#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//验证假设条件是否成立</span></div><div class="line">	<span class="keyword">if</span>(flag)&#123;</div><div class="line">       <span class="keyword">break</span>;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/04/25/js基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1120,14 +1207,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css3属性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
@@ -1148,7 +1227,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css3属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1160,11 +1251,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
+                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">腾讯视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">QLV格式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mp4格式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
               </li>
             
             <div class="clearfix"></div>
