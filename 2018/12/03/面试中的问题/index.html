@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/12/03/面试中的问题/index.html">
 <meta property="og:site_name" content="web前端博客">
 <meta property="og:description" content="移动端前端开发与PC端比有哪些不同？第一： PC考虑的是浏览器的兼容性，而移动端开发考虑的更多的是手机兼容性，因为目前不管是android手机还是ios手机，一般浏览器使用的都是webkit内核，所以说做移动端开发，更多考虑的应该是手机分辨率的适配，和不同操作系统的略微差异化。  第二： 在部分事件的处理上，移动端多出来的事件是触屏事件，而缺少的是hover事件。 另外包括移动端弹出的手机键盘的处">
-<meta property="og:updated_time" content="2018-12-10T06:00:19.916Z">
+<meta property="og:updated_time" content="2019-01-02T08:46:35.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题">
 <meta name="twitter:description" content="移动端前端开发与PC端比有哪些不同？第一： PC考虑的是浏览器的兼容性，而移动端开发考虑的更多的是手机兼容性，因为目前不管是android手机还是ios手机，一般浏览器使用的都是webkit内核，所以说做移动端开发，更多考虑的应该是手机分辨率的适配，和不同操作系统的略微差异化。  第二： 在部分事件的处理上，移动端多出来的事件是触屏事件，而缺少的是hover事件。 另外包括移动端弹出的手机键盘的处">
@@ -196,6 +196,7 @@ isSameNode() 方法返回 true，如果两节点是相同的节点，否则返�
 </code></pre><h3 id="HTTP请求中浏览器缓存机制会用到的协议头？"><a href="#HTTP请求中浏览器缓存机制会用到的协议头？" class="headerlink" title="HTTP请求中浏览器缓存机制会用到的协议头？"></a>HTTP请求中浏览器缓存机制会用到的协议头？</h3><pre><code>Etag
 Cache-control
 Last-Modified
+Expires
 </code></pre><h3 id="HTML的-Doctype-作用-严格模式与混杂模式如何区分？它们有何意义"><a href="#HTML的-Doctype-作用-严格模式与混杂模式如何区分？它们有何意义" class="headerlink" title="HTML的 Doctype 作用 ?  严格模式与混杂模式如何区分？它们有何意义 ?"></a>HTML的 Doctype 作用 ?  严格模式与混杂模式如何区分？它们有何意义 ?</h3><pre><code>1.&lt;!DOCTYPE&gt; 声明位于文档中的最前面，处于 &lt;html&gt; 标签之前。告知浏览器的解析器，用什么文档类型 规范来解析这个文档。
 2.严格模式的排版和 JS 运作模式是 以该浏览器支持的最高标准运行。在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。
 3.DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。
@@ -227,7 +228,166 @@ HTML5 应该独立于设备
 对本地离线存储的更好的支持
 新的特殊内容元素，比如 article、footer、header、nav、section
 新的表单控件，比如 calendar、date、time、email、url、search
-</code></pre>
+</code></pre><h3 id="对布局有影响的css属性"><a href="#对布局有影响的css属性" class="headerlink" title="对布局有影响的css属性"></a>对布局有影响的css属性</h3><pre><code>width、height
+display
+position
+float
+overflow
+font-size
+margin
+padding
+word-break
+word-wrap
+visibility
+</code></pre><h3 id="JavaScript的函数调用有哪几种方式？请举例说明，并分析其不同之处。"><a href="#JavaScript的函数调用有哪几种方式？请举例说明，并分析其不同之处。" class="headerlink" title="JavaScript的函数调用有哪几种方式？请举例说明，并分析其不同之处。"></a>JavaScript的函数调用有哪几种方式？请举例说明，并分析其不同之处。</h3><pre><code>1.函数调用
+        this指向：window
+            返回值  ：由return值决定，如果没有return语句就表示没有返回值
+2.方法调用
+        this指向：该方法的调用者
+            返回值  ：由return语句决定
+3.构造函数调用
+        this指向：当前构造函数创建的对象
+        返回值  ：   a、没有手动添加返回值，默认返回this
+                        b、return了一个基本数据类型（数字、布尔值、null、undefined），最终返回this
+                        c、return了一个复杂数据类型（对象），最终返回该对象
+4.上下文调用
+        call和apply 是方法， 是所有函数都具有的方法。 Function.prototype
+        只要函数调用call/apply 方法，那么该函数就会立即执行。
+            this指向：   a、传递一个null/undefined-------------------&gt;window
+                        b、传递一个数字、字符串、布尔值-------&gt;对应的基本包装类型的对象
+                        c、传递一个对象-------------------------------&gt;指向该对象
+        返回值  ：由return语句决定
+</code></pre><h3 id="1）说明JavaScript的原型链（prototype-linkage）是如何形成的-2）利用原型链，模拟class的继承机制。"><a href="#1）说明JavaScript的原型链（prototype-linkage）是如何形成的-2）利用原型链，模拟class的继承机制。" class="headerlink" title="1）说明JavaScript的原型链（prototype linkage）是如何形成的,2）利用原型链，模拟class的继承机制。"></a>1）说明JavaScript的原型链（prototype linkage）是如何形成的,2）利用原型链，模拟class的继承机制。</h3><pre><code>1）每声明一个构造函数，就会有一个对应的原型对象，通过构造函数的prototype属性可以访问。而每一个构造函数的实例（即通过new操作符产生的对象）内部都有一个指针指向其构造函数的原型对象。如果我们把一个构造函数的prototype属性指向另一个构造函数的实例，那么我们就可以继承该实例（或称对象）的属性和方法了。那如果另一个构造函数的原型又指向其他构造函数，那么就可以不断继承，像一条链一样，这就是所谓的原型链。
+2）
+function Animal() {}
+    Animal.prototype.name = &apos;Animal&apos;
+    Animal.prototype.say= function () {
+        alert(this.name)
+}
+function Dog() {}
+Dog.prototype = new Animal()
+Dog.prototype.name = &apos;Dog&apos;
+var dog = new Dog()
+doy.say()
+</code></pre><h3 id="请举例说明前端MVVM-data-binding机制的实现原理。"><a href="#请举例说明前端MVVM-data-binding机制的实现原理。" class="headerlink" title="请举例说明前端MVVM data-binding机制的实现原理。"></a>请举例说明前端MVVM data-binding机制的实现原理。</h3><pre><code>主要通过Object.defineProperty()方法，其set的内部属性可以起到监听作用，可以为data中每一个字段绑定一个监听器。当发现字段的值发生了改变，在set内部属性中会触发函数，去更改视图的内容。
+</code></pre><h3 id="请举例说明DOM-event的传播机制和用途。"><a href="#请举例说明DOM-event的传播机制和用途。" class="headerlink" title="请举例说明DOM event的传播机制和用途。"></a>请举例说明DOM event的传播机制和用途。</h3><pre><code>第一阶段：从window对象传导到目标节点，称为“捕获阶段”(capture phase)。
+第二阶段：在目标节点上触发，称为“目标阶段”(target phase)。
+第三阶段：从目标节点传导回window对象，称为“冒泡阶段”(bubbling phase)。
+</code></pre><h3 id="ajax技术的优点"><a href="#ajax技术的优点" class="headerlink" title="ajax技术的优点"></a>ajax技术的优点</h3><pre><code>可以实现无刷新页面
+用户体验好、速度快
+</code></pre><h3 id="浏览器访问页面的过程"><a href="#浏览器访问页面的过程" class="headerlink" title="浏览器访问页面的过程"></a>浏览器访问页面的过程</h3><pre><code>应用层用到--HTTP协议
+传输层--tcp协议    
+网络层--ARP协议
+控制信息的传递--ICMP
+服务器后台处理--IP协议(DNS)
+打开网页---HTML
+</code></pre><h3 id="px、em、rem、vh、vw的区别是什么？"><a href="#px、em、rem、vh、vw的区别是什么？" class="headerlink" title="px、em、rem、vh、vw的区别是什么？"></a>px、em、rem、vh、vw的区别是什么？</h3><pre><code>px代表物理屏幕上能显示出的最小的一个点,
+em 是相对于父级的字体大小,
+rem是相对于HTML跟元素的字体大小,
+vh 和vw相对于视口的高度和宽度,1vh 等于1/100的视口高度，1vw 等于1/100的视口宽度
+pt ：印刷业上常使用的单位，磅的意思，一般用于页面打印排版。
+</code></pre><h3 id="DOM的onload和domContentLoaded事件有什么区别？"><a href="#DOM的onload和domContentLoaded事件有什么区别？" class="headerlink" title="DOM的onload和domContentLoaded事件有什么区别？"></a>DOM的onload和domContentLoaded事件有什么区别？</h3><pre><code>当 onload 事件触发时，页面上所有的DOM，样式表，脚本，图片，flash都已经加载完成了。
+当 DOMContentLoaded 事件触发时，仅当DOM加载完成，不包括样式表，图片，flash
+</code></pre><h3 id="requestAnimationFrame方法是做什么用的，应用场景有哪些？"><a href="#requestAnimationFrame方法是做什么用的，应用场景有哪些？" class="headerlink" title="requestAnimationFrame方法是做什么用的，应用场景有哪些？"></a>requestAnimationFrame方法是做什么用的，应用场景有哪些？</h3><pre><code>浏览器可以优化并行的动画动作，更合理的重新排列动作序列，并把能够合并的动作放在一个渲染周期内完成，从而呈现出更流畅的动画效果，节省CPU。
+应用场景：游戏、动画
+</code></pre><h3 id="网站的登录态是如何保持的，一个完整的登录流程是怎样实现的？"><a href="#网站的登录态是如何保持的，一个完整的登录流程是怎样实现的？" class="headerlink" title="网站的登录态是如何保持的，一个完整的登录流程是怎样实现的？"></a>网站的登录态是如何保持的，一个完整的登录流程是怎样实现的？</h3><pre><code>通过cookies来保持的，cookie面面存储token，每次请求到后端服务器都会带上token。从而验证用户是否登录。 
+输入用户、密码—&gt;点击登录发送到服务端—》服务端验证密码生成token—》写入到cookies返回成功
+1.客户端请求后台登录接口。
+2.后台验证通过后，将用户的登录状态保存至cookie并写入客户端。
+3.客户端再次登录网站，请求login接口时，后台直接从客户端获取到该用户写入cookie的登录状态。
+4.通过对该状态的验证，确认用户是否需要再次登录。
+5.如cookie过期，则跳转至登录页；如未过期，则直接显示为已登录状态。
+</code></pre><h3 id="css3常用的获取元素的伪类"><a href="#css3常用的获取元素的伪类" class="headerlink" title="css3常用的获取元素的伪类"></a>css3常用的获取元素的伪类</h3><pre><code>① p:last-of-type   选择其父元素的最后的一个P元素; 
+② p:last-child   选择其父元素的最后子元素(一定是P才行); 
+③ p:first-of-type   选择其父元素的首个P元素; 
+④ p:first-child 选择其父元素的首个子元素(一定是p才行); 
+⑤ p:only-child 选择其父元素的只有一个元素(而且这个元素只能是p元素，不能有其他元素); 
+⑥ p:only-of-type 选择其父元素的只有一个p元素(不能有第二个P元素，其他元素可以有); 
+⑦ p:nth-child(n)   选择其父元素的第N个 刚好是p的元素; 
+⑧ p:nth-last-child(n)   从最后一个子元素开始计数; 
+⑨ p:nth-of-type(n) 选择其父元素的n个元素; 
+⑩ p:nth-last-of-type(n)   从最后一个子元素开始计数
+</code></pre><h3 id="关于栈（stack）和堆（heap）"><a href="#关于栈（stack）和堆（heap）" class="headerlink" title="关于栈（stack）和堆（heap）"></a>关于栈（stack）和堆（heap）</h3><pre><code>基本类型存放在栈(stack)中
+引用类型存放在堆（heap）中
+指向引用类型的地址存放在栈(stack)中
+</code></pre><h3 id="use-strict-模式的目的是什么？"><a href="#use-strict-模式的目的是什么？" class="headerlink" title="use strict 模式的目的是什么？"></a>use strict 模式的目的是什么？</h3><pre><code>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为
+消除代码运行的一些不安全之处，保证代码运行的安全
+提高编译器效率，增加运行速度
+为未来新版本的Javascript做好铺垫
+</code></pre><h3 id="XML和JSON区别"><a href="#XML和JSON区别" class="headerlink" title="XML和JSON区别"></a>XML和JSON区别</h3><pre><code>（1）可读性方面：基本相同，XML的可读性比较好；
+
+（2）可扩展性方面：都具有良好的扩展性；
+
+（3）编码难度方面：相对而言，JSON的编码比较容易；
+
+（4）解码难度：JSON的解码难度基本为零，XML需要考虑子节点和父节点；
+
+（5）数据体积方面：JSON相对于XML来讲，数据体积小，传递的速度比较快；
+
+（6）数据交互方面：JSON与javascript的交互更加方便，更容易解析处理，更好的数据交互；
+
+（7）数据描述方面：XML对数据描述性比较好；
+
+（8）传输速度方面：JSON的速度远远快于XML。
+</code></pre><h3 id="身份正的正则表达式"><a href="#身份正的正则表达式" class="headerlink" title="身份正的正则表达式"></a>身份正的正则表达式</h3><pre><code>isIDCard=/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/;
+</code></pre><h3 id="在Bootstrap网格系统的工作原理"><a href="#在Bootstrap网格系统的工作原理" class="headerlink" title="在Bootstrap网格系统的工作原理"></a>在Bootstrap网格系统的工作原理</h3><pre><code>行必须放置在 .container class 内，以便获得适当的对齐和内边距
+使用行来创建列的水平组
+预定义的网格类可用于快速创建网格布局
+</code></pre><h3 id="默认常见端口"><a href="#默认常见端口" class="headerlink" title="默认常见端口"></a>默认常见端口</h3><pre><code>HTTP服务器，默认的端口号为80
+HTTPS服务器，默认的端口号为443
+Telnet默认端口号为23
+FTP默认的端口号为21
+</code></pre><h3 id="常见的对称加密算法有"><a href="#常见的对称加密算法有" class="headerlink" title="常见的对称加密算法有"></a>常见的对称加密算法有</h3><pre><code>常见的对称加密算法有DES、3DES、AES、Blowfish、IDEA、RC5、RC6。
+</code></pre><h3 id="js的运行核心"><a href="#js的运行核心" class="headerlink" title="js的运行核心"></a>js的运行核心</h3><pre><code>javascript语言实现继承机制的核心就是 prototype ，而不是Java语言那样的类式继承。Javascript 解析引擎在读取一个Object的属性的值时，会沿着 原型链向上寻找，如果最终没有找到，则该属性值为 undefined ；
+ 如果最终找到该属性的值，则返回结果。与这个过程不同的是，当javascript解析引擎执行“给一个Object的某个属性赋值”的时候，如果当前Object存在该属性，则改写该属性的值，如果当前的Object本身并不存在该属性，则赋值该属性的值 。
+</code></pre><h3 id="cookies，sessionStorage和localStorage有什么区别，应用场景在哪里？"><a href="#cookies，sessionStorage和localStorage有什么区别，应用场景在哪里？" class="headerlink" title="cookies，sessionStorage和localStorage有什么区别，应用场景在哪里？"></a>cookies，sessionStorage和localStorage有什么区别，应用场景在哪里？</h3><pre><code>cookies:
+    数据生命期:生成时就会被指定一个maxAge值，这就是cookies生存的周期。在这个周期内cookies有效，默认关闭浏览器失效
+    存放数据大小:4k左右（因为每次http请求都会带cookies）
+    与服务器的通讯:由于对服务器的请求每次都会携带HTTP请求头中，如果使用cookies保存会带来性能问题。
+    易用性：cookies需要自己封装setCookies和getCookies
+sessionStrorage:
+    数据生命期:页面会话期间可用
+    存放数据大小:一般为5M或更大
+    与服务器通讯:数据不是有每个服务器请求传递的，而是只在请求时传递数据，不参与和服务器的通讯。
+    易用性:可用源生接口，也可以再次封装对Object和array有更好的支持。
+localStorage:
+    数据生命期:除非数据清除，否一直存在
+    存放数据大小:一般为5M或更大
+    与服务器通讯：数据不是由每个服务器请求传递的,而是只在请求时传递数据，不参与和服务器的通讯。
+    易用性:可用源生接口，也可以再次封装对Object和Array有更好的支持。
+共同点：都是保存在浏览器端，和服务器端的session机制不同
+</code></pre><h3 id="JSONP的跨域原理是什么？"><a href="#JSONP的跨域原理是什么？" class="headerlink" title="JSONP的跨域原理是什么？"></a>JSONP的跨域原理是什么？</h3><pre><code>其本质是利用了标签具有可跨域的特性，由服务端返回预先定义好的javascript函数的调用，并且将服务端数据以该函数参数的形式传递过来。
+</code></pre><h3 id="常见的语义化标签"><a href="#常见的语义化标签" class="headerlink" title="常见的语义化标签"></a>常见的语义化标签</h3><pre><code>&lt;title&gt;：页面主体内容。
+&lt;hn&gt;：h1~h6，分级标题，&lt;h1&gt; 与 &lt;title&gt; 协调有利于搜索引擎优化。
+&lt;ul&gt;：无序列表。
+&lt;li&gt;：有序列表。
+&lt;header&gt;：页眉通常包括网站标志、主导航、全站链接以及搜索框。
+&lt;nav&gt;：标记导航，仅对文档中重要的链接群使用。
+&lt;main&gt;：页面主要内容，一个页面只能使用一次。如果是web应用，则包围其主要功能。
+&lt;article&gt;：定义外部的内容，其中的内容独立于文档的其余部分。
+&lt;section&gt;：定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。
+&lt;aside&gt;：定义其所处内容之外的内容。如侧栏、文章的一组链接、广告、友情链接、相关产品列表等。
+&lt;footer&gt;：页脚，只有当父级是body时，才是整个页面的页脚。
+&lt;small&gt;：呈现小号字体效果，指定细则，输入免责声明、注解、署名、版权。
+&lt;strong&gt;：和 em 标签一样，用于强调文本，但它强调的程度更强一些。
+&lt;em&gt;：将其中的文本表示为强调的内容，表现为斜体。
+&lt;mark&gt;：使用黄色突出显示部分文本。
+&lt;figure&gt;：规定独立的流内容（图像、图表、照片、代码等等）（默认有40px左右margin）。
+&lt;figcaption&gt;：定义 figure 元素的标题，应该被置于 figure 元素的第一个或最后一个子元素的位置。
+&lt;cite&gt;：表示所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。
+&lt;blockquoto&gt;：定义块引用，块引用拥有它们自己的空间。
+&lt;q&gt;：短的引述（跨浏览器问题，尽量避免使用）。
+&lt;time&gt;：datetime属性遵循特定格式，如果忽略此属性，文本内容必须是合法的日期或者时间格式。
+&lt;abbr&gt;：简称或缩写。
+&lt;dfn&gt;：定义术语元素，与定义必须紧挨着，可以在描述列表dl元素中使用。
+&lt;address&gt;：作者、相关人士或组织的联系信息（电子邮件地址、指向联系信息页的链接）。
+&lt;del&gt;：移除的内容。
+&lt;ins&gt;：添加的内容。
+&lt;code&gt;：标记代码。
+&lt;meter&gt;：定义已知范围或分数值内的标量测量。（Internet Explorer 不支持 meter 标签）
+&lt;progress&gt;：定义运行中的进度（进程）。
+</code></pre><p>### </p>
+
       
 
       
@@ -320,6 +480,11 @@ HTML5 应该独立于设备
     </a>
   
   
+    <a href="/2018/12/25/游戏开发过程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">游戏开发过程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
 </nav>
 
 
@@ -359,7 +524,7 @@ HTML5 应该独立于设备
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Wia
+    		&copy; 2019 Wia
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -434,23 +599,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,6 +619,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
@@ -478,15 +635,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,6 +652,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mp4格式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
