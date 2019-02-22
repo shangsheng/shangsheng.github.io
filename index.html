@@ -142,6 +142,113 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jquery和JavaScript面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/14/jquery和JavaScript面试题/">jQuery和JavaScript的面试题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/14/jquery和JavaScript面试题/" class="archive-article-date">
+  	<time datetime="2019-02-14T10:52:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、JavaScript面试题"><a href="#一、JavaScript面试题" class="headerlink" title="一、JavaScript面试题"></a>一、JavaScript面试题</h2><h4 id="1、scope作用范围"><a href="#1、scope作用范围" class="headerlink" title="1、scope作用范围"></a>1、scope作用范围</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> a=b=<span class="number">10</span>;</div><div class="line">&#125;)();</div><div class="line"><span class="built_in">console</span>.log(b);</div></pre></td></tr></table></figure>
+<pre><code>什么会打印在控制台上？
+答：
+控制台上会打印出 10
+因为这里两个声明变量，a是用var 声明的局部变量，而b是全局变量
+没有使用 &apos;use strict&apos; 严格模式，在严格模式下，代码就会引发ReferenceError错误，b没有定义（b is undefined），严格模式需要明确指出才能实现全局变量。
+</code></pre><h4 id="2、创建源生’native’方法"><a href="#2、创建源生’native’方法" class="headerlink" title="2、创建源生’native’方法"></a>2、创建源生’native’方法</h4><pre><code>给字符串对象定义一个repeatify功能。当传入一个整数n时，它会返回重复n次字符串的结果。例如：
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'hello'</span>.repeatify(<span class="number">3</span>))</div></pre></td></tr></table></figure>
+<pre><code>回答：打印出hellohellohello
+    实现如下
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.repeatify = <span class="built_in">String</span>.prototype.repeatify || <span class="function"><span class="keyword">function</span>(<span class="params">time</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> str= <span class="string">''</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;time;i++)&#123;</div><div class="line">		str +=<span class="keyword">this</span>;</div><div class="line">	&#125;;</div><div class="line">	<span class="keyword">return</span> str</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-声明提升（Hoisting）"><a href="#3-声明提升（Hoisting）" class="headerlink" title="3.声明提升（Hoisting）"></a>3.声明提升（Hoisting）</h4><pre><code>执行这段代码，输出的结果是什么
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(a);</div><div class="line">	<span class="built_in">console</span>.log(foo());</div><div class="line">	<span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">2</span></div><div class="line">	&#125;</div><div class="line">&#125;)()</div></pre></td></tr></table></figure>
+<pre><code>答：输出的是 undefined 和 2
+原因是变量声明和函数声明会被提升到函数顶部，变量只有声明没有值，因此在打印时它已经存在了，所以打印出undefined
+</code></pre><h4 id="4、this在JavaScript中如何工作的"><a href="#4、this在JavaScript中如何工作的" class="headerlink" title="4、this在JavaScript中如何工作的"></a>4、this在JavaScript中如何工作的</h4><pre><code>下面代码会输出什么结果
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">var</span> fullname = <span class="string">'John Doe'</span>;</div><div class="line">    <span class="keyword">var</span> obj = &#123;</div><div class="line">       <span class="attr">fullname</span>: <span class="string">'Colin Ihrig'</span>,</div><div class="line">       <span class="attr">prop</span>: &#123;</div><div class="line">          <span class="attr">fullname</span>: <span class="string">'Aurelio De Rosa'</span>,</div><div class="line">          <span class="attr">getFullname</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">             <span class="keyword">return</span> <span class="keyword">this</span>.fullname;</div><div class="line">          &#125;</div><div class="line">       &#125;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj.prop.getFullname());</div><div class="line"><span class="keyword">var</span> test = obj.prop.getFullname;</div><div class="line"><span class="built_in">console</span>.log(test())</div></pre></td></tr></table></figure>
+<pre><code>答：输出的是 Aurelio De Rosa 和 John Doe
+原因是:在一个函数中，this的取值是看JavaScript调用方式的和定义方式，而不仅仅是定义方式。
+在第一个console.log()中，getFullname()作为obj.prop的被调用对象,所以上下文指向后者，函数返回该对象的fullname,与此相反，getFullname被分配到test(),上下文指的是全局对象（window），只是因为test是被隐式设置的全局对象的属性，出于这个原因，该函数返回window的fullname
+</code></pre><h4 id="5、call-和apply"><a href="#5、call-和apply" class="headerlink" title="5、call()和apply()"></a>5、call()和apply()</h4><pre><code>现在让你解决前一个问题，使最后的console.log() 打印 Aurelio De Rosa。
+回答：
+    call()和apply()强制改变上下文的的this指向
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(test.call(obj.prop))和<span class="built_in">console</span>.log(test.apply(obj.prop))</div></pre></td></tr></table></figure>
+<h2 id="二、jQuery面试问题"><a href="#二、jQuery面试问题" class="headerlink" title="二、jQuery面试问题"></a>二、jQuery面试问题</h2><h4 id="1、jQuery库中-是什么"><a href="#1、jQuery库中-是什么" class="headerlink" title="1、jQuery库中$()是什么"></a>1、jQuery库中$()是什么</h4><pre><code>$()是jQuery()的别称，乍一看比较怪异，还使jQuery代码羞涩难懂，但是等你适应了，就会爱上它的简单了。$()函数是把任何对象包裹成jQuery对象，接着你就会被允许调用jQuery里的定义的多个不同方法。你甚至传入选择器字符串与$()函数，它会返回包含所有匹配DOM元素数组的jQuery对象。
+</code></pre><h4 id="2、-doument-ready-是什么函数，为什么要用它"><a href="#2、-doument-ready-是什么函数，为什么要用它" class="headerlink" title="2、$(doument).ready()是什么函数，为什么要用它"></a>2、$(doument).ready()是什么函数，为什么要用它</h4><pre><code>ready()函数用于文档进入ready状态的时执行的代码，当DOM完全加载(例如：HTML元素加载完成时DOM树构建完成时)，jQuery允许你的代码执行。使用$(document).ready()的最大好处是解决了跨浏览器的难题。
+</code></pre><h4 id="3、JavaScript-window-onload和jQuery-ready-函数的区别"><a href="#3、JavaScript-window-onload和jQuery-ready-函数的区别" class="headerlink" title="3、JavaScript window.onload和jQuery ready()函数的区别"></a>3、JavaScript window.onload和jQuery ready()函数的区别</h4><pre><code>JavaScript window.onload事件和jQuery ready 函数的主要区别是
+前者是要等到DOM被创建和图片、音频、视频加载完成以及外部资源加载完成，如果图片加载和媒体加载话费了大量的时间，用户就会感到定义在JavaScript window.onload 的上的代码在执行是有明显迟到。
+jQuery ready()函数只需对DOM树加载等待，无需对图片或媒体加载等待，执行起来更快。使用jQuery ready()函数的另一个优势是可以在页面中多次使用它，浏览器会按在HTML里的顺序来执行它，相对于onload来说，只在单一的函数中执行。鉴于这个好处，jQuery ready函数比JavaScript window.onload好用。
+</code></pre><h4 id="4、-this-和this在jQuery中的不同"><a href="#4、-this-和this在jQuery中的不同" class="headerlink" title="4、$(this)和this在jQuery中的不同"></a>4、$(this)和this在jQuery中的不同</h4><pre><code>$(this)返回的是jQuery对象，可以对它调用jQuery多个方法，例如text()获取文本，val()获取值等。this是JavaScript中的关键字，表示上下文的DOM元素。不能直接调用jQuery方法，需要$()包裹来执行。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/14/jquery和JavaScript面试题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-小程序面试中的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1206,125 +1313,6 @@ js
 
 
   
-    <article id="post-css的兼容问题与解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/15/css的兼容问题与解决方法/">css的兼容问题与解决方法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/15/css的兼容问题与解决方法/" class="archive-article-date">
-  	<time datetime="2018-05-15T01:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="兼容性处理要点"><a href="#兼容性处理要点" class="headerlink" title="兼容性处理要点"></a>兼容性处理要点</h2><pre><code>1.DOCTYPE影响css的处理；
-2.FF：设置padding，div会增加高度和宽度，IE不会，故需要!important多设置一个hight和width；
-3.div的剧中问题：vertical-middle;将行距增加到与div一样的高度，字体就会垂直剧中，缺点是字体需要在同一行上。
-4.IE浏览器不识别 !important;
-5.在mozilla firefox浏览器和ie浏览器box中的解析不一致导致2px;
-    解决方法：div{margin:30px !important;margin:28px}
-    注意这两个margin的顺序一定不能写反，!important这个属性IE不能识别，但别的浏览器可以识别。所以在IE下其实解释成这样： 
-    div{maring:30px;margin:28px} 
-    重复定义的话按照最后一个来执行，所以不可以只写margin:XXpx!important; 
-</code></pre><h2 id="浏览器的差异"><a href="#浏览器的差异" class="headerlink" title="浏览器的差异"></a>浏览器的差异</h2><h3 id="1-ul和ol列表缩进问题"><a href="#1-ul和ol列表缩进问题" class="headerlink" title="1.ul和ol列表缩进问题"></a>1.ul和ol列表缩进问题</h3><pre><code>消除ul、ol等列表的缩进时，样式应写成：list-style:none;margin:0px;padding:0px; 
-其中margin属性对IE有效，padding属性对FireFox有效。 
-
-[注]经验证，在IE中，设置margin:0px可以去除列表的上下左右缩进、空白以及列表编号或圆点，设置padding对样式没有影响；在 Firefox 中，设置margin:0px仅仅可以去除上下的空白，设置padding:0px后仅仅可以去掉左右缩进，还必须设置list- style:none才 能去除列表编号或圆点。也就是说，在IE中仅仅设置margin:0px即可达到最终效果，而在Firefox中必须同时设置margin:0px、 padding:0px以及list-style:none三项才能达到最终效果。
-</code></pre><h3 id="2、CSS透明问题"><a href="#2、CSS透明问题" class="headerlink" title="2、CSS透明问题"></a>2、CSS透明问题</h3><pre><code>IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)。 
-FF：opacity:0.6。 
-[注] 最好两个都写，并将opacity属性放在下面。 
-</code></pre><h3 id="3、CSS圆角问题"><a href="#3、CSS圆角问题" class="headerlink" title="3、CSS圆角问题"></a>3、CSS圆角问题</h3><pre><code>IE：ie7以下版本不支持圆角。 
-FF： -moz-border-radius:4px，或者-moz-border-radius-topleft:4px;-moz- border- radius-topright:4px;-moz-border-radius-bottomleft:4px;-moz- border- radius- bottomright:4px;。 
-[注] 圆角问题是CSS中的经典问题，建议使用JQuery框架集来设置圆角，让这些复杂的问题留给别人去想吧。不过jQuery的圆角只看到支持整个区域的圆角，没有支持边框的圆角，不过这个边框的圆角可以通过一些简单的手段来实现，下次有机会介绍下。 
-</code></pre><h3 id="4、cursor-hand-VS-cursor-pointer"><a href="#4、cursor-hand-VS-cursor-pointer" class="headerlink" title="4、cursor:hand VS cursor:pointer"></a>4、cursor:hand VS cursor:pointer</h3><pre><code>问题说明：firefox不支持hand，但ie支持pointer ，两者都是手形指示。 
-解决方法：统一使用pointer。 
-</code></pre><h3 id="5、字体大小定义不同"><a href="#5、字体大小定义不同" class="headerlink" title="5、字体大小定义不同"></a>5、字体大小定义不同</h3><pre><code>对字体大小small的定义不同，Firefox中为13px，而IE中为16px，差别挺大。 
-
-解决方法：使用指定的字体大小如14px。 
-
-并列排列的多个元素（图片或者链接）的div和div之间，代码中的空格和回车在firefox中都会被忽略，而IE中却默认显示为空格（约3px）。 
-</code></pre><h3 id="6、CSS双线凹凸边框"><a href="#6、CSS双线凹凸边框" class="headerlink" title="6、CSS双线凹凸边框"></a>6、CSS双线凹凸边框</h3><pre><code>IE：border:2px outset;。 
-FF： -moz-border-top-colors: #d4d0c8 white;-moz-border-left-colors: #d4d0c8 white;-moz-border-right-colors:#404040 #808080;-moz-border-bottom-colors:#404040 #808080; 
-</code></pre><h2 id="浏览器bug"><a href="#浏览器bug" class="headerlink" title="浏览器bug"></a>浏览器bug</h2><h3 id="1、IE的双边距bug"><a href="#1、IE的双边距bug" class="headerlink" title="1、IE的双边距bug"></a>1、IE的双边距bug</h3><pre><code>设置为float的div在ie下设置的margin会加倍。这是一个ie6都存在的bug。 
-解决方案：在这个div里面加上display:inline; 
-例如： 
-    <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">”imfloat”</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-</code></pre><h5 id="相应的css为"><a href="#相应的css为" class="headerlink" title="相应的css为"></a>相应的css为</h5><h5 id="以下为引用的内容："><a href="#以下为引用的内容：" class="headerlink" title="以下为引用的内容："></a>以下为引用的内容：</h5><pre><code>#IamFloat{ 
-float:left; 
-margin:5px;/*IE下理解为10px*/ 
-display:inline;/*IE下再理解为5px*/ 
-} 
-#IamFloat{ 
-float:left; 
-margin:5px;/*IE下理解为10px*/ 
-display:inline;/*IE下再理解为5px*/ 
-}
-关于CSS中的问题实在太多了，甚至同样的CSS定义在不同的页面标准中的显示效果都是不一样的。一个合乎发展的建议是，页面采用标准XHTML标准编写，较少使用table，CSS定义尽量依照标准DOM，同时兼顾IE、Firefox、Opera等主流浏览器。很多情况下，FF和 Opera的CSS解释标准更贴近CSS标准，也更具有规范性。 
-</code></pre><h3 id="2、IE选择符空格BUG"><a href="#2、IE选择符空格BUG" class="headerlink" title="2、IE选择符空格BUG"></a>2、IE选择符空格BUG</h3><h5 id="今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。"><a href="#今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。" class="headerlink" title="今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。"></a>今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。</h5><h5 id="请看以下代码："><a href="#请看以下代码：" class="headerlink" title="请看以下代码："></a>请看以下代码：</h5><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"//www.w3.org/1999/xhtml"</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="xml"> </span></div><div class="line"><span class="comment">&lt;!-- </span></div><div class="line">p&#123;font-size:12px;&#125; </div><div class="line">p:first-letter&#123;font-size:300%&#125; </div><div class="line">--&gt; </div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>对于世界而言，你是一个人；但是对于某个人，你是他的整个世界。纵然伤心，也不要愁眉不展，因为你不知是谁会爱上你的笑容。<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-
-这段代码对&lt;p&gt;的首字符样式定义在IE6上看是没有效果的（IE7没测试），而在p:first-letter和{font-size:300%}加上空格，也就是p:first-letter {font-size:300%}后，显示就正常了。但是同样的代码，在FireFox下看是正常的。按道理说，p:first-letter{font-size:300%}的写法是没错的。那么问题出在哪里呢？答案是伪类中的连字符”-”。IE有个BUG，在处理伪类时，如果伪类的名称中带有连字符”-”，伪类名称后面就得跟一个空格，不然样式的定义就无效。而在FF中，加不加空格都可以正常处理。
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">css的兼容</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/15/css的兼容问题与解决方法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1418,6 +1406,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
               </li>
              
@@ -1426,19 +1426,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1450,11 +1438,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1470,23 +1458,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">跨域</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">

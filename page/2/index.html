@@ -142,6 +142,125 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-css的兼容问题与解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/15/css的兼容问题与解决方法/">css的兼容问题与解决方法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/15/css的兼容问题与解决方法/" class="archive-article-date">
+  	<time datetime="2018-05-15T01:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="兼容性处理要点"><a href="#兼容性处理要点" class="headerlink" title="兼容性处理要点"></a>兼容性处理要点</h2><pre><code>1.DOCTYPE影响css的处理；
+2.FF：设置padding，div会增加高度和宽度，IE不会，故需要!important多设置一个hight和width；
+3.div的剧中问题：vertical-middle;将行距增加到与div一样的高度，字体就会垂直剧中，缺点是字体需要在同一行上。
+4.IE浏览器不识别 !important;
+5.在mozilla firefox浏览器和ie浏览器box中的解析不一致导致2px;
+    解决方法：div{margin:30px !important;margin:28px}
+    注意这两个margin的顺序一定不能写反，!important这个属性IE不能识别，但别的浏览器可以识别。所以在IE下其实解释成这样： 
+    div{maring:30px;margin:28px} 
+    重复定义的话按照最后一个来执行，所以不可以只写margin:XXpx!important; 
+</code></pre><h2 id="浏览器的差异"><a href="#浏览器的差异" class="headerlink" title="浏览器的差异"></a>浏览器的差异</h2><h3 id="1-ul和ol列表缩进问题"><a href="#1-ul和ol列表缩进问题" class="headerlink" title="1.ul和ol列表缩进问题"></a>1.ul和ol列表缩进问题</h3><pre><code>消除ul、ol等列表的缩进时，样式应写成：list-style:none;margin:0px;padding:0px; 
+其中margin属性对IE有效，padding属性对FireFox有效。 
+
+[注]经验证，在IE中，设置margin:0px可以去除列表的上下左右缩进、空白以及列表编号或圆点，设置padding对样式没有影响；在 Firefox 中，设置margin:0px仅仅可以去除上下的空白，设置padding:0px后仅仅可以去掉左右缩进，还必须设置list- style:none才 能去除列表编号或圆点。也就是说，在IE中仅仅设置margin:0px即可达到最终效果，而在Firefox中必须同时设置margin:0px、 padding:0px以及list-style:none三项才能达到最终效果。
+</code></pre><h3 id="2、CSS透明问题"><a href="#2、CSS透明问题" class="headerlink" title="2、CSS透明问题"></a>2、CSS透明问题</h3><pre><code>IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)。 
+FF：opacity:0.6。 
+[注] 最好两个都写，并将opacity属性放在下面。 
+</code></pre><h3 id="3、CSS圆角问题"><a href="#3、CSS圆角问题" class="headerlink" title="3、CSS圆角问题"></a>3、CSS圆角问题</h3><pre><code>IE：ie7以下版本不支持圆角。 
+FF： -moz-border-radius:4px，或者-moz-border-radius-topleft:4px;-moz- border- radius-topright:4px;-moz-border-radius-bottomleft:4px;-moz- border- radius- bottomright:4px;。 
+[注] 圆角问题是CSS中的经典问题，建议使用JQuery框架集来设置圆角，让这些复杂的问题留给别人去想吧。不过jQuery的圆角只看到支持整个区域的圆角，没有支持边框的圆角，不过这个边框的圆角可以通过一些简单的手段来实现，下次有机会介绍下。 
+</code></pre><h3 id="4、cursor-hand-VS-cursor-pointer"><a href="#4、cursor-hand-VS-cursor-pointer" class="headerlink" title="4、cursor:hand VS cursor:pointer"></a>4、cursor:hand VS cursor:pointer</h3><pre><code>问题说明：firefox不支持hand，但ie支持pointer ，两者都是手形指示。 
+解决方法：统一使用pointer。 
+</code></pre><h3 id="5、字体大小定义不同"><a href="#5、字体大小定义不同" class="headerlink" title="5、字体大小定义不同"></a>5、字体大小定义不同</h3><pre><code>对字体大小small的定义不同，Firefox中为13px，而IE中为16px，差别挺大。 
+
+解决方法：使用指定的字体大小如14px。 
+
+并列排列的多个元素（图片或者链接）的div和div之间，代码中的空格和回车在firefox中都会被忽略，而IE中却默认显示为空格（约3px）。 
+</code></pre><h3 id="6、CSS双线凹凸边框"><a href="#6、CSS双线凹凸边框" class="headerlink" title="6、CSS双线凹凸边框"></a>6、CSS双线凹凸边框</h3><pre><code>IE：border:2px outset;。 
+FF： -moz-border-top-colors: #d4d0c8 white;-moz-border-left-colors: #d4d0c8 white;-moz-border-right-colors:#404040 #808080;-moz-border-bottom-colors:#404040 #808080; 
+</code></pre><h2 id="浏览器bug"><a href="#浏览器bug" class="headerlink" title="浏览器bug"></a>浏览器bug</h2><h3 id="1、IE的双边距bug"><a href="#1、IE的双边距bug" class="headerlink" title="1、IE的双边距bug"></a>1、IE的双边距bug</h3><pre><code>设置为float的div在ie下设置的margin会加倍。这是一个ie6都存在的bug。 
+解决方案：在这个div里面加上display:inline; 
+例如： 
+    <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">”imfloat”</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</code></pre><h5 id="相应的css为"><a href="#相应的css为" class="headerlink" title="相应的css为"></a>相应的css为</h5><h5 id="以下为引用的内容："><a href="#以下为引用的内容：" class="headerlink" title="以下为引用的内容："></a>以下为引用的内容：</h5><pre><code>#IamFloat{ 
+float:left; 
+margin:5px;/*IE下理解为10px*/ 
+display:inline;/*IE下再理解为5px*/ 
+} 
+#IamFloat{ 
+float:left; 
+margin:5px;/*IE下理解为10px*/ 
+display:inline;/*IE下再理解为5px*/ 
+}
+关于CSS中的问题实在太多了，甚至同样的CSS定义在不同的页面标准中的显示效果都是不一样的。一个合乎发展的建议是，页面采用标准XHTML标准编写，较少使用table，CSS定义尽量依照标准DOM，同时兼顾IE、Firefox、Opera等主流浏览器。很多情况下，FF和 Opera的CSS解释标准更贴近CSS标准，也更具有规范性。 
+</code></pre><h3 id="2、IE选择符空格BUG"><a href="#2、IE选择符空格BUG" class="headerlink" title="2、IE选择符空格BUG"></a>2、IE选择符空格BUG</h3><h5 id="今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。"><a href="#今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。" class="headerlink" title="今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。"></a>今天在给博客的段落样式设置首字符样式的时候发现，原来一个空格也可以使样式失效。</h5><h5 id="请看以下代码："><a href="#请看以下代码：" class="headerlink" title="请看以下代码："></a>请看以下代码：</h5><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"//www.w3.org/1999/xhtml"</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="xml"> </span></div><div class="line"><span class="comment">&lt;!-- </span></div><div class="line">p&#123;font-size:12px;&#125; </div><div class="line">p:first-letter&#123;font-size:300%&#125; </div><div class="line">--&gt; </div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>对于世界而言，你是一个人；但是对于某个人，你是他的整个世界。纵然伤心，也不要愁眉不展，因为你不知是谁会爱上你的笑容。<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+这段代码对&lt;p&gt;的首字符样式定义在IE6上看是没有效果的（IE7没测试），而在p:first-letter和{font-size:300%}加上空格，也就是p:first-letter {font-size:300%}后，显示就正常了。但是同样的代码，在FireFox下看是正常的。按道理说，p:first-letter{font-size:300%}的写法是没错的。那么问题出在哪里呢？答案是伪类中的连字符”-”。IE有个BUG，在处理伪类时，如果伪类的名称中带有连字符”-”，伪类名称后面就得跟一个空格，不然样式的定义就无效。而在FF中，加不加空格都可以正常处理。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">css的兼容</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/15/css的兼容问题与解决方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -614,6 +733,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
               </li>
              
@@ -622,19 +753,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,11 +765,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,23 +785,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">跨域</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">

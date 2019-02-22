@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 框架 | web前端博客</title>
+  <title>jQuery和JavaScript的面试题 | web前端博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端所用笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="web前端博客">
-<meta property="og:url" content="http://yoursite.com/tags/框架/index.html">
+  <meta name="description" content="一、JavaScript面试题1、scope作用范围1234(function()&amp;#123;	var a=b=10;&amp;#125;)();console.log(b); 什么会打印在控制台上？ 答： 控制台上会打印出 10 因为这里两个声明变量，a是用var 声明的局部变量，而b是全局变量 没有使用 &amp;apos;use strict&amp;apos; 严格模式，在严格模式下，代码就会引发Referenc">
+<meta name="keywords" content="jQuery,javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery和JavaScript的面试题">
+<meta property="og:url" content="http://yoursite.com/2019/02/14/jquery和JavaScript面试题/index.html">
 <meta property="og:site_name" content="web前端博客">
-<meta property="og:description" content="前端所用笔记">
+<meta property="og:description" content="一、JavaScript面试题1、scope作用范围1234(function()&amp;#123;	var a=b=10;&amp;#125;)();console.log(b); 什么会打印在控制台上？ 答： 控制台上会打印出 10 因为这里两个声明变量，a是用var 声明的局部变量，而b是全局变量 没有使用 &amp;apos;use strict&amp;apos; 严格模式，在严格模式下，代码就会引发Referenc">
+<meta property="og:updated_time" content="2019-02-14T07:22:36.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="web前端博客">
-<meta name="twitter:description" content="前端所用笔记">
+<meta name="twitter:title" content="jQuery和JavaScript的面试题">
+<meta name="twitter:description" content="一、JavaScript面试题1、scope作用范围1234(function()&amp;#123;	var a=b=10;&amp;#125;)();console.log(b); 什么会打印在控制台上？ 答： 控制台上会打印出 10 因为这里两个声明变量，a是用var 声明的局部变量，而b是全局变量 没有使用 &amp;apos;use strict&amp;apos; 严格模式，在严格模式下，代码就会引发Referenc">
   
     <link rel="alternative" href="/atom.xml" title="web前端博客" type="application/atom+xml">
   
@@ -140,64 +142,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-jquery和JavaScript面试题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/05/前端用到的框架总结/" class="archive-article-date">
-  	<time datetime="2018-09-04T23:03:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/05/前端用到的框架总结/">前端用到的框架总结</a>
+    <h1 class="article-title" itemprop="name">
+      jQuery和JavaScript的面试题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/02/14/jquery和JavaScript面试题/" class="archive-article-date">
+  	<time datetime="2019-02-14T10:52:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、JavaScript面试题"><a href="#一、JavaScript面试题" class="headerlink" title="一、JavaScript面试题"></a>一、JavaScript面试题</h2><h4 id="1、scope作用范围"><a href="#1、scope作用范围" class="headerlink" title="1、scope作用范围"></a>1、scope作用范围</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> a=b=<span class="number">10</span>;</div><div class="line">&#125;)();</div><div class="line"><span class="built_in">console</span>.log(b);</div></pre></td></tr></table></figure>
+<pre><code>什么会打印在控制台上？
+答：
+控制台上会打印出 10
+因为这里两个声明变量，a是用var 声明的局部变量，而b是全局变量
+没有使用 &apos;use strict&apos; 严格模式，在严格模式下，代码就会引发ReferenceError错误，b没有定义（b is undefined），严格模式需要明确指出才能实现全局变量。
+</code></pre><h4 id="2、创建源生’native’方法"><a href="#2、创建源生’native’方法" class="headerlink" title="2、创建源生’native’方法"></a>2、创建源生’native’方法</h4><pre><code>给字符串对象定义一个repeatify功能。当传入一个整数n时，它会返回重复n次字符串的结果。例如：
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'hello'</span>.repeatify(<span class="number">3</span>))</div></pre></td></tr></table></figure>
+<pre><code>回答：打印出hellohellohello
+    实现如下
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.repeatify = <span class="built_in">String</span>.prototype.repeatify || <span class="function"><span class="keyword">function</span>(<span class="params">time</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> str= <span class="string">''</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;time;i++)&#123;</div><div class="line">		str +=<span class="keyword">this</span>;</div><div class="line">	&#125;;</div><div class="line">	<span class="keyword">return</span> str</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-声明提升（Hoisting）"><a href="#3-声明提升（Hoisting）" class="headerlink" title="3.声明提升（Hoisting）"></a>3.声明提升（Hoisting）</h4><pre><code>执行这段代码，输出的结果是什么
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(a);</div><div class="line">	<span class="built_in">console</span>.log(foo());</div><div class="line">	<span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">2</span></div><div class="line">	&#125;</div><div class="line">&#125;)()</div></pre></td></tr></table></figure>
+<pre><code>答：输出的是 undefined 和 2
+原因是变量声明和函数声明会被提升到函数顶部，变量只有声明没有值，因此在打印时它已经存在了，所以打印出undefined
+</code></pre><h4 id="4、this在JavaScript中如何工作的"><a href="#4、this在JavaScript中如何工作的" class="headerlink" title="4、this在JavaScript中如何工作的"></a>4、this在JavaScript中如何工作的</h4><pre><code>下面代码会输出什么结果
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">var</span> fullname = <span class="string">'John Doe'</span>;</div><div class="line">    <span class="keyword">var</span> obj = &#123;</div><div class="line">       <span class="attr">fullname</span>: <span class="string">'Colin Ihrig'</span>,</div><div class="line">       <span class="attr">prop</span>: &#123;</div><div class="line">          <span class="attr">fullname</span>: <span class="string">'Aurelio De Rosa'</span>,</div><div class="line">          <span class="attr">getFullname</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">             <span class="keyword">return</span> <span class="keyword">this</span>.fullname;</div><div class="line">          &#125;</div><div class="line">       &#125;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(obj.prop.getFullname());</div><div class="line"><span class="keyword">var</span> test = obj.prop.getFullname;</div><div class="line"><span class="built_in">console</span>.log(test())</div></pre></td></tr></table></figure>
+<pre><code>答：输出的是 Aurelio De Rosa 和 John Doe
+原因是:在一个函数中，this的取值是看JavaScript调用方式的和定义方式，而不仅仅是定义方式。
+在第一个console.log()中，getFullname()作为obj.prop的被调用对象,所以上下文指向后者，函数返回该对象的fullname,与此相反，getFullname被分配到test(),上下文指的是全局对象（window），只是因为test是被隐式设置的全局对象的属性，出于这个原因，该函数返回window的fullname
+</code></pre><h4 id="5、call-和apply"><a href="#5、call-和apply" class="headerlink" title="5、call()和apply()"></a>5、call()和apply()</h4><pre><code>现在让你解决前一个问题，使最后的console.log() 打印 Aurelio De Rosa。
+回答：
+    call()和apply()强制改变上下文的的this指向
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(test.call(obj.prop))和<span class="built_in">console</span>.log(test.apply(obj.prop))</div></pre></td></tr></table></figure>
+<h2 id="二、jQuery面试问题"><a href="#二、jQuery面试问题" class="headerlink" title="二、jQuery面试问题"></a>二、jQuery面试问题</h2><h4 id="1、jQuery库中-是什么"><a href="#1、jQuery库中-是什么" class="headerlink" title="1、jQuery库中$()是什么"></a>1、jQuery库中$()是什么</h4><pre><code>$()是jQuery()的别称，乍一看比较怪异，还使jQuery代码羞涩难懂，但是等你适应了，就会爱上它的简单了。$()函数是把任何对象包裹成jQuery对象，接着你就会被允许调用jQuery里的定义的多个不同方法。你甚至传入选择器字符串与$()函数，它会返回包含所有匹配DOM元素数组的jQuery对象。
+</code></pre><h4 id="2、-doument-ready-是什么函数，为什么要用它"><a href="#2、-doument-ready-是什么函数，为什么要用它" class="headerlink" title="2、$(doument).ready()是什么函数，为什么要用它"></a>2、$(doument).ready()是什么函数，为什么要用它</h4><pre><code>ready()函数用于文档进入ready状态的时执行的代码，当DOM完全加载(例如：HTML元素加载完成时DOM树构建完成时)，jQuery允许你的代码执行。使用$(document).ready()的最大好处是解决了跨浏览器的难题。
+</code></pre><h4 id="3、JavaScript-window-onload和jQuery-ready-函数的区别"><a href="#3、JavaScript-window-onload和jQuery-ready-函数的区别" class="headerlink" title="3、JavaScript window.onload和jQuery ready()函数的区别"></a>3、JavaScript window.onload和jQuery ready()函数的区别</h4><pre><code>JavaScript window.onload事件和jQuery ready 函数的主要区别是
+前者是要等到DOM被创建和图片、音频、视频加载完成以及外部资源加载完成，如果图片加载和媒体加载话费了大量的时间，用户就会感到定义在JavaScript window.onload 的上的代码在执行是有明显迟到。
+jQuery ready()函数只需对DOM树加载等待，无需对图片或媒体加载等待，执行起来更快。使用jQuery ready()函数的另一个优势是可以在页面中多次使用它，浏览器会按在HTML里的顺序来执行它，相对于onload来说，只在单一的函数中执行。鉴于这个好处，jQuery ready函数比JavaScript window.onload好用。
+</code></pre><h4 id="4、-this-和this在jQuery中的不同"><a href="#4、-this-和this在jQuery中的不同" class="headerlink" title="4、$(this)和this在jQuery中的不同"></a>4、$(this)和this在jQuery中的不同</h4><pre><code>$(this)返回的是jQuery对象，可以对它调用jQuery多个方法，例如text()获取文本，val()获取值等。this是JavaScript中的关键字，表示上下文的DOM元素。不能直接调用jQuery方法，需要$()包裹来执行。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/14/jquery和JavaScript面试题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/02/13/小程序面试中的问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          小程序面试遇到的问题
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -220,9 +341,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
