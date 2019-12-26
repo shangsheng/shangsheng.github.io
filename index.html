@@ -142,6 +142,293 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-通过正则把文本里的链接加上a标签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/06/通过正则把文本里的链接加上a标签/">通过正则把文本里的链接加上a标签</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/06/通过正则把文本里的链接加上a标签/" class="archive-article-date">
+  	<time datetime="2019-12-06T02:36:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="通过正则把文本里的链接加上a标签"><a href="#通过正则把文本里的链接加上a标签" class="headerlink" title="通过正则把文本里的链接加上a标签"></a>通过正则把文本里的链接加上a标签</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//javascript 正则替换</span></div><div class="line"><span class="keyword">var</span> sHtml =<span class="string">"http://www.huhangfei.com/"</span>;</div><div class="line"><span class="comment">//替换http://开头链接</span></div><div class="line"><span class="keyword">if</span> (sHtml.toLowerCase().indexOf(<span class="string">"http://"</span>) &gt;= <span class="number">0</span>) &#123;</div><div class="line">      sHtml = sHtml.replace(<span class="regexp">/(^|[^&lt;=""])(http:(\/\/|\\\\)(([\w\/\\\+\-~`@:%])+\.)+([\w\/\\\.\=\?\+\-~`@\':!%#]|(&amp;amp;)|&amp;)+)/g</span>, <span class="string">"$1&lt;a target=\"_blank\" href=\"$2\"&gt;$2&lt;/a&gt;"</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//替换 www. bbs. 等开头网址</span></div><div class="line"><span class="keyword">if</span> (sHtml.toLowerCase().indexOf(<span class="string">"www."</span>) &gt;= <span class="number">0</span> || sHtml.toLowerCase().indexOf(<span class="string">"bbs."</span>) &gt;= <span class="number">0</span>) &#123;</div><div class="line">      sHtml = sHtml.replace(<span class="regexp">/(^|[^\/\\\w\=])((www|bbs)\.(\w)+\.([\w\/\\\.\=\?\+\-~`@\'!%#]|(&amp;amp;))+)/g</span>, <span class="string">"$1&lt;a target=\"_blank\" href=http://$2&gt;$2&lt;/a&gt;"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">正则</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">a标签</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/06/通过正则把文本里的链接加上a标签/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue开发登录问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/06/vue开发登录问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue开发遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/28/vue开发遇到的问题/">vue开发遇到的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/28/vue开发遇到的问题/" class="archive-article-date">
+  	<time datetime="2019-08-28T08:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-邮箱提示问题"><a href="#1-邮箱提示问题" class="headerlink" title="1.邮箱提示问题"></a>1.邮箱提示问题</h2><pre><code>/*邮箱提示:比如input输入123:提示123@163.com,123@126.com,123@yeah.net,123@vip.163.com,123@vip.126.com,123@188.com,
+                    输入123@时提示还是这:123@163.com,123@126.com,123@yeah.net,123@vip.163.com,123@vip.126.com,123@188.com
+                    输入123@1时提示123@163.com,123@126.com,
+                    输入123@16时提示123@163.com,
+                    输入123@@时不提示,也就是输入两个@时不提示,
+                    我用vue写的分两大步,一利用v-model,获取的内容,与邮箱后缀组成的数组遍历的内容链接成新的字符串,在页面上显示,
+                    第二步是根据新组成的字符串字符串进行过滤.
+                    怎么过滤不会了,
+                    我想用正则,正则不知道怎么写,
+                    还没有想到第二种方法,
+                    你帮我看看怎么写还有其他方法吗*/
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line"> 		<span class="keyword">var</span> selectedArr=[]<span class="comment">//提示要显示的信息</span></div><div class="line"> 		<span class="keyword">var</span> selected=[</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@163.com'</span>&#125;,</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@126.com'</span>&#125;,</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@yeah.net'</span>&#125;,</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@vip.163.com'</span>&#125;,</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@vip.126.com'</span>&#125;,</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@188.com'</span>&#125;,</div><div class="line">]<span class="comment">//邮箱后缀</span></div><div class="line"> 		</div><div class="line"> 		<span class="keyword">var</span> eValue =<span class="keyword">this</span>.login.el.eValue;<span class="comment">//input输入获取的内容</span></div><div class="line"> 		<span class="keyword">var</span>  flag = <span class="string">''</span>;</div><div class="line"> 		</div><div class="line">      <span class="keyword">if</span>(eValue.indexOf(<span class="string">"@"</span>)&gt;<span class="number">0</span>)&#123;</div><div class="line">          flag=eValue.substring(eValue.indexOf(<span class="string">"@"</span>)<span class="number">-1</span>);<span class="comment">//获取的输入的@开始的内容</span></div><div class="line">          </div><div class="line">          eValue=eValue.substring(<span class="number">0</span>,eValue.indexOf(<span class="string">"@"</span>));</div><div class="line">         </div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">          flag=<span class="string">""</span>;</div><div class="line">          </div><div class="line">          <span class="comment">//首字符是@</span></div><div class="line">          <span class="keyword">if</span>(eValue.substring(<span class="number">0</span>,<span class="number">1</span>) == <span class="string">'@'</span>)&#123;</div><div class="line">          	eValue=eValue.substring(<span class="number">0</span>,eValue.indexOf(<span class="string">"@"</span>));</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">       <span class="keyword">var</span> val=<span class="string">""</span>;</div><div class="line">      <span class="comment">//将输入内容和后缀链接</span></div><div class="line">     </div><div class="line"> 		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;selected.length;i++)&#123;</div><div class="line"> 			val=selected[i].eSuffix;</div><div class="line">          val=val.substring(val.indexOf(<span class="string">"@"</span>));</div><div class="line">          </div><div class="line"> 			<span class="keyword">var</span> eSuffix = &#123;<span class="attr">eSuffix</span>:eValue+val&#125;</div><div class="line"> 		</div><div class="line"> 			selectedArr.push(eSuffix)</div><div class="line"> 			</div><div class="line"> 		&#125;</div><div class="line"> 		</div><div class="line"> 		<span class="keyword">var</span> eArr = []<span class="comment">//检查满足条件的内容</span></div><div class="line"> 		<span class="keyword">if</span>(flag!=<span class="string">""</span>)&#123;</div><div class="line">         <span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(flag,<span class="string">"i"</span>);</div><div class="line">         	</div><div class="line">          <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;selectedArr.length;i++)&#123;</div><div class="line">          	</div><div class="line">              <span class="keyword">if</span>(reg.test(selectedArr[i].eSuffix))&#123;</div><div class="line">              	</div><div class="line">              	eArr.push(selectedArr[i])</div><div class="line">              	</div><div class="line">              	<span class="keyword">this</span>.login.el.selTips = <span class="literal">false</span>;</div><div class="line">                  </div><div class="line">              &#125;<span class="keyword">else</span>&#123;</div><div class="line">              	 selectedArr.splice(i, <span class="number">1</span>);</div><div class="line">                  <span class="keyword">this</span>.login.el.selTips = <span class="literal">true</span>;</div><div class="line">                 </div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">          selectedArr = eArr</div><div class="line">      &#125;</div><div class="line"> 		</div><div class="line"> 		<span class="keyword">this</span>.$set(<span class="keyword">this</span>.login.el,<span class="string">'selected'</span>,selectedArr)</div><div class="line"> 		<span class="keyword">if</span>(<span class="keyword">this</span>.login.el.eValue == <span class="string">''</span>)&#123;</div><div class="line"> 			<span class="keyword">this</span>.login.el.selTips = <span class="literal">true</span>;</div><div class="line"> 		&#125;<span class="keyword">else</span>&#123;</div><div class="line"> 			<span class="keyword">this</span>.login.el.selTips = <span class="literal">false</span>;</div><div class="line"> 		&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-vue-swiper-loop循环问题"><a href="#2-vue-swiper-loop循环问题" class="headerlink" title="2.vue-swiper loop循环问题"></a>2.vue-swiper loop循环问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$http(&#123;</div><div class="line">        	<span class="attr">method</span>:<span class="string">'get'</span>,</div><div class="line">        	<span class="attr">url</span>:<span class="string">'http://192.168.1.74:3000/banner'</span>,</div><div class="line">        &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">resp</span>)</span>&#123;                            </div><div class="line">	        <span class="built_in">console</span>.log(resp.data);</div><div class="line">	        that.banners = resp.data.banners</div><div class="line">	        </div><div class="line">	        that.$nextTick(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">	        	that.mySwiper.slideTo(<span class="number">0</span>, <span class="number">1000</span>, <span class="literal">false</span>)</div><div class="line">	        &#125;)</div><div class="line">	        &#125;).catch(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</div><div class="line">	        <span class="built_in">console</span>.log(<span class="string">'请求失败：'</span>+resp.data+<span class="string">','</span>+resp.statusText);</div><div class="line">        &#125;);</div><div class="line">        添加<span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">        	<span class="comment">//轮播初始化</span></div><div class="line">        	that.mySwiper.slideTo(<span class="number">0</span>, <span class="number">1000</span>, <span class="literal">false</span>)</div><div class="line">        &#125;)</div><div class="line">    html代码片段</div><div class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"n-ban d-flag"</span> id=<span class="string">"index-banner"</span>&gt;</div><div class="line">		&lt;div class="wrap wr" v-if="banners.length&gt;0"&gt;</div><div class="line">			 &lt;div v-swiper:mySwiper="swiperOption" &gt;</div><div class="line">			    &lt;div class="swiper-wrapper"  &gt;</div><div class="line">			      &lt;div class="swiper-slide" v-for="banner in banners"&gt;</div><div class="line">			        &lt;router-link v-for = "item in bannersType"  :to="&#123;path:item.path,query:&#123;id:banner.encodeId&#125;&#125;"  v-if="item.targetType == banner.targetType &amp;&amp; item.targetType != 3000"&gt;</div><div class="line">			        	&lt;img :src="banner.imageUrl"&gt;</div><div class="line">			        &lt;/router-link&gt;</div><div class="line">			         &lt;router-link   :to="banner.url"  v-else-if="item.targetType == 3000&amp;&amp;item.targetType == banner.targetType" &gt;</div><div class="line">			        	&lt;img :src="banner.imageUrl"&gt;</div><div class="line">			        &lt;/router-link&gt;</div><div class="line">			      &lt;/div&gt;</div><div class="line">			    &lt;/div&gt;</div><div class="line">   				</div><div class="line">			    &lt;div class="swiper-pagination"&gt;&lt;/div&gt;</div><div class="line">			 &lt;/div&gt;</div><div class="line">			 &lt;a href="javascript:void(0);" class="swiper-button-prev"&gt;&lt;&lt;/a&gt;</div><div class="line">   			 &lt;a href="javascript:void(0);" class="swiper-button-next"&gt;&gt;&lt;/a&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	在轮播的父级元素添加 v-if="banners.length&gt;0"</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/28/vue开发遇到的问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-小程序开发流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/18/小程序开发流程/">小程序开发流程</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/18/小程序开发流程/" class="archive-article-date">
+  	<time datetime="2019-03-18T09:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-用app-json系统属性建设项目框架"><a href="#1-用app-json系统属性建设项目框架" class="headerlink" title="1.用app.json系统属性建设项目框架"></a>1.用app.json系统属性建设项目框架</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"pages"</span>:[</div><div class="line">    <span class="string">"pages/my-music/my-music"</span>,</div><div class="line">    <span class="string">"pages/for-you/for-you"</span>,</div><div class="line">    <span class="string">"pages/explore/explore"</span>,</div><div class="line">    <span class="string">"pages/broadcast/broadcast"</span>,</div><div class="line">    <span class="string">"pages/search/search"</span>,</div><div class="line"></div><div class="line">    <span class="string">"pages/index/index"</span>,</div><div class="line">    <span class="string">"pages/main/main"</span>,</div><div class="line">    <span class="string">"pages/logs/logs"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"window"</span>:&#123;</div><div class="line">    <span class="string">"backgroundTextStyle"</span>:<span class="string">"light"</span>,</div><div class="line">    <span class="string">"navigationBarBackgroundColor"</span>: <span class="string">"#fff"</span>,</div><div class="line">    <span class="string">"navigationBarTitleText"</span>: <span class="string">"AppleMusic"</span>,</div><div class="line">    <span class="string">"navigationBarTextStyle"</span>:<span class="string">"black"</span>,</div><div class="line">    <span class="string">"backgroundColor"</span>:<span class="string">"#ffffff"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"tabBar"</span>:&#123;</div><div class="line">    <span class="string">"color"</span>:<span class="string">"#929292"</span>,</div><div class="line">    <span class="string">"selectedColor"</span>:<span class="string">"#ff2d55"</span>,</div><div class="line">    <span class="string">"borderStyle"</span>:<span class="string">"white"</span>,</div><div class="line">    <span class="string">"backgroundColor"</span>:<span class="string">"#ffffff"</span>,</div><div class="line">    <span class="string">"list"</span>:[&#123;</div><div class="line">      <span class="string">"pagePath"</span>:<span class="string">"pages/my-music/my-music"</span>,</div><div class="line">      <span class="string">"iconpath"</span>:<span class="string">"image/tabbar/1.png"</span>,</div><div class="line">      <span class="string">"selectedIconPath"</span>:<span class="string">"image/tabbar/1-h1.png"</span>,</div><div class="line">      <span class="string">"text"</span>:<span class="string">"我的音乐"</span></div><div class="line">    &#125;,&#123;</div><div class="line">      <span class="string">"pagePath"</span>:<span class="string">"pages/for-you/for-you"</span>,</div><div class="line">      <span class="string">"iconpath"</span>:<span class="string">"image/tabbar/2.png"</span>,</div><div class="line">      <span class="string">"selectedIconPath"</span>:<span class="string">"image/tabbar/2-h1.png"</span>,</div><div class="line">      <span class="string">"text"</span>:<span class="string">"为你推荐"</span></div><div class="line">    &#125;,&#123;</div><div class="line">      <span class="string">"pagePath"</span>:<span class="string">"pages/explore/explore"</span>,</div><div class="line">      <span class="string">"iconpath"</span>:<span class="string">"image/tabbar/3.png"</span>,</div><div class="line">      <span class="string">"selectedIconPath"</span>:<span class="string">"image/tabbar/3-h1.png"</span>,</div><div class="line">      <span class="string">"text"</span>:<span class="string">"浏览"</span></div><div class="line">    &#125;,&#123;</div><div class="line">      <span class="string">"pagePath"</span>:<span class="string">"pages/broadcast/broadcast"</span>,</div><div class="line">      <span class="string">"iconpath"</span>:<span class="string">"image/tabbar/4.png"</span>,</div><div class="line">      <span class="string">"selectedIconPath"</span>:<span class="string">"image/tabbar/4-h1.png"</span>,</div><div class="line">      <span class="string">"text"</span>:<span class="string">"广播"</span></div><div class="line">    &#125;,&#123;</div><div class="line">      <span class="string">"pagePath"</span>:<span class="string">"pages/search/search"</span>,</div><div class="line">      <span class="string">"iconpath"</span>:<span class="string">"image/tabbar/5.png"</span>,</div><div class="line">      <span class="string">"selectedIconPath"</span>:<span class="string">"image/tabbar/5-h1.png"</span>,</div><div class="line">      <span class="string">"text"</span>:<span class="string">"搜索"</span></div><div class="line">    &#125;]</div><div class="line">  &#125;,</div><div class="line">  <span class="string">"debug"</span>:<span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-在util-js里修改里的时间参数"><a href="#2-在util-js里修改里的时间参数" class="headerlink" title="2.在util.js里修改里的时间参数"></a>2.在util.js里修改里的时间参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">	</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模拟网易云音乐</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/18/小程序开发流程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jquery和JavaScript面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -779,7 +1066,7 @@ localStorage:
 <h5 id="6-用win-R打开运行，并输入cmd，确定。"><a href="#6-用win-R打开运行，并输入cmd，确定。" class="headerlink" title="6.用win+R打开运行，并输入cmd，确定。"></a>6.用win+R打开运行，并输入cmd，确定。</h5><p><img src="../images/20181008114317.png" alt="cmd"></p>
 <h5 id="7-输入d-再按回车，再输入copy-b-tdl-这儿输入你想要的名称-mp4，为了简便，你也可以输入copy-b-tdl-1-mp4-这样会生成名称为1的mp4文件，再重命名即可（代码复制粘贴到cmd-exe即可，若手动输入，不要丢掉1之前的空格）"><a href="#7-输入d-再按回车，再输入copy-b-tdl-这儿输入你想要的名称-mp4，为了简便，你也可以输入copy-b-tdl-1-mp4-这样会生成名称为1的mp4文件，再重命名即可（代码复制粘贴到cmd-exe即可，若手动输入，不要丢掉1之前的空格）" class="headerlink" title="7.输入d: 再按回车，再输入copy/b .tdl 这儿输入你想要的名称.mp4，为了简便，你也可以输入copy/b .tdl 1.mp4 ,这样会生成名称为1的mp4文件，再重命名即可（代码复制粘贴到cmd.exe即可，若手动输入，不要丢掉1之前的空格）"></a>7.输入d: 再按回车，再输入copy/b <em>.tdl 这儿输入你想要的名称.mp4，为了简便，你也可以输入copy/b </em>.tdl 1.mp4 ,这样会生成名称为1的mp4文件，再重命名即可（代码复制粘贴到cmd.exe即可，若手动输入，不要丢掉1之前的空格）</h5><p><img src="../images/20181008114533.png" alt="mp4"></p>
 <h5 id="去D盘查看我们生成的mp4"><a href="#去D盘查看我们生成的mp4" class="headerlink" title="去D盘查看我们生成的mp4"></a>去D盘查看我们生成的mp4</h5><p><img src="../images/20181008114657.png" alt="mp4"></p>
-
+<h4 id="把webp图片上的链接中的webp改成jpg或png之后回车后下载的就是jpg的图片"><a href="#把webp图片上的链接中的webp改成jpg或png之后回车后下载的就是jpg的图片" class="headerlink" title="把webp图片上的链接中的webp改成jpg或png之后回车后下载的就是jpg的图片"></a>把webp图片上的链接中的webp改成jpg或png之后回车后下载的就是jpg的图片</h4>
       
 
       
@@ -801,6 +1088,10 @@ localStorage:
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mp4格式</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">webp 转换成 jpg或png</a>
         		</li>
       		
 		</ul>
@@ -889,404 +1180,6 @@ localStorage:
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/05/前端用到的框架总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-html2canvas页面截图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/17/html2canvas页面截图/">小程序开发遇到的问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/17/html2canvas页面截图/" class="archive-article-date">
-  	<time datetime="2018-08-17T00:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="截取图片"><a href="#截取图片" class="headerlink" title="截取图片"></a>截取图片</h3><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"img/1.jpg"</span>/&gt;</div><div class="line">      &lt;input class=<span class="string">"example1"</span> <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"button"</span>&gt;</div><div class="line">      生成界面如下：</div><div class="line">      &lt;img src=<span class="string">""</span> id=<span class="string">"predict_img"</span> class=<span class="string">"hide"</span>/&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">  &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">  	.hide&#123;</div><div class="line">  		display: none;</div><div class="line">  	&#125;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
-</code></pre><h5 id="最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）："><a href="#最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）：" class="headerlink" title="最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）："></a>最近做h5网页，有个功能是用户能长按页面保存为图片，在我们理解就是网页要生成图片然后再让用户长按保存，然后就发现了html2canvas这个框架了，效果挺不错了，但是有几个坑说一下（用的最新版）：</h5><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(document).ready( <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">             $(<span class="string">".example1"</span>).on(<span class="string">"click"</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">             </div><div class="line">                 html2canvas(document.body, &#123;scale:2,logging:<span class="literal">false</span>,useCORS:<span class="literal">true</span>&#125;).then(<span class="keyword">function</span>(canvas) &#123;</div><div class="line">            var dataUrl = canvas.toDataURL();</div><div class="line">            $(<span class="string">"#predict_img"</span>).attr(<span class="string">"src"</span>,dataUrl).removeClass(<span class="string">"hide"</span>);</div><div class="line">        &#125;);</div><div class="line">             &#125;); </div><div class="line">     &#125;);</div></pre></td></tr></table></figure>
-</code></pre><h5 id="scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2"><a href="#scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2" class="headerlink" title="scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2;"></a>scale：是用来调整生成图片屏幕分辨率的，其实设置成1再iphone上生成的图片清晰度没啥问题，但是再有些android手机上就很模糊，所以为了兼顾这部分手机就把scale设置成了2;</h5><h5 id="useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；"><a href="#useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；" class="headerlink" title="useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；"></a>useCROS：这个参数是用来设置是否允许使用跨域的图片进行访问的，好像默认就是true，不太记得了；</h5><h5 id="logging：这个是日志打印的，实际上线当然不需要了，所以就false；"><a href="#logging：这个是日志打印的，实际上线当然不需要了，所以就false；" class="headerlink" title="logging：这个是日志打印的，实际上线当然不需要了，所以就false；"></a>logging：这个是日志打印的，实际上线当然不需要了，所以就false；</h5><h5 id="在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域"><a href="#在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域" class="headerlink" title="在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域"></a>在同一个服务器下是正常的，访问其他服务器的图片时，截图是空白的，由于获取其他服务器上的图片需要跨域</h5><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"http://cms-bucket.nosdn.127.net/2018/08/15/a250fd001743481e860944c03910ec7b.jpeg"</span> id=<span class="string">"img"</span>/&gt;</div><div class="line">      &lt;input class=<span class="string">"example1"</span> <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"button"</span>&gt;</div><div class="line">      生成界面如下：</div><div class="line">      &lt;img src=<span class="string">""</span> id=<span class="string">"predict_img"</span> class=<span class="string">"hide"</span>/&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">  &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">  	.hide&#123;</div><div class="line">  		display: none;</div><div class="line">  	&#125;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
-
-js
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">    $(document).ready( <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">              $(<span class="string">".example1"</span>).on(<span class="string">"click"</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">              </div><div class="line">                  html2canvas(document.body, &#123;scale:2,logging:<span class="literal">false</span>,useCORS:<span class="literal">true</span>&#125;).then(<span class="keyword">function</span>(canvas) &#123;</div><div class="line">	            var dataUrl = canvas.toDataURL();</div><div class="line">	            $(<span class="string">"#predict_img"</span>).attr(<span class="string">"src"</span>,dataUrl).removeClass(<span class="string">"hide"</span>);</div><div class="line">	        &#125;);</div><div class="line">              &#125;); </div><div class="line">      &#125;);</div><div class="line">       var img = <span class="string">"https://img.alicdn.com/bao/uploaded/TB1qimQIpXXXXXbXFXXSutbFXXX.jpg"</span>;</div><div class="line"><span class="keyword">function</span> getBase64Image(img) &#123;</div><div class="line">  var canvas = document.createElement(<span class="string">"canvas"</span>);</div><div class="line">  canvas.width = img.width;</div><div class="line">  canvas.height = img.height;</div><div class="line"> </div><div class="line">  var ctx = canvas.getContext(<span class="string">"2d"</span>);</div><div class="line">  ctx.drawImage(img, 0, 0, img.width, img.height);</div><div class="line">  var ext = img.src.substring(img.src.lastIndexOf(<span class="string">"."</span>)+1).toLowerCase();</div><div class="line">  var dataURL = canvas.toDataURL(<span class="string">"image/"</span>+ext);</div><div class="line">  <span class="built_in">return</span> dataURL;</div><div class="line">&#125;</div><div class="line">var image = new Image();</div><div class="line">image.crossOrigin = <span class="string">''</span>;</div><div class="line">image.src = img;</div><div class="line">image.onload = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">  var base64 = getBase64Image(image);</div><div class="line">  console.log(base64);</div><div class="line">  $(<span class="string">"#img"</span>).attr(<span class="string">"src"</span>,base64);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h3 id="下载html2canvas"><a href="#下载html2canvas" class="headerlink" title="下载html2canvas"></a>下载html2canvas</h3><p>感谢niklasvh提供 <a href="https://github.com/niklasvh/html2canvas" title="[niklasvh]" target="_blank" rel="external">html2canvas</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">html2canvas</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">跨域</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/17/html2canvas页面截图/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-小程序开发遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/小程序开发遇到的问题/">小程序开发遇到的问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/01/小程序开发遇到的问题/" class="archive-article-date">
-  	<time datetime="2018-08-01T09:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1、bindtap和cathtap的区别是什么"><a href="#1、bindtap和cathtap的区别是什么" class="headerlink" title="1、bindtap和cathtap的区别是什么"></a>1、bindtap和cathtap的区别是什么</h3><pre><code>bind事件不会阻止冒泡事件向上冒泡，cath事件会阻止冒泡事件向上冒泡。
-</code></pre><h3 id="2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么"><a href="#2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么" class="headerlink" title="2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么"></a>2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么</h3><pre><code>parseInt()强制转换成整数，parseFloat()转换成浮点数，只有对String类型才能执行这两个函数，其他类型会转成NaN。
-</code></pre><h3 id="3、微信小程序如何跨页面传递值"><a href="#3、微信小程序如何跨页面传递值" class="headerlink" title="3、微信小程序如何跨页面传递值"></a>3、微信小程序如何跨页面传递值</h3><pre><code>通过data-*方式传递的值，页面跳转后，我们需要在下一页面获取传递过来的数据。
-在跳转后的js页面，接收传递过来的数据。
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模拟网易云音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/01/小程序开发遇到的问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-git命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/11/git命令/">git和hexo命令</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/11/git命令/" class="archive-article-date">
-  	<time datetime="2018-07-11T09:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> git@github.com:shangsheng/shangsheng.github.io.git //克隆项目</div><div class="line">$ git <span class="built_in">cd</span> shangsheng.github.io 								   //切换到克隆的目录中</div><div class="line">$ git branch developer 										   //创建一个分支</div><div class="line">$ git add --all 											   //添加当前目录的所有文件到暂存区</div><div class="line">$ git commit -m <span class="string">'添加测试文件'</span> 								   //在分支上提交一个新的版本并夹注释</div><div class="line">$ git push origin developer 								   //推送提交的内容到github上</div></pre></td></tr></table></figure>
-</code></pre><p>git命令学习<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" title="[廖雪峰官网]" target="_blank" rel="external">廖雪峰的git官网</a></p>
-<h2 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h2><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">$ hexo init [folder] </div><div class="line">//新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。</div><div class="line">$ hexo new [layout] &lt;title&gt;</div><div class="line">//新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来</div><div class="line">$ hexo generate </div><div class="line">//生成静态文件</div><div class="line">选项				描述</div><div class="line"><span class="_">-d</span>, --deploy	文件生成后立即部署网站</div><div class="line">-w, --watch		监视文件变动</div><div class="line">简写为：<span class="variable">$hexo</span> g</div><div class="line">$ hexo publish [layout] &lt;filename&gt;</div><div class="line">//发表草稿</div><div class="line">$ hexo server</div><div class="line">启动服务器。默认情况下，访问网址为： http://localhost:4000/。</div><div class="line">选项				描述</div><div class="line">-p, --port		重设端口</div><div class="line"><span class="_">-s</span>, --static	只使用静态文件</div><div class="line"><span class="_">-l</span>, --log		启动日记记录，使用覆盖记录格式</div><div class="line">$ hexo deploy</div><div class="line">//部署网站。</div><div class="line">参数	    		描述</div><div class="line">-g, --generate	部署之前预先生成静态文件</div><div class="line">简写为：$ hexo d</div><div class="line">$ hexo render &lt;file1&gt; [file2] ...</div><div class="line">//渲染文件。</div><div class="line">参数				描述</div><div class="line">-o, --output	设置输出路径</div><div class="line">$ hexo clean</div><div class="line">//清除缓存文件 (db.json) 和已生成的静态文件 (public)。</div><div class="line">//在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令</div><div class="line">$ hexo version</div><div class="line">//显示 Hexo 版本。</div><div class="line">$ hexo --safe</div><div class="line">//在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。</div><div class="line">$ hexo --debug</div><div class="line">//在终端中显示调试信息并记录到 debug.log。当您碰到问题时，可以尝试用调试模式重新执行一次，并 提交调试信息到 GitHub。</div><div class="line">$ hexo --silent</div><div class="line">//隐藏终端信息。</div><div class="line">$ hexo --config custom.yml</div><div class="line">//自定义配置文件的路径，执行后将不再使用 _config.yml。</div><div class="line">$ hexo --draft</div><div class="line">//显示 <span class="built_in">source</span>/_drafts 文件夹中的草稿文章。</div><div class="line">$ hexo --cwd /path/to/cwd</div><div class="line">//自定义当前工作目录（Current working directory）的路径。</div></pre></td></tr></table></figure>
-</code></pre><a href="https://hexo.io/zh-cn/docs/" title="[hexo命令]" target="_blank" rel="external">请进入完整的hexo命令</a>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">git命令</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hexo个人博客命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/11/git命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-模仿cNode社区的小程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/模仿cNode社区的小程序/">模仿CNode社区的小程序步骤</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/模仿cNode社区的小程序/" class="archive-article-date">
-  	<time datetime="2018-07-10T02:09:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第一步-搭建项目"><a href="#第一步-搭建项目" class="headerlink" title="第一步:搭建项目"></a>第一步:搭建项目</h2><h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><pre><code>&lt;pre&gt;
-    │  .gitattributes
-    │  .gitignore
-    │  app.js                # 小程序逻辑
-    │  app.json              # 小程序公共设置（页面路径、窗口表现、设置网络超时时间、设置多tab）
-    │  app.wxss              # 小程序公共样式表
-    │  README.md             # 小程序项目说明
-    │  
-    ├─image                  # 小程序图片资源
-    |
-    ├─pages                  # 小程序文件
-    │  ├─common     
-    │  ├─detail
-    │  ├─index        
-    │  │    index.js      # 页面逻辑
-    │  │    index.wxml    # 页面渲染层
-    │  │    index.wxss    # 页面样式
-    │  ├─login
-    |  ├─logs
-    │  └─topics
-    │          
-    └─utils                  # 小程序公用方法模块
-        api.js       
-    util.js    
-&lt;/pre&gt;
-</code></pre><h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><p>下载地址:<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" title="[开发环境]" target="_blank" rel="external">开发环境</a></p>
-<h3 id="开发过程"><a href="#开发过程" class="headerlink" title="开发过程"></a>开发过程</h3><h5 id="1-配置默认启动页面"><a href="#1-配置默认启动页面" class="headerlink" title="1.配置默认启动页面"></a>1.配置默认启动页面</h5><pre><code>在app.json文件修改注册页面的顺序，把&quot;pages/topics/topics&quot;放在第一位，就会自动把topics.wxml显示默认启动页面
-&lt;pre&gt;
-    {
-        &quot;pages&quot;:[
-            &quot;pages/topics/topics&quot;,
-            &quot;pages/detail/detail&quot;,
-            &quot;pages/login/login&quot;,
-            &quot;pages/index/index&quot;,
-            &quot;pages/logs/logs&quot;
-        ]
-    }
-&lt;/pre&gt;
-</code></pre><h5 id="2-配置tabBar"><a href="#2-配置tabBar" class="headerlink" title="2.配置tabBar"></a>2.配置tabBar</h5><pre><code>tabBar 是一个数组，只能配置最少2个、最多5个 tab,tab按数组的顺序排序。
-&lt;pre&gt;
-    &quot;tabBar&quot;:{
-        &quot;color&quot;:&quot;#444&quot;,
-        &quot;selectedColor&quot;:&quot;#80bd01&quot;,
-        &quot;backgroundColor&quot;:&quot;#fff&quot;,
-        &quot;borderStyle&quot;:&quot;white&quot;,
-        &quot;list&quot;:[{
-            &quot;pagePath&quot;:&quot;pages/topics/topics&quot;,
-            &quot;text&quot;:&quot;首页&quot;,
-            &quot;iconPath&quot;:&quot;images/bar/CNode.png&quot;,
-            &quot;selectedIconPath&quot;:&quot;images/bar/CNodeHL.png&quot;
-        },{
-            &quot;pagePath&quot;:    &quot;pages/index/index&quot;,
-            &quot;text&quot;:&quot;我的&quot;,
-            &quot;iconPath&quot;:&quot;images/bar/ME.png&quot;,
-            &quot;selectedIconPath&quot;:&quot;images/barMEHL.png&quot;
-        }]
-    }
-&lt;/pre&gt;
-</code></pre><h5 id="3-window-设置"><a href="#3-window-设置" class="headerlink" title="3.window 设置"></a>3.window 设置</h5><p>具体看文档:<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/config.html?t=1475052056717" title="[windwo设置]" target="_blank" rel="external">windwo设置</a></p>
-<h5 id="4-简单封装wx-request-OBJECT"><a href="#4-简单封装wx-request-OBJECT" class="headerlink" title="4.简单封装wx.request(OBJECT)"></a>4.简单封装wx.request(OBJECT)</h5><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;pre&gt;</div><div class="line">	//get请求方法</div><div class="line">	<span class="keyword">function</span> fetchGet(url,callback)&#123;</div><div class="line">		wx.request(&#123;</div><div class="line">			url:url,</div><div class="line">			header:&#123;<span class="string">'Content-Type'</span>:<span class="string">'application/json'</span>&#125;,</div><div class="line">			success(res)&#123;</div><div class="line">				callback(null,res.data)</div><div class="line">			&#125;,</div><div class="line">			fail(e)&#123;</div><div class="line">				console.error(e);</div><div class="line">				callback(e)</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">	//post请求方式</div><div class="line">	<span class="keyword">function</span> fetchPost(url,data,callback)&#123;</div><div class="line">		wx.request(&#123;</div><div class="line">			method:<span class="string">'POST'</span>,</div><div class="line">			url:url,</div><div class="line">			data:data,</div><div class="line">			success(res)&#123;</div><div class="line">				callback(null,res.data)</div><div class="line">			&#125;,</div><div class="line">			fail(e)&#123;</div><div class="line">				console.error(e)</div><div class="line">				callback(e)</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">&lt;/pre&gt;</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">	//method</div><div class="line">	fetchGet:fetchGet,</div><div class="line">	fetchPost:fetchPost</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h5 id="5-滚动底部加载下一页"><a href="#5-滚动底部加载下一页" class="headerlink" title="5.滚动底部加载下一页"></a>5.滚动底部加载下一页</h5><pre><code>使用了小程序自带的scroll-view组件
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 列表list组件 --&gt;</div><div class="line"> &lt;template name=<span class="string">"list"</span>&gt;</div><div class="line">     &lt;scroll-view class=<span class="string">"scroll-posts-list"</span> style=<span class="string">"height:100%"</span> scroll-y=<span class="string">"true"</span> bindscrolltolower=<span class="string">"lower"</span>&gt;</div><div class="line">       &lt;view class=<span class="string">"postslist"</span>&gt;</div><div class="line">         &lt;block wx:<span class="keyword">for</span>=<span class="string">"&#123;&#123;postsList&#125;&#125;"</span>&gt;</div><div class="line">           &lt;view class=<span class="string">"posts-list"</span>&gt;</div><div class="line">             &lt;navigator url=<span class="string">"/pages/detail/detail?id=&#123;&#123;item.id&#125;&#125;"</span>&gt;</div><div class="line">               &lt;view class=<span class="string">"posts-list-info"</span> index=<span class="string">"&#123;&#123;index&#125;&#125;"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"userimg"</span> src=<span class="string">"&#123;&#123;item.author.avatar_url&#125;&#125;"</span> /&gt;</div><div class="line">                   &lt;view class=<span class="string">"item-box"</span>&gt;</div><div class="line">                     &lt;view class=<span class="string">"userinfo"</span>&gt;</div><div class="line">                       &lt;text class=<span class="string">"username"</span>&gt;&#123;&#123;item.author.loginname&#125;&#125;&lt;/text&gt;</div><div class="line">                       &lt;text class=<span class="string">"time"</span>&gt;&#123;&#123;item.last_reply_at&#125;&#125;&lt;/text&gt;</div><div class="line">                     &lt;/view&gt;</div><div class="line">                     &lt;view class=<span class="string">"posts-title"</span>&gt;</div><div class="line">                       &lt;view class=<span class="string">"posts-tag hot"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.top === true&#125;&#125;"</span>&gt;置顶&lt;/view&gt;</div><div class="line">                       &lt;view class=<span class="string">"posts-tag"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.good === true&#125;&#125;"</span>&gt;精华&lt;/view&gt;</div><div class="line">                       &lt;text&gt;&#123;&#123;item.title&#125;&#125;&lt;/text&gt;</div><div class="line">                     &lt;/view&gt;</div><div class="line">                   &lt;/view&gt;</div><div class="line">               &lt;/view&gt;</div><div class="line">               &lt;view class=<span class="string">"bar-info"</span>&gt;</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/reply.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;&#123;&#123;item.reply_count&#125;&#125;&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/visit.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;&#123;&#123;item.visit_count&#125;&#125;&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">	</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item2"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.tab === 'good'&#125;&#125;"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/type.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;精华&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item2"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.tab === 'share'&#125;&#125;"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/type.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;分享&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item2"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.tab === 'ask'&#125;&#125;"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/type.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;问答&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">                 &lt;view class=<span class="string">"bar-info-item2"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.tab === 'job'&#125;&#125;"</span>&gt;</div><div class="line">                   &lt;image class=<span class="string">"bar-info-item-icon"</span> src=<span class="string">"/images/icon/type.png"</span>&gt;&lt;/image&gt;</div><div class="line">                   &lt;view class=<span class="string">"bar-info-item-number"</span>&gt;招聘&lt;/view&gt;</div><div class="line">                 &lt;/view&gt;</div><div class="line">               &lt;/view&gt;</div><div class="line">           &lt;/navigator&gt;</div><div class="line">           &lt;/view&gt;</div><div class="line">         &lt;/block&gt;</div><div class="line">       &lt;/view&gt;</div><div class="line">     &lt;/scroll-view&gt;</div><div class="line">    &lt;loading class=<span class="string">"loading"</span> hidden=<span class="string">"&#123;&#123;hidden&#125;&#125;"</span>&gt;</div><div class="line">      &lt;text class=<span class="string">"loading-font"</span>&gt;加载中...&lt;/text&gt;</div><div class="line">    &lt;/loading&gt;</div><div class="line">  &lt;/template&gt;</div></pre></td></tr></table></figure>
-</code></pre><p> 公共部分头部和底部<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> 	&lt;!-- topics.wxml --&gt;</div><div class="line"> 	&lt;import src=<span class="string">"../common/header.wxml"</span>/&gt;</div><div class="line">&lt;import src=<span class="string">"../common/list.wxml"</span>/&gt;</div><div class="line">&lt;view class=<span class="string">"page topics"</span>&gt;</div><div class="line">  &lt;template is=<span class="string">"header"</span> data=<span class="string">"&#123;&#123; navList, activeIndex &#125;&#125;"</span>/&gt;</div><div class="line">  &lt;template is=<span class="string">"list"</span> data=<span class="string">"&#123;&#123; postsList, hidden &#125;&#125;"</span>/&gt;</div><div class="line">&lt;/view&gt;</div></pre></td></tr></table></figure></p>
-<p>  滚动区的最大的父级层要设置height: 100%; 不然无法检测滚动事件<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//滑动底部加载</div><div class="line">lower:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	var that = this;</div><div class="line">	that.setData(&#123;</div><div class="line">		page:that.data.page+1</div><div class="line">	&#125;);</div><div class="line">	<span class="keyword">if</span>(that.data.tab !==<span class="string">'all'</span>)&#123;</div><div class="line">		this.getData(&#123;tab:that.data.tab,page:that.data.page&#125;);</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		this.getData(&#123;page:that.data.page&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>  用法<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;scroll-view class=<span class="string">"scroll-posts-list"</span> style=<span class="string">"height:100%"</span> scroll-y=<span class="string">"true"</span> bindscrolltolower=<span class="string">"lower"</span>&gt;&lt;/scroll-view&gt;</div></pre></td></tr></table></figure></p>
-<h5 id="文本解析模板"><a href="#文本解析模板" class="headerlink" title="文本解析模板"></a>文本解析模板</h5><pre><code>在detail.wxml中返回的是htmln内容，所以需要使用文本解析模板
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div></pre></td><td class="code"><pre><div class="line"> 	&lt;!--pages/detail/detail.wxml--&gt;</div><div class="line">&lt;!-- 富文本解析模板 --&gt;</div><div class="line">&lt;import src=<span class="string">"../../wxParse/wxParse.wxml"</span>/&gt;</div><div class="line">&lt;!-- 评论模板 --&gt;</div><div class="line">&lt;import src=<span class="string">"../../wxParseCriticism/wxParse.wxml"</span>/&gt;</div><div class="line"> &lt;view class=<span class="string">'detail1'</span>&gt;</div><div class="line">  &lt;view class=<span class="string">'detail-content'</span>&gt;</div><div class="line">    &lt;view class=<span class="string">'content-top clearfix'</span>&gt;</div><div class="line">      &lt;view class=<span class="string">'pull-left'</span>&gt;</div><div class="line">        &lt;view class=<span class="string">'detailImg'</span>&gt;</div><div class="line">          &lt;image mode=<span class="string">"scaleToFill"</span> src=<span class="string">'&#123;&#123;detail.author.avatar_url&#125;&#125;'</span>&gt;&lt;/image&gt;</div><div class="line">        &lt;/view&gt;</div><div class="line">      &lt;/view&gt;</div><div class="line">      &lt;view class=<span class="string">'pull-left'</span>&gt;</div><div class="line">        &lt;view class=<span class="string">'detailMilden'</span>&gt;</div><div class="line">          &lt;view class=<span class="string">'detail-name'</span>&gt;</div><div class="line">            &lt;text&gt;&#123;&#123;detail.author.loginname&#125;&#125;&lt;/text&gt;</div><div class="line">            &lt;view class=<span class="string">"detail-type-item"</span>&gt;</div><div class="line">              &lt;view class=<span class="string">"detail-type-item-font"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.tab === 'good'&#125;&#125;"</span>&gt;<span class="comment">#精华#&lt;/view&gt;</span></div><div class="line">            &lt;/view&gt;</div><div class="line">             &lt;view class=<span class="string">"detail-type-item"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.tab === 'share'&#125;&#125;"</span>&gt;</div><div class="line">              &lt;view class=<span class="string">"detail-type-item-font"</span>&gt;<span class="comment">#分享#&lt;/view&gt;</span></div><div class="line">            &lt;/view&gt;</div><div class="line">            &lt;view class=<span class="string">"detail-type-item"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.tab === 'ask'&#125;&#125;"</span>&gt;</div><div class="line">              &lt;view class=<span class="string">"detail-type-item-font"</span>&gt;<span class="comment">#问答#&lt;/view&gt;</span></div><div class="line">            &lt;/view&gt;</div><div class="line">            &lt;view class=<span class="string">"detail-type-item"</span>  wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.tab === 'job'&#125;&#125;"</span>&gt;</div><div class="line">              &lt;view class=<span class="string">"detail-type-item-font"</span>&gt;<span class="comment">#招聘#&lt;/view&gt;</span></div><div class="line">            &lt;/view&gt; </div><div class="line">          &lt;/view&gt;</div><div class="line">          &lt;view class=<span class="string">'detail-post-time'</span>&gt;楼主发表于&#123;&#123; detail.create_at &#125;&#125;&lt;/view&gt;</div><div class="line">        &lt;/view&gt;</div><div class="line">      &lt;/view&gt;</div><div class="line">      &lt;view class=<span class="string">'pull-right'</span>&gt;</div><div class="line">        &lt;view class=<span class="string">'detail-collect-item'</span> id=<span class="string">'detail.id'</span> catchtap=<span class="string">"collect"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.is_collect == false&#125;&#125;"</span>&gt;收藏&lt;/view&gt;</div><div class="line">        &lt;view class=<span class="string">'detail-collect-item'</span> id=<span class="string">'detail.id'</span> catchtap=<span class="string">"collect"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.is_collect == true&#125;&#125;"</span>&gt;取消收藏&lt;/view&gt; </div><div class="line">      &lt;/view&gt;</div><div class="line">    &lt;/view&gt;</div><div class="line">    &lt;view class=<span class="string">'detail-Bottom'</span>&gt;</div><div class="line">      &lt;view class=<span class="string">"detail-post-title"</span>&gt;</div><div class="line">        &lt;view class=<span class="string">"detail-posts-tag hot"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.top === true&#125;&#125;"</span>&gt;置顶&lt;/view&gt;</div><div class="line">         &lt;view class=<span class="string">"detail-posts-tag"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.good === true&#125;&#125;"</span>&gt;精华&lt;/view&gt; </div><div class="line">        &#123;&#123;detail.title&#125;&#125;</div><div class="line">      &lt;/view&gt;</div><div class="line">      &lt;view class=<span class="string">'detail-post-content'</span>&gt;</div><div class="line">      &lt;!-- &#123;&#123;detail.content&#125;&#125; --&gt;</div><div class="line">      &lt;template is=<span class="string">"wxParse"</span> data=<span class="string">"&#123;&#123;wxParseData:article.nodes&#125;&#125;"</span>/&gt;</div><div class="line">      &lt;/view&gt;</div><div class="line">      &lt;!-- 评论 --&gt;</div><div class="line">      &lt;view class=<span class="string">'detail-post-criticism'</span>&gt;</div><div class="line">        &lt;view class=<span class="string">'detail-post-criticism-top'</span>&gt;评论&lt;/view&gt;</div><div class="line">        &lt;block wx:<span class="keyword">for</span>=<span class="string">"&#123;&#123; detail.replies &#125;&#125;"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.replies.length &gt; 0&#125;&#125;"</span> wx:key=<span class="string">""</span>&gt;</div><div class="line">        &lt;view class=<span class="string">'content-top clearfix'</span> index=<span class="string">"&#123;&#123;index&#125;&#125;"</span> id=<span class="string">"&#123;&#123;item.id&#125;&#125;"</span>&gt;</div><div class="line">          &lt;view class=<span class="string">'pull-left'</span>&gt;</div><div class="line">            &lt;view class=<span class="string">'detailImg'</span>&gt;</div><div class="line">              &lt;image mode=<span class="string">"scaleToFill"</span> src=<span class="string">"&#123;&#123; item.author.avatar_url &#125;&#125;"</span>&gt;&lt;/image&gt;</div><div class="line">            &lt;/view&gt;</div><div class="line">          &lt;/view&gt;</div><div class="line">          &lt;view class=<span class="string">'pull-left'</span> style=<span class="string">'width:70%'</span>&gt;</div><div class="line">            &lt;view class=<span class="string">'detailMilden'</span>&gt;</div><div class="line">              &lt;view class=<span class="string">'detail-name'</span>&gt;</div><div class="line">                &lt;text&gt;&#123;&#123; item.author.loginname &#125;&#125;&lt;/text&gt;</div><div class="line">              &lt;/view&gt;</div><div class="line">              &lt;view class=<span class="string">'detail-post-time'</span>&gt;&#123;&#123;index + 2&#125;&#125;楼 发表于&#123;&#123; item.create_at &#125;&#125;&lt;/view&gt;</div><div class="line">              &lt;view class=<span class="string">'detail-criticism-content'</span>&gt;</div><div class="line">              &lt;!-- &#123;&#123; item.content &#125;&#125; --&gt;</div><div class="line">                &lt;template is=<span class="string">"wxParseCriticism"</span> data=<span class="string">"&#123;&#123;wxParseData:item.transData.criticism.nodes&#125;&#125;"</span>/&gt;  </div><div class="line">              &lt;/view&gt;</div><div class="line">            &lt;/view&gt;</div><div class="line">          &lt;/view&gt;</div><div class="line">          &lt;view class=<span class="string">'pull-right'</span>&gt;</div><div class="line">            &lt;view class=<span class="string">'detail-criticism-item'</span> id=<span class="string">"&#123;&#123;item.id&#125;&#125;"</span> data-index=<span class="string">"&#123;&#123;index&#125;&#125;"</span> catchtap=<span class="string">"reply"</span>&gt;</div><div class="line">              &lt;image src=<span class="string">'../../images/icon/zan.png'</span>&gt;&lt;/image&gt;</div><div class="line">              &lt;text class=<span class="string">"detail-post-zan-num"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;item.zanNum &gt; 0&#125;&#125;"</span>&gt;&#123;&#123;item.zanNum&#125;&#125;&lt;/text&gt;</div><div class="line">            &lt;/view&gt;</div><div class="line">            &lt;!-- &lt;view class=<span class="string">'detail-criticism-item'</span> id=<span class="string">"&#123;&#123;item.id&#125;&#125;"</span> data-index=<span class="string">"&#123;&#123;index&#125;&#125;"</span> catchtap=<span class="string">"reply"</span>&gt;</div><div class="line">              &lt;image src=<span class="string">'../../images/icon/zanhl.png'</span>&gt;&lt;/image&gt;</div><div class="line">            &lt;/view&gt;   --&gt;</div><div class="line">          &lt;/view&gt;</div><div class="line">        &lt;/view&gt;</div><div class="line">        &lt;/block&gt;</div><div class="line">        &lt;block wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;detail.replies.length &lt;= 0&#125;&#125;"</span>&gt;</div><div class="line">          &lt;view class=<span class="string">"detail-post-comment-null"</span>&gt;</div><div class="line">            &lt;image class=<span class="string">"imgnull"</span> mode=<span class="string">"scaleToFill"</span> src=<span class="string">"/images/icon/null.png"</span>&gt;&lt;/image&gt;</div><div class="line">            &lt;text class=<span class="string">"textnull"</span>&gt;暂无收录评论 &lt;/text&gt;</div><div class="line">          &lt;/view&gt;</div><div class="line">        &lt;/block&gt;</div><div class="line">      &lt;/view&gt;</div><div class="line">    &lt;/view&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/view&gt;</div><div class="line">  &lt;modal title=<span class="string">"消息"</span> confirm-text=<span class="string">"确认"</span> cancel-text=<span class="string">"关闭"</span> hidden=<span class="string">"&#123;&#123;modalHidden&#125;&#125;"</span> bindconfirm=<span class="string">"confirmChange"</span> bindcancel=<span class="string">"cancelChange"</span>&gt;</div><div class="line">    您还没未登录conde，是否前往认证登录？</div><div class="line">  &lt;/modal&gt;</div><div class="line">&lt;loading class=<span class="string">"loading"</span> hidden=<span class="string">"&#123;&#123;hidden&#125;&#125;"</span>&gt;</div><div class="line">  &lt;text class=<span class="string">"loading-font"</span>&gt;加载中...&lt;/text&gt;</div><div class="line">&lt;/loading&gt;</div></pre></td></tr></table></figure>
-
-文件夹wxParse是文本解析模板
-</code></pre><h5 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h5><pre><code>1. 将仓库克隆到本地：
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://git@github.com:shangsheng/smallRoutine.git</div></pre></td></tr></table></figure>
-<pre><code>2. 打开`微信Web开放者工具`（注意：必须是`0.9.092300`版本）
-3. 选择`添加项目`，填写或选择相应信息
-      - AppID：点击右下角`无AppID`
-      - 项目名称：随便填写，因为不涉及到部署，所以无所谓
-     - 项目目录：选择刚刚克隆的文件夹
-      - 点击`添加项目`
-</code></pre><p>项目路径 github: <a href="https://github.com/shangsheng/smallRoutine/tree/cnode" title="[cnode社区项目]" target="_blank" rel="external">cnode社区项目</a></p>
-<h3 id="特别感谢"><a href="#特别感谢" class="headerlink" title="特别感谢"></a>特别感谢</h3><p>感谢 coolfish 的项目案例<br><a href="https://github.com/coolfishstudio" title="[cnode社区项目]" target="_blank" rel="external">coolfish的github</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">小程序步骤</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/模仿cNode社区的小程序/">展开全文 >></a>
         </p>
       
 
@@ -1409,18 +1302,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
               </li>
              
@@ -1433,11 +1314,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1446,6 +1331,46 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1461,31 +1386,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color2">webp 转换成 jpg或png</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+                <a href="javascript:void(0)" class="js-tag color4">a标签</a>
               </li>
              
               <li class="article-tag-list-item">

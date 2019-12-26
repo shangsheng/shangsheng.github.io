@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/08/01/小程序开发遇到的问题/index.html">
 <meta property="og:site_name" content="web前端博客">
 <meta property="og:description" content="1、bindtap和cathtap的区别是什么bind事件不会阻止冒泡事件向上冒泡，cath事件会阻止冒泡事件向上冒泡。 2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么parseInt()强制转换成整数，parseFloat()转换成浮点数，只有对String类型才能执行这两个函数，其他类型会转成NaN。 3、微信小程序如何跨页面传递值通过data-*方式传递的值，页面跳转后">
-<meta property="og:updated_time" content="2019-02-23T02:04:15.331Z">
+<meta property="og:updated_time" content="2019-03-19T09:33:35.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序开发遇到的问题">
 <meta name="twitter:description" content="1、bindtap和cathtap的区别是什么bind事件不会阻止冒泡事件向上冒泡，cath事件会阻止冒泡事件向上冒泡。 2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么parseInt()强制转换成整数，parseFloat()转换成浮点数，只有对String类型才能执行这两个函数，其他类型会转成NaN。 3、微信小程序如何跨页面传递值通过data-*方式传递的值，页面跳转后">
@@ -166,7 +166,16 @@
 </code></pre><h3 id="2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么"><a href="#2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么" class="headerlink" title="2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么"></a>2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么</h3><pre><code>parseInt()强制转换成整数，parseFloat()转换成浮点数，只有对String类型才能执行这两个函数，其他类型会转成NaN。
 </code></pre><h3 id="3、微信小程序如何跨页面传递值"><a href="#3、微信小程序如何跨页面传递值" class="headerlink" title="3、微信小程序如何跨页面传递值"></a>3、微信小程序如何跨页面传递值</h3><pre><code>通过data-*方式传递的值，页面跳转后，我们需要在下一页面获取传递过来的数据。
 在跳转后的js页面，接收传递过来的数据。
-</code></pre>
+</code></pre><h3 id="4、如果需要用户授权，用户选择拒绝授权，此时如何处理"><a href="#4、如果需要用户授权，用户选择拒绝授权，此时如何处理" class="headerlink" title="4、如果需要用户授权，用户选择拒绝授权，此时如何处理"></a>4、如果需要用户授权，用户选择拒绝授权，此时如何处理</h3><pre><code>第一种思路
+    保存登录状态这里是这样做的，将用户的登录信息传给后台，后台保存用户信息，同时用open_id在后台换取一个sessionId，用这个sessionId缓存在本地用于登录验证
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">wx.getUserInfo(&#123;</div><div class="line">	<span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">resuser</span>) </span>&#123;</div><div class="line">		<span class="keyword">let</span> userInfo = resuser.userInfo</div><div class="line">		that.healthApi.login(code, userInfo).then(<span class="function"><span class="params">logindata</span> =&gt;</span> &#123;   <span class="comment">// 这里将微信的请求封装成Promiese 风格</span></div><div class="line">			<span class="keyword">if</span> (logindata.code === <span class="number">0</span>) &#123;</div><div class="line">			<span class="keyword">var</span> sessionId = logindata.data<span class="comment">// 调用微信wechat.setStorage将换回来的 SessionId 存在本地缓存</span></div><div class="line">				that.wechat.setStorage(<span class="string">'sessionId'</span>, sessionId).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">				that.globalData.userInfo = userInfo</div><div class="line">				<span class="keyword">typeof</span> cb == <span class="string">"function"</span> &amp;&amp; cb(that.globalData.userInfo)</div><div class="line">				&#125;)</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">fail</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">		wx.showModal(&#123;</div><div class="line">			<span class="attr">title</span>: <span class="string">'警告'</span>,</div><div class="line">			<span class="attr">content</span>: <span class="string">'您点击了拒绝授权，将无法正常使用*****的功能体验。请10分钟后再次点击授权，或者删除小程序重新进入。'</span>,</div><div class="line">			<span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">				<span class="keyword">if</span> (res.confirm) &#123;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">'用户点击确定'</span>)</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<pre><code>    这样登录状态保存在sessionId中，在每次调用登录状态是只需检查sessionId的接口就行，检查不通过在调用微信的接口。
+第二种思路
+    在3.29微信小程序版本中，加了这样一个属性，withCredentials字段基础库1.1.0开始支持，低版本需要做兼容。
+    这个字段是调用wx.getUserInfo(object)是否带上登录状态。
+    官方文档是这样解释的：
+        当 withCredentials 为 true 时，要求此前有调用过 wx.login 且登录态尚未过期，此时返回的数据会包含 encryptedData, iv 等敏感信息；当 withCredentials 为 false 时，不要求有登录态，返回的数据不包含 encryptedData, iv 等敏感信息。
+</code></pre><h3 id="跳转外部链接"><a href="#跳转外部链接" class="headerlink" title="跳转外部链接"></a>跳转外部链接</h3>
       
 
       
@@ -386,18 +395,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
               </li>
              
@@ -410,11 +407,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css的兼容</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -423,6 +424,46 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -438,31 +479,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color2">webp 转换成 jpg或png</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+                <a href="javascript:void(0)" class="js-tag color4">a标签</a>
               </li>
              
               <li class="article-tag-list-item">
