@@ -219,12 +219,28 @@
 
 
   
-    <article id="post-vue开发登录问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue开发登录步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/16/vue开发登录步骤/">vue开发登录步骤</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/16/vue开发登录步骤/" class="archive-article-date">
+  	<time datetime="2019-11-16T09:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="1-第一次登陆的时候，前端调用后端的接口，发送用户账号和密码"><a href="#1-第一次登陆的时候，前端调用后端的接口，发送用户账号和密码" class="headerlink" title="1.第一次登陆的时候，前端调用后端的接口，发送用户账号和密码"></a>1.第一次登陆的时候，前端调用后端的接口，发送用户账号和密码</h3><h3 id="2-后端收到账号和密码，验证账号和密码正确，返回前端一个token"><a href="#2-后端收到账号和密码，验证账号和密码正确，返回前端一个token" class="headerlink" title="2.后端收到账号和密码，验证账号和密码正确，返回前端一个token"></a>2.后端收到账号和密码，验证账号和密码正确，返回前端一个token</h3><h3 id="3-前端拿到token-把token存储到localStorage和vueX中，并跳转路由页面"><a href="#3-前端拿到token-把token存储到localStorage和vueX中，并跳转路由页面" class="headerlink" title="3.前端拿到token,把token存储到localStorage和vueX中，并跳转路由页面"></a>3.前端拿到token,把token存储到localStorage和vueX中，并跳转路由页面</h3><h3 id="4-每次跳转路由就判断localStorage中有无token-没有跳转到登录页面，有就跳转到对应的页面"><a href="#4-每次跳转路由就判断localStorage中有无token-没有跳转到登录页面，有就跳转到对应的页面" class="headerlink" title="4.每次跳转路由就判断localStorage中有无token,没有跳转到登录页面，有就跳转到对应的页面"></a>4.每次跳转路由就判断localStorage中有无token,没有跳转到登录页面，有就跳转到对应的页面</h3><h3 id="5-每次调用后端接口都要在请求中加入token"><a href="#5-每次调用后端接口都要在请求中加入token" class="headerlink" title="5.每次调用后端接口都要在请求中加入token"></a>5.每次调用后端接口都要在请求中加入token</h3><h3 id="6-后端判断请求头中有无token，有token，就拿到token进行验证token，验证成功返回数据，验证失败返回401，没有token也返回401"><a href="#6-后端判断请求头中有无token，有token，就拿到token进行验证token，验证成功返回数据，验证失败返回401，没有token也返回401" class="headerlink" title="6.后端判断请求头中有无token，有token，就拿到token进行验证token，验证成功返回数据，验证失败返回401，没有token也返回401"></a>6.后端判断请求头中有无token，有token，就拿到token进行验证token，验证成功返回数据，验证失败返回401，没有token也返回401</h3><h3 id="7-如果前端拿到401，就清楚token并跳转到登录页面"><a href="#7-如果前端拿到401，就清楚token并跳转到登录页面" class="headerlink" title="7.如果前端拿到401，就清楚token并跳转到登录页面"></a>7.如果前端拿到401，就清楚token并跳转到登录页面</h3><p>感谢：<a href="https://www.cnblogs.com/web-record/p/9876916.html" target="_blank" rel="external">一抹夏忧☆</a></p>
+
       
 
       
@@ -232,11 +248,26 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">登录</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/06/vue开发登录问题/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/16/vue开发登录步骤/">展开全文 >></a>
         </p>
       
 
@@ -299,6 +330,7 @@
                     你帮我看看怎么写还有其他方法吗*/
 </code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line"> 		<span class="keyword">var</span> selectedArr=[]<span class="comment">//提示要显示的信息</span></div><div class="line"> 		<span class="keyword">var</span> selected=[</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@163.com'</span>&#125;,</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@126.com'</span>&#125;,</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@yeah.net'</span>&#125;,</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@vip.163.com'</span>&#125;,</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@vip.126.com'</span>&#125;,</div><div class="line">	&#123;<span class="attr">eSuffix</span>:<span class="string">'@188.com'</span>&#125;,</div><div class="line">]<span class="comment">//邮箱后缀</span></div><div class="line"> 		</div><div class="line"> 		<span class="keyword">var</span> eValue =<span class="keyword">this</span>.login.el.eValue;<span class="comment">//input输入获取的内容</span></div><div class="line"> 		<span class="keyword">var</span>  flag = <span class="string">''</span>;</div><div class="line"> 		</div><div class="line">      <span class="keyword">if</span>(eValue.indexOf(<span class="string">"@"</span>)&gt;<span class="number">0</span>)&#123;</div><div class="line">          flag=eValue.substring(eValue.indexOf(<span class="string">"@"</span>)<span class="number">-1</span>);<span class="comment">//获取的输入的@开始的内容</span></div><div class="line">          </div><div class="line">          eValue=eValue.substring(<span class="number">0</span>,eValue.indexOf(<span class="string">"@"</span>));</div><div class="line">         </div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">          flag=<span class="string">""</span>;</div><div class="line">          </div><div class="line">          <span class="comment">//首字符是@</span></div><div class="line">          <span class="keyword">if</span>(eValue.substring(<span class="number">0</span>,<span class="number">1</span>) == <span class="string">'@'</span>)&#123;</div><div class="line">          	eValue=eValue.substring(<span class="number">0</span>,eValue.indexOf(<span class="string">"@"</span>));</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">       <span class="keyword">var</span> val=<span class="string">""</span>;</div><div class="line">      <span class="comment">//将输入内容和后缀链接</span></div><div class="line">     </div><div class="line"> 		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;selected.length;i++)&#123;</div><div class="line"> 			val=selected[i].eSuffix;</div><div class="line">          val=val.substring(val.indexOf(<span class="string">"@"</span>));</div><div class="line">          </div><div class="line"> 			<span class="keyword">var</span> eSuffix = &#123;<span class="attr">eSuffix</span>:eValue+val&#125;</div><div class="line"> 		</div><div class="line"> 			selectedArr.push(eSuffix)</div><div class="line"> 			</div><div class="line"> 		&#125;</div><div class="line"> 		</div><div class="line"> 		<span class="keyword">var</span> eArr = []<span class="comment">//检查满足条件的内容</span></div><div class="line"> 		<span class="keyword">if</span>(flag!=<span class="string">""</span>)&#123;</div><div class="line">         <span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(flag,<span class="string">"i"</span>);</div><div class="line">         	</div><div class="line">          <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;selectedArr.length;i++)&#123;</div><div class="line">          	</div><div class="line">              <span class="keyword">if</span>(reg.test(selectedArr[i].eSuffix))&#123;</div><div class="line">              	</div><div class="line">              	eArr.push(selectedArr[i])</div><div class="line">              	</div><div class="line">              	<span class="keyword">this</span>.login.el.selTips = <span class="literal">false</span>;</div><div class="line">                  </div><div class="line">              &#125;<span class="keyword">else</span>&#123;</div><div class="line">              	 selectedArr.splice(i, <span class="number">1</span>);</div><div class="line">                  <span class="keyword">this</span>.login.el.selTips = <span class="literal">true</span>;</div><div class="line">                 </div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">          selectedArr = eArr</div><div class="line">      &#125;</div><div class="line"> 		</div><div class="line"> 		<span class="keyword">this</span>.$set(<span class="keyword">this</span>.login.el,<span class="string">'selected'</span>,selectedArr)</div><div class="line"> 		<span class="keyword">if</span>(<span class="keyword">this</span>.login.el.eValue == <span class="string">''</span>)&#123;</div><div class="line"> 			<span class="keyword">this</span>.login.el.selTips = <span class="literal">true</span>;</div><div class="line"> 		&#125;<span class="keyword">else</span>&#123;</div><div class="line"> 			<span class="keyword">this</span>.login.el.selTips = <span class="literal">false</span>;</div><div class="line"> 		&#125;</div></pre></td></tr></table></figure>
 <h2 id="2-vue-swiper-loop循环问题"><a href="#2-vue-swiper-loop循环问题" class="headerlink" title="2.vue-swiper loop循环问题"></a>2.vue-swiper loop循环问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$http(&#123;</div><div class="line">        	<span class="attr">method</span>:<span class="string">'get'</span>,</div><div class="line">        	<span class="attr">url</span>:<span class="string">'http://192.168.1.74:3000/banner'</span>,</div><div class="line">        &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">resp</span>)</span>&#123;                            </div><div class="line">	        <span class="built_in">console</span>.log(resp.data);</div><div class="line">	        that.banners = resp.data.banners</div><div class="line">	        </div><div class="line">	        that.$nextTick(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">	        	that.mySwiper.slideTo(<span class="number">0</span>, <span class="number">1000</span>, <span class="literal">false</span>)</div><div class="line">	        &#125;)</div><div class="line">	        &#125;).catch(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</div><div class="line">	        <span class="built_in">console</span>.log(<span class="string">'请求失败：'</span>+resp.data+<span class="string">','</span>+resp.statusText);</div><div class="line">        &#125;);</div><div class="line">        添加<span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">        	<span class="comment">//轮播初始化</span></div><div class="line">        	that.mySwiper.slideTo(<span class="number">0</span>, <span class="number">1000</span>, <span class="literal">false</span>)</div><div class="line">        &#125;)</div><div class="line">    html代码片段</div><div class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"n-ban d-flag"</span> id=<span class="string">"index-banner"</span>&gt;</div><div class="line">		&lt;div class="wrap wr" v-if="banners.length&gt;0"&gt;</div><div class="line">			 &lt;div v-swiper:mySwiper="swiperOption" &gt;</div><div class="line">			    &lt;div class="swiper-wrapper"  &gt;</div><div class="line">			      &lt;div class="swiper-slide" v-for="banner in banners"&gt;</div><div class="line">			        &lt;router-link v-for = "item in bannersType"  :to="&#123;path:item.path,query:&#123;id:banner.encodeId&#125;&#125;"  v-if="item.targetType == banner.targetType &amp;&amp; item.targetType != 3000"&gt;</div><div class="line">			        	&lt;img :src="banner.imageUrl"&gt;</div><div class="line">			        &lt;/router-link&gt;</div><div class="line">			         &lt;router-link   :to="banner.url"  v-else-if="item.targetType == 3000&amp;&amp;item.targetType == banner.targetType" &gt;</div><div class="line">			        	&lt;img :src="banner.imageUrl"&gt;</div><div class="line">			        &lt;/router-link&gt;</div><div class="line">			      &lt;/div&gt;</div><div class="line">			    &lt;/div&gt;</div><div class="line">   				</div><div class="line">			    &lt;div class="swiper-pagination"&gt;&lt;/div&gt;</div><div class="line">			 &lt;/div&gt;</div><div class="line">			 &lt;a href="javascript:void(0);" class="swiper-button-prev"&gt;&lt;&lt;/a&gt;</div><div class="line">   			 &lt;a href="javascript:void(0);" class="swiper-button-next"&gt;&gt;&lt;/a&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	在轮播的父级元素添加 v-if="banners.length&gt;0"</div></pre></td></tr></table></figure>
+
       
 
       
@@ -1298,10 +1330,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
               </li>
              
@@ -1310,15 +1338,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1326,11 +1346,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1342,15 +1362,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,15 +1386,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1399,6 +1431,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">登录</a>
               </li>
             
             <div class="clearfix"></div>
