@@ -419,6 +419,16 @@ js
         <h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> git@github.com:shangsheng/shangsheng.github.io.git //克隆项目</div><div class="line">$ git <span class="built_in">cd</span> shangsheng.github.io 								   //切换到克隆的目录中</div><div class="line">$ git branch developer 										   //创建一个分支</div><div class="line">$ git add --all 											   //添加当前目录的所有文件到暂存区</div><div class="line">$ git commit -m <span class="string">'添加测试文件'</span> 								   //在分支上提交一个新的版本并夹注释</div><div class="line">$ git push origin developer 								   //推送提交的内容到github上</div></pre></td></tr></table></figure>
 </code></pre><p>git命令学习<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" title="[廖雪峰官网]" target="_blank" rel="external">廖雪峰的git官网</a></p>
 <h2 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h2><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">$ hexo init [folder] </div><div class="line">//新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。</div><div class="line">$ hexo new [layout] &lt;title&gt;</div><div class="line">//新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来</div><div class="line">$ hexo generate </div><div class="line">//生成静态文件</div><div class="line">选项				描述</div><div class="line"><span class="_">-d</span>, --deploy	文件生成后立即部署网站</div><div class="line">-w, --watch		监视文件变动</div><div class="line">简写为：<span class="variable">$hexo</span> g</div><div class="line">$ hexo publish [layout] &lt;filename&gt;</div><div class="line">//发表草稿</div><div class="line">$ hexo server</div><div class="line">启动服务器。默认情况下，访问网址为： http://localhost:4000/。</div><div class="line">选项				描述</div><div class="line">-p, --port		重设端口</div><div class="line"><span class="_">-s</span>, --static	只使用静态文件</div><div class="line"><span class="_">-l</span>, --log		启动日记记录，使用覆盖记录格式</div><div class="line">$ hexo deploy</div><div class="line">//部署网站。</div><div class="line">参数	    		描述</div><div class="line">-g, --generate	部署之前预先生成静态文件</div><div class="line">简写为：$ hexo d</div><div class="line">$ hexo render &lt;file1&gt; [file2] ...</div><div class="line">//渲染文件。</div><div class="line">参数				描述</div><div class="line">-o, --output	设置输出路径</div><div class="line">$ hexo clean</div><div class="line">//清除缓存文件 (db.json) 和已生成的静态文件 (public)。</div><div class="line">//在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令</div><div class="line">$ hexo version</div><div class="line">//显示 Hexo 版本。</div><div class="line">$ hexo --safe</div><div class="line">//在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。</div><div class="line">$ hexo --debug</div><div class="line">//在终端中显示调试信息并记录到 debug.log。当您碰到问题时，可以尝试用调试模式重新执行一次，并 提交调试信息到 GitHub。</div><div class="line">$ hexo --silent</div><div class="line">//隐藏终端信息。</div><div class="line">$ hexo --config custom.yml</div><div class="line">//自定义配置文件的路径，执行后将不再使用 _config.yml。</div><div class="line">$ hexo --draft</div><div class="line">//显示 <span class="built_in">source</span>/_drafts 文件夹中的草稿文章。</div><div class="line">$ hexo --cwd /path/to/cwd</div><div class="line">//自定义当前工作目录（Current working directory）的路径。</div></pre></td></tr></table></figure>
+
+### 更新gitHub上更新到本地
+```
+    $ git fetch origin master:temp //从远程的origin仓库的master分支下载到本地并新建一个分支temp
+
+    $ git diff temp//比较master分支和temp分支的不同
+
+    $ git merge temp//合并temp分支到master分支
+
+    $ git branch -d temp//删除temp
 </code></pre><a href="https://hexo.io/zh-cn/docs/" title="[hexo命令]" target="_blank" rel="external">请进入完整的hexo命令</a>
 
       
@@ -1216,23 +1226,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css3属性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css3属性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1244,35 +1250,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络请求封装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1284,6 +1262,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">登录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -1292,11 +1294,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">登录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1316,6 +1314,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
@@ -1324,7 +1326,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
+                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络请求封装</a>
               </li>
             
             <div class="clearfix"></div>

@@ -1094,6 +1094,63 @@ localStorage:
 &lt;meter&gt;：定义已知范围或分数值内的标量测量。（Internet Explorer 不支持 meter 标签）
 &lt;progress&gt;：定义运行中的进度（进程）。
 </code></pre><h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><pre><code>闭包是外部函数与内部函数之间的桥梁。
+优点：1.利用闭包解决块级作用域
+     2.利用闭包解决递归调用问题
+缺点：1.引用的变量可能发生变化
+      2.this指向问题
+      3.内存泄漏问题
+</code></pre><h3 id="cookie和webstrage的区别以及cookie怎么样使用？原生cookie怎么样封装"><a href="#cookie和webstrage的区别以及cookie怎么样使用？原生cookie怎么样封装" class="headerlink" title="cookie和webstrage的区别以及cookie怎么样使用？原生cookie怎么样封装"></a>cookie和webstrage的区别以及cookie怎么样使用？原生cookie怎么样封装</h3><pre><code>cookie和webstrage的区别:
+    一、储存空间不同
+        webStrage能提供5M的存储空间，cookie可以存储4k空间
+    二、与服务器的交换
+        1.web strage中的数据仅在本地存储，不会和服务器发生交换
+        2.cookie的内容会随着请求一并发送到服务器
+    三、接口
+        web strage提供了很多接口，如setItem removerItem getItem clear key等方法。
+        cookie需要自己封装。
+        sessionStrage将数据保存在session中，浏览器关闭就没有了，localStrage数据一直保持在客户端的浏览器中，除非主动删除，否则永久保存。
+    封装:
+    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name,value,d</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">	oDate.setDate(oDate.getDate()+n);</div><div class="line">	<span class="built_in">document</span>.cookie = name + <span class="string">'='</span> + value + <span class="string">';expires='</span>+oDate;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> str = <span class="built_in">document</span>.cookie;</div><div class="line">	<span class="keyword">var</span> arr = str.split(<span class="string">";"</span>);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</div><div class="line">		<span class="comment">//console.log(arr[i]);</span></div><div class="line">		<span class="keyword">var</span> newArr = arr[i].split(<span class="string">"="</span>);</div><div class="line">		<span class="keyword">if</span>(newArr[<span class="number">0</span>]==name)&#123;</div><div class="line">			<span class="keyword">return</span> newArr[<span class="number">1</span>];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">fuction removerCookie(name)&#123;</div><div class="line">	setCookie(name,<span class="number">1</span>,<span class="number">-1</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h3 id="call和apply的区别"><a href="#call和apply的区别" class="headerlink" title="call和apply的区别"></a>call和apply的区别</h3><pre><code>call和apply都是用来修改函数中的this指向问题
+call方法可以传给该函数的参数分别作为自己的多个参数
+apply方法可以传给该函数的参数合并成数组作为自己的一个参数
+有参数是this指向第一个参数，无参数时this指向window
+</code></pre><h3 id="vue的理解"><a href="#vue的理解" class="headerlink" title="vue的理解"></a>vue的理解</h3><pre><code>vue.js是一套构建用户界面的渐进式框架。vue采用的是自底向上的增量开发模式，核心库只关心视图层，还便于第三方项目库和现有项目的整合，另一方面当与单文组件和vue生态系统的库结合使用时，vue也能
+为单页复杂的应用程序提供驱动。
+</code></pre><h3 id="vue的双向数据绑定的原理"><a href="#vue的双向数据绑定的原理" class="headerlink" title="vue的双向数据绑定的原理"></a>vue的双向数据绑定的原理</h3><pre><code>vue双向数据绑定是通过object.defineProperty()方法实现劫持的
+Object.defineProperty()方法会直接在一个对象上定义一个 新属性，或者修改一个对象的现有属性，并返回这个对象
+Object.defineProperty(obj,key,options)有三个参数，
+obj:修改或者定义key值的对象
+key:对应obj对象里面某个已有或者要有修改的属性
+options:这个参数对象里面有get,set两个函数，用来定义属性值
+</code></pre><h3 id="js的继承"><a href="#js的继承" class="headerlink" title="js的继承"></a>js的继承</h3><pre><code>1.原型链继承，通过原型将一个引用类型继承另一个引用类型的属性和方法。
+2.借用构造函数继承：在子构造函数内部调用超类型构造函数，通过apply()和call()方法可以在新创建的子类对象上执行构造函数。
+3.组合继承(原型+借用构造):将原型链和借用构造函数结合在一起，发挥两者之长的一种继承模式。
+4.原形式继承:借助原型可以基于已有的对象创建新对象，同时还不比因此创建新的类型。
+5.寄生式继承:创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后像是它真正做了所有工作一样返回对象。
+6.寄生组合式继承:通过借用函数来继承属性，通过原型链的混合形式来继承方法。
+</code></pre><h3 id="react和vue有哪些不同，说说你对这两个框架的看法"><a href="#react和vue有哪些不同，说说你对这两个框架的看法" class="headerlink" title="react和vue有哪些不同，说说你对这两个框架的看法"></a>react和vue有哪些不同，说说你对这两个框架的看法</h3><pre><code>相同点：都支持服务器渲染
+        都有virtual DOM组件开发，通过props参数进行父子组件直接的数据传递，都是些webComponent规范
+        数据驱动视图
+        都支持native方案，react 的react的native和vue的weex
+不同点: react严格的只针对MVC的view层，vue则是mvvm模式
+          组件的写法不一样
+          数据绑定不同，vue是双向数据绑定，react是单向数据绑定
+          sate对象在react应用中不可变的，需要使用setsate方法更新状态，在vue中sate对象不是必须的，数据在data对象中进行管理
+          virtual DOM不一样，vue会跟踪每一个组件的依赖关系，不需要渲染整个组件树，对于react来说，每次组件发生改变，都需要重新渲染全部组件，所有react需要shouldComponentUpdate这个生命周期函数来控制
+</code></pre><h3 id="什么是mvvm和mvc-有什么区别，原理"><a href="#什么是mvvm和mvc-有什么区别，原理" class="headerlink" title="什么是mvvm和mvc,有什么区别，原理"></a>什么是mvvm和mvc,有什么区别，原理</h3><pre><code>mvc是比较直观的架构模式，用户模式-》view(负责接受用户操作输入)-》controller（逻辑处理模式）-》view(将返回结果返回view)
+mvvm是将数据双向绑定的模式作为核心，m-&gt;model层（数据），v-&gt;view层（视图），vm-&gt;viewmodel层（逻辑处理），而model与viewmodel是双向交互的，view与viewmodel是单向的，数据发生改进通过viewmodel改变view成
+</code></pre><h3 id="什么情况算是跨域，如何解决跨域问题"><a href="#什么情况算是跨域，如何解决跨域问题" class="headerlink" title="什么情况算是跨域，如何解决跨域问题"></a>什么情况算是跨域，如何解决跨域问题</h3><pre><code>浏览器最核心，最基本的是安全功能的同源策略。限制了一个源中加载文本或脚本与其他源中的交互方式，当浏览器执行脚本时会查看是否是同源，只有同源的脚本才会执行，否则是不会执行的。
+1.jsonp:原理是script标签的src属性，外联引入文件不受同源策略的限制，在页面中动态插入了script，scirpt标签的src属性就是后端api接口的地址，并且以get的方式将前端回调处理函数名称告诉后端，
+后端在响应请求时会将回调返还，并且将数据以参数的形式传递回去
+2.document.domin:两个域名必须属于同一基础域名，并且所有的协议端口完全一致，否则无法跨域；
+3.iframe、hash:父页面向子页面传输数据：将要传递的数据添加到子页面的URL的hash值上，子页面通过location.hash并添加定时器实时的动态父页面传来的数据；
+子页面向父页面传输数据：利用window.name的特性，及页面重新加载当前页面的name值不变，即使换了一个页面。需要三个页面配合使用。一个应用页面，一个数据页面，一个代理文件。代理文件一般是一个没有任何内容的html页面，
+需要和应用页面在同一域名下。将数据页面的窗口缓存代理页面，代理页面通过window.name获取数据页面留下的数据，应用页面再访问和它同源的代理页面获取数据，就完成跨域。
+4.CORS：服务器端设置的，不需要客户端进行操作。
+5.服务器跨域，服务器中转代理。
+6.window.postMessage
+7.webSocket
 </code></pre>
       
 
@@ -1329,23 +1386,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css3属性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hexo个人博客命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css3属性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1357,35 +1410,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络请求封装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1397,6 +1422,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">登录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -1405,11 +1454,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">登录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1429,6 +1474,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
@@ -1437,7 +1486,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
+                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络请求封装</a>
               </li>
             
             <div class="clearfix"></div>
