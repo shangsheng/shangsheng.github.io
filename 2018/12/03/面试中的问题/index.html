@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/12/03/面试中的问题/index.html">
 <meta property="og:site_name" content="web前端博客">
 <meta property="og:description" content="移动端前端开发与PC端比有哪些不同？第一： PC考虑的是浏览器的兼容性，而移动端开发考虑的更多的是手机兼容性，因为目前不管是android手机还是ios手机，一般浏览器使用的都是webkit内核，所以说做移动端开发，更多考虑的应该是手机分辨率的适配，和不同操作系统的略微差异化。  第二： 在部分事件的处理上，移动端多出来的事件是触屏事件，而缺少的是hover事件。 另外包括移动端弹出的手机键盘的处">
-<meta property="og:updated_time" content="2020-07-31T08:51:32.564Z">
+<meta property="og:updated_time" content="2020-09-19T09:11:08.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题">
 <meta name="twitter:description" content="移动端前端开发与PC端比有哪些不同？第一： PC考虑的是浏览器的兼容性，而移动端开发考虑的更多的是手机兼容性，因为目前不管是android手机还是ios手机，一般浏览器使用的都是webkit内核，所以说做移动端开发，更多考虑的应该是手机分辨率的适配，和不同操作系统的略微差异化。  第二： 在部分事件的处理上，移动端多出来的事件是触屏事件，而缺少的是hover事件。 另外包括移动端弹出的手机键盘的处">
@@ -444,6 +444,31 @@ mvvm是将数据双向绑定的模式作为核心，m-&gt;model层（数据）�
 5.服务器跨域，服务器中转代理。
 6.window.postMessage
 7.webSocket
+</code></pre><h3 id="css的塌陷"><a href="#css的塌陷" class="headerlink" title="css的塌陷"></a>css的塌陷</h3><pre><code>本应该在父盒子内部的元素跑到了外部是塌陷
+解决方法：
+    1.给外部盒子设置高度
+    2.给父盒子设置overflow属性
+    3.父盒子最下方引入清除浮块
+    4.给父盒子设置after伪元素设置从clear属性
+</code></pre><h3 id="什么是flex"><a href="#什么是flex" class="headerlink" title="什么是flex"></a>什么是flex</h3><pre><code>flex意味‘弹性布局’，用来为盒模型提供最大的灵活性
+采用flex布局的元素，称之为flex容器，简称“容器”。它的所有子元素自动称为容器的成员，称之为flex项目，简称：’项目‘。
+容器默认存在两根轴，水平的主轴和垂直交叉轴。项目默认沿主轴排列。
+（阮一峰的）Flex 布局教程：语法篇 {% link Flex 布局教程：语法篇  http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html [Flex 布局教程：语法篇] %}
+</code></pre><h3 id="vue-router-实现的步骤"><a href="#vue-router-实现的步骤" class="headerlink" title="vue-router 实现的步骤"></a>vue-router 实现的步骤</h3><pre><code>1.注入vue-router (路由)
+2.添加路由链接
+3.添加路由占位符
+4.定义路由组件
+5.配置路由规则并创建路由实例
+6.将路由挂载到vue实例中
+</code></pre><h3 id="首页背景图片在PC端有显示，在手机端不显示的解决方法"><a href="#首页背景图片在PC端有显示，在手机端不显示的解决方法" class="headerlink" title="首页背景图片在PC端有显示，在手机端不显示的解决方法"></a>首页背景图片在PC端有显示，在手机端不显示的解决方法</h3><pre><code>移动端不支持缩放
+background-size:100% auto;或background-size:100% 100%;//铺满
+</code></pre><h3 id="视频video或音乐audio不能移动端自动播放"><a href="#视频video或音乐audio不能移动端自动播放" class="headerlink" title="视频video或音乐audio不能移动端自动播放"></a>视频video或音乐audio不能移动端自动播放</h3><pre><code>利用get请求替换监听媒体加载load
+</code></pre><h3 id="利用videoJs框架进行封装"><a href="#利用videoJs框架进行封装" class="headerlink" title="利用videoJs框架进行封装"></a>利用videoJs框架进行封装</h3><pre><code>关于Chrome下的video文件currentTime无效问题
+前段时间查到的bug：记录关于Chrome下video文件设置的currentTime没有效果，这里有详细的
+{% link 解释和解决方案  https://stackoverflow.com/questions/53053444/cant-seek-through-video-from-rails-active-storage-with-rails-webpacker-react-fr/53242215#53242215 [解释和解决方案] %}
+其实就是，Chrome浏览器中video文件的src需要http/https才能够正确运行，否则无法正确设置currentTime，视频文件很有可能会一设置就跳到头重新播放。
+
+P.S: 如果video文件没有下载到currentTime的时候，但是强行跳转到设置的currentTime，也无法正确运行
 </code></pre>
       
 
@@ -656,6 +681,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css3属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
@@ -664,11 +697,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css3属性</a>
+                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,10 +709,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
@@ -692,19 +717,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">登录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -716,6 +737,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">登录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络请求封装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -724,7 +769,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">a标签</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,30 +790,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">webp 转换成 jpg或png</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">a标签</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络请求封装</a>
               </li>
             
             <div class="clearfix"></div>

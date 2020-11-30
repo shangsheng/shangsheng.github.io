@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/08/01/小程序开发遇到的问题/index.html">
 <meta property="og:site_name" content="web前端博客">
 <meta property="og:description" content="1、bindtap和cathtap的区别是什么bind事件不会阻止冒泡事件向上冒泡，cath事件会阻止冒泡事件向上冒泡。 2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么parseInt()强制转换成整数，parseFloat()转换成浮点数，只有对String类型才能执行这两个函数，其他类型会转成NaN。 3、微信小程序如何跨页面传递值通过data-*方式传递的值，页面跳转后">
-<meta property="og:updated_time" content="2020-01-02T08:07:28.467Z">
+<meta property="og:updated_time" content="2020-08-05T03:28:15.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序开发遇到的问题">
 <meta name="twitter:description" content="1、bindtap和cathtap的区别是什么bind事件不会阻止冒泡事件向上冒泡，cath事件会阻止冒泡事件向上冒泡。 2、js字符串转换成数字，强制转换成整数或浮点型数字的函数分别是什么parseInt()强制转换成整数，parseFloat()转换成浮点数，只有对String类型才能执行这两个函数，其他类型会转成NaN。 3、微信小程序如何跨页面传递值通过data-*方式传递的值，页面跳转后">
@@ -177,6 +177,12 @@
         当 withCredentials 为 true 时，要求此前有调用过 wx.login 且登录态尚未过期，此时返回的数据会包含 encryptedData, iv 等敏感信息；当 withCredentials 为 false 时，不要求有登录态，返回的数据不包含 encryptedData, iv 等敏感信息。
 </code></pre><h3 id="跳转外部链接"><a href="#跳转外部链接" class="headerlink" title="跳转外部链接"></a>跳转外部链接</h3><h3 id="图片不显示"><a href="#图片不显示" class="headerlink" title="图片不显示"></a>图片不显示</h3><pre><code>![问题](../images/20200102160238.png)
 路径不对
+</code></pre><h3 id="canvas-2d中的drawImage-问题"><a href="#canvas-2d中的drawImage-问题" class="headerlink" title="canvas 2d中的drawImage 问题"></a>canvas 2d中的drawImage 问题</h3><pre><code>canvas 组件的绘图上下文。CanvasContext 是旧版的接口， 新版 Canvas 2D 接口与 Web 一致。
+利用createImage 生成图片对象
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> seal = canvas.createImage();</div><div class="line">       seal.src =goodsImgSrc;</div><div class="line">       seal.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">         ctx.drawImage(seal,r.left,r.top,r.width,r.height);</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+<pre><code>draw（）报错 为 TypeError: ctx.draw is not a function
+改为：
+直接使用wx.canvasToTempFilePath(Object object, Object this)
 </code></pre>
       
 
@@ -393,6 +399,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css3属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
@@ -401,11 +415,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">html5属性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css3属性</a>
+                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -417,10 +427,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">get和post</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
@@ -429,19 +435,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">登录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -453,6 +455,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">登录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络请求封装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟网易云音乐</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -461,7 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">a标签</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,30 +508,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">webp 转换成 jpg或png</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序步骤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">a标签</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">html2canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">跨域</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">网络请求封装</a>
               </li>
             
             <div class="clearfix"></div>
